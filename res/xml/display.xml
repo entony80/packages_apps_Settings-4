@@ -38,6 +38,12 @@
                 android:summary="@string/live_display_summary"
                 android:fragment="com.android.settings.livedisplay.LiveDisplay" />
 
+		<!-- LCD Density -->
+		<ListPreference
+                android:key="lcd_density"
+                android:title="@string/lcd_density"
+                android:persistent="false" />		
+		
         <!-- Rotation modes -->
         <PreferenceScreen
                 android:key="display_rotation"
