@@ -37,5 +37,12 @@
             android:title="@string/double_tap_to_sleep_title"
             android:summary="@string/double_tap_to_sleep_summary"
             android:defaultValue="true" />
+			
+	<!-- Gesture anywhere -->
+    <PreferenceScreen
+            android:key="gesture_anywhere"
+            android:fragment="com.android.settings.temasek.gestureanywhere.GestureAnywhereSettings"
+            android:title="@string/gesture_anywhere_title"
+        	android:summary="@string/gesture_anywhere_title_summary"	 />
 
 </PreferenceScreen>

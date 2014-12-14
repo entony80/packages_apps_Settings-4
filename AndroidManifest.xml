@@ -2935,6 +2935,9 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                        android:value="com.android.settings.cyanogenmod.LiveLockScreenSettings" />
         </activity>
+		
+        <activity android:name=".cypher.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".cypher.gestureanywhere.GestureAnywhereCreateGestureActivity" />
 
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
