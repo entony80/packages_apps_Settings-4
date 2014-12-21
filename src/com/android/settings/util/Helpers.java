@@ -1,8 +1,6 @@
 
 package com.android.settings.util;
 
-import android.app.ActivityManagerNative;
-import android.app.IActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -304,6 +302,7 @@ public class Helpers {
     }
 
     public static void restartSystemUI() {
+<<<<<<< HEAD
         CMDProcessor.startSuCommand("pkill -f com.android.systemui");
     }
 
@@ -317,6 +316,9 @@ public class Helpers {
         catch (RemoteException e) {
             Log.e(TAG, "Failed to restart");
         }
+=======
+        CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
+>>>>>>> 29babb7... [2/2] Settings: Implement App circle sidebar
     }
 
     public static void setSystemProp(String prop, String val) {
