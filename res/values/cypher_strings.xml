@@ -661,5 +661,17 @@
 	
 	<string name="gestures_settings">Gestures</string>
 	
+	<!-- Battery Bar -->
+    <string name="battery_icon">Icon style</string>
+    <string name="battery_not_title">Icon in notifications</string>
+    <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
+    <string name="battery_bar_location">Location</string>
+    <string name="battery_bar_color">Color</string>
+    <string name="battery_bar">Live battery</string>
+	<string name="battery_bar_summary">Experience your battery indicatior status in a new and beautiful way</string>
+    <string name="battery_bar_style_title">Style</string>
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
 
 </resources>

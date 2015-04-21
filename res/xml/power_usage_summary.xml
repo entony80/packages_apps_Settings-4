@@ -37,6 +37,13 @@
             android:title="@string/battery_saver_color_title"
             android:summary="@string/battery_saver_color_summary"
             android:defaultValue="true" />
+			
+	    <PreferenceScreen
+            android:key="battery_bar"
+            android:fragment="com.android.settings.cypher.fragments.BatteryBar"
+            android:title="@string/battery_bar"
+			android:summary="@string/battery_bar_summary"
+            android:icon="@drawable/ic_settings_battery" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="battery_saver_notification"
