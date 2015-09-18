@@ -1014,6 +1014,9 @@
     <string name="lockscreen_alpha">Alpha</string>
     <string name="lockscreen_security_alpha">Bouncer alpha</string>
 	
+	<!-- On-The-Go -->
+    <string name="power_menu_onthego_title">OnTheGo Mode</string>
+	
 	<!-- Application Settings -->
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
