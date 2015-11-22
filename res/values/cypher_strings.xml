@@ -793,5 +793,18 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+	
+	<!-- Show carrier label and custom -->
+    <string name="carrier_options">Carrier Label</string>
+	<string name="carrier_options_summary">Create your own phrase in replace of your carrier name</string>
+    <string name="custom_carrier_label_title">Your label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="status_bar_carrier_color">Color</string>
+    <string name="show_carrier_title">Carrier label</string>
+    <string name="show_carrier_disabled">Hidden</string>
+    <string name="show_carrier_keyguard">Lockscreen</string>
+    <string name="show_carrier_statusbar">Statusbar</string>
+    <string name="show_carrier_enabled">Both</string>
 
 </resources>
