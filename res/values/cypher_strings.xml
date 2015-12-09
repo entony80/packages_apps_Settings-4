@@ -863,5 +863,9 @@
     <string name="status_bar_weather_font_notoserif_italic">NotoSerif Italic</string>
     <string name="status_bar_weather_font_notoserif_bold">NotoSerif Bold</string>
     <string name="status_bar_weather_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
+	
+	<!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Three-finger screeny</string>
+    <string name="three_finger_gesture_summary">Swipe three fingers across the display to take a screenshot</string>
 
 </resources>
