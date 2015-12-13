@@ -26,5 +26,14 @@
             android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
             android:icon="@drawable/ic_settings_statusbar"
             />
+			
+	<!-- Pie Control -->
+    <PreferenceScreen
+         android:key="pa_pie_control"
+         android:title="@string/pa_pie_control_title"
+		 android:summary="@string/pa_pie_control_title_summary"
+         android:fragment="com.android.settings.temasek.PieControl"
+         android:icon="@drawable/ic_settings_pie"
+		 />
 
 </PreferenceScreen>
