@@ -26,6 +26,13 @@
     <PreferenceCategory
             android:key="system_category"
             android:title="@string/accessibility_system_title">
+			
+		<!-- Buttons -->
+        <PreferenceScreen
+                android:id="@+id/button_settings"
+                android:title="@string/button_pref_title"
+                android:fragment="com.android.settings.ButtonSettings"
+                />
 
         <PreferenceScreen
             android:fragment="com.android.settings.accessibility.CaptionPropertiesFragment"

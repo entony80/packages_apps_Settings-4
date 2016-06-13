@@ -45,7 +45,7 @@
     <string name="nfc_title_category">NFC</string>
 
     <!-- About phone screen, AICP version -->
-    <string name="mod_version">AICP version</string>
+    <string name="mod_version">CypherOS version</string>
     <string name="mod_version_default">Unknown</string>
 
     <!-- About phone screen, Device model -->
@@ -54,7 +54,7 @@
     <string name="device_name">Device name</string>
 
     <!-- About phone screen, CyanogenMod Api Level -->
-    <string name="mod_api_level">CyanogenMod API level</string>
+    <string name="mod_api_level">API</string>
     <string name="mod_api_level_default">Unknown</string>
 
     <!-- About phone screen, build date -->
@@ -78,9 +78,8 @@
     <!-- About phone screen, Free memory info -->
     <string name="mem_info">Memory</string>
 
-    <!-- About phone screen, AICP device maintainer name -->
-    <string name="device_maintainer">Device maintainer</string>
-    <string name="device_maintainers">Device maintainers</string>
+    <!-- About phone screen, CypherOS API -->
+    <string name="api_level">API</string>
 
     <!-- Themes Settings -->
     <!-- Settings main menu entry -->
@@ -809,7 +808,8 @@
     <string name="power_notifications_ringtone_silent">Silent</string>
 
     <!-- Status bar -->
-    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_title">Statusbar</string>
+	<string name="status_bar_title_summary">Modify almost every aspect of the statusbar for visual and productive increase</string>
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
@@ -1021,9 +1021,9 @@
     <string name="pa_login_incorrect_login">Login was incorrect</string>
     <string name="pa_pattern_or_fingerprint_header">Must draw pattern or use fingerprint to unlock</string>
 
-    <string name="category_sounds">Sounds</string>
+    <string name="category_sounds">Sound &amp; notifcations</string>
     <string name="notification_manager">Notifications</string>
-    <string name="lockscreen_settings">Lock screen</string>
+    <string name="lockscreen_settings">Lockscreen</string>
     <string name="category_lights">Lights</string>
     <string name="category_volume">Volume</string>
     <string name="category_vibrate">Vibrate</string>

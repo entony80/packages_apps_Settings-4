@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.aicp;
+package com.android.settings.cypher.fragments;
 
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;

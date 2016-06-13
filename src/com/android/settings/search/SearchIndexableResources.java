@@ -56,6 +56,9 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 
+import com.android.settings.cypher.Additions;
+import com.android.settings.cypher.Gestures;
+
 import com.android.settings.ButtonSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
 
@@ -314,6 +317,20 @@ public final class SearchIndexableResources {
                         R.xml.wifi_calling_settings,
                         WifiCallingSettings.class.getName(),
                         R.drawable.ic_settings_wireless));
+						
+		sResMap.put(Additions.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(Additions.class.getName()),
+                        R.xml.addition_settings,
+                        Additions.class.getName(),
+                        R.drawable.ic_settings_additions));
+						
+		sResMap.put(Gestures.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(Gestures.class.getName()),
+                        R.xml.gesture_settings,
+                        Gestures.class.getName(),
+                        R.drawable.ic_settings_gestures));
 
         // CyanogenMod Settings
         sResMap.put(ButtonSettings.class.getName(),

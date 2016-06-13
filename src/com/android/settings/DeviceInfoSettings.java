@@ -95,7 +95,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_DEVICE_FRONT_CAMERA = "device_front_camera";
     private static final String KEY_DEVICE_SCREEN_RESOLUTION = "device_screen_resolution";
     private static final String KEY_MOD_VERSION = "mod_version";
-    private static final String KEY_DEVICE_MAINTAINER = "device_maintainer";
+    private static final String KEY_API_LEVEL = "api_level";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
@@ -143,11 +143,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.aicp.version");
+        setValueSummary(KEY_MOD_VERSION, "ro.cypher.version");
+		setApiLevelSummary(KEY_API_LEVEL), "ro.cypher.api");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_MOD_BUILD_DATE).setEnabled(true);
-        setMaintainerSummary(KEY_DEVICE_MAINTAINER, "ro.aicp.maintainer");
 
         addStringPreference(KEY_DEVICE_CHIPSET,
                 SystemProperties.get("ro.device.chipset", null));
@@ -417,14 +417,14 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         }
     }
 
-    private void setMaintainerSummary(String preference, String property) {
+    private void setApiLevelSummary(String preference, String property) {
         try {
-            String maintainers = SystemProperties.get(property,
+            String api = SystemProperties.get(property,
                     getResources().getString(R.string.device_info_default));
-            findPreference(preference).setSummary(maintainers);
-            if (maintainers.contains(",")) {
+            findPreference(preference).setSummary(api);
+            if (api.contains(",")) {
                 findPreference(preference).setTitle(
-                        getResources().getString(R.string.device_maintainers));
+                        getResources().getString(R.string.cypher_api));
             }
         } catch (RuntimeException e) {
             // No recovery
