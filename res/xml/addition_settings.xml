@@ -50,5 +50,13 @@
          android:title="@string/app_circle_bar_title"
          android:summary="@string/app_circle_bar_title_summary"	
 		 android:icon="@drawable/ic_settings_wheel" />
+		 
+	<!-- Navigation -->
+	<PreferenceScreen
+         android:key="navigation_settings"
+         android:fragment="com.android.settings.cypher.fragments.Navbar"
+         android:title="@string/navigation_settings_title"
+         android:summary="@string/navigation_settings_title_summary"	
+		 android:icon="@drawable/ic_settings_navigation" />
 
 </PreferenceScreen>

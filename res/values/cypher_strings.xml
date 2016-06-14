@@ -70,6 +70,8 @@
     <string name="volume_steps_5">5</string>
 
     <!-- Navigation Bar -->
+	<string name="navigation_settings_title">Navigation</string>
+	<string name="navigation_settings_title_summary">Change how you interact with your navigation bar as well as modify its layouts</string>
     <string name="navigation_bar_dimensions_reset_message">Reset all dimensions entries to default?</string>
     <string name="navigation_bar_dimensions_title"><b>Nav bar dimensions</b></string>
     <string name="navigation_bar_dimensions_title_summary">Resize the navigation bar</string>
