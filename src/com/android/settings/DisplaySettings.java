@@ -70,10 +70,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
-import com.android.settings.dashboard.DashboardContainerView;
-
 import cyanogenmod.hardware.LiveDisplayManager;
-import cyanogenmod.providers.CMSettings;
 
 public class DisplaySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, OnPreferenceClickListener, Indexable {
@@ -102,9 +99,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_CATEGORY = "category_doze_options";
     private static final String KEY_DOZE = "doze";
     private static final String KEY_ADVANCED_DOZE_OPTIONS = "advanced_doze_options";
-
-    private static final String DASHBOARD_COLUMNS = "dashboard_columns";
-    private static final String DASHBOARD_SWITCHES = "dashboard_switches";
     private static final String KEY_LIVEDISPLAY = "live_display";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
@@ -124,8 +118,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
-    private ListPreference mDashboardColumns;
-    private ListPreference mDashboardSwitches;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -194,18 +186,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
-
-        mDashboardColumns = (ListPreference) findPreference(DASHBOARD_COLUMNS);
-        mDashboardColumns.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.DASHBOARD_COLUMNS, DashboardContainerView.mDashboardValue)));
-        mDashboardColumns.setSummary(mDashboardColumns.getEntry());
-        mDashboardColumns.setOnPreferenceChangeListener(this);
-
-        mDashboardSwitches = (ListPreference) findPreference(DASHBOARD_SWITCHES);
-        mDashboardSwitches.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.DASHBOARD_SWITCHES, 0)));
-        mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
-        mDashboardSwitches.setOnPreferenceChangeListener(this);
 
         mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
         if (mAutoBrightnessPreference != null && isAutomaticBrightnessAvailable(getResources())) {
@@ -628,20 +608,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
-        }
-        if (preference == mDashboardSwitches) {
-            Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_SWITCHES,
-                    Integer.valueOf((String) objValue));
-            mDashboardSwitches.setValue(String.valueOf(objValue));
-            mDashboardSwitches.setSummary(mDashboardSwitches.getEntry());
-            return true;
-        }
-        if (preference == mDashboardColumns) {
-            Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_COLUMNS,
-                    Integer.valueOf((String) objValue));
-            mDashboardColumns.setValue(String.valueOf(objValue));
-            mDashboardColumns.setSummary(mDashboardColumns.getEntry());
-            return true;
         }
         return true;
     }
