@@ -40,6 +40,12 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
+		
+		<!-- Device Information -->
+		<PreferenceScreen
+                android:key="cypher_info"
+                android:title="@string/device_information_title"
+                android:fragment="com.android.settings.cypher.Information" />
 
         <!-- Manual -->
         <PreferenceScreen
