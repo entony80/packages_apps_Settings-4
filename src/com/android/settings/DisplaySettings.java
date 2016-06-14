@@ -79,7 +79,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
-    private static final String KEY_CATEGORY_LIGHTS = "lights";
     private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_CATEGORY_INTERFACE = "interface";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
@@ -261,7 +260,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mWakeWhenPluggedOrUnplugged =
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
-        initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -506,22 +504,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
-    // === Pulse notification light ===
-
-    private void initPulse(PreferenceCategory parent) {
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-            parent.removePreference(parent.findPreference(KEY_NOTIFICATION_LIGHT));
-        }
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_intrusiveBatteryLed)
-                || UserHandle.myUserId() != UserHandle.USER_OWNER) {
-            parent.removePreference(parent.findPreference(KEY_BATTERY_LIGHT));
-        }
-        if (parent.getPreferenceCount() == 0) {
-            getPreferenceScreen().removePreference(parent);
-        }
-    }
     /**
      * Reads the current font size and sets the value in the summary text
      */

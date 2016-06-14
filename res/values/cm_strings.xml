@@ -292,6 +292,7 @@
 
     <!-- Battery light settings -->
     <string name="battery_light_title">Battery light</string>
+	<string name="battery_light_title_summary">Activate the LED for low battery indication</string>
     <string name="battery_low_pulse_title">Pulse if battery low</string>
     <string name="battery_light_list_title">Colors</string>
     <string name="battery_light_low_color_title">Battery low</string>
@@ -301,6 +302,7 @@
 
     <!-- Lights settings screen, notification light settings -->
     <string name="notification_light_title">Notification light</string>
+	<string name="notification_light_title_summary">Allow app notifcations to trigger the LED indicator</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_applist_title">Apps</string>
     <string name="notification_light_phonelist_title">Phone</string>
