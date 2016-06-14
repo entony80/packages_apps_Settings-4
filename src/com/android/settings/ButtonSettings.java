@@ -62,8 +62,6 @@ import java.util.List;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
-
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "SystemSettings";
@@ -85,8 +83,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
-    private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
-            = "camera_double_tap_power_gesture";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
 
@@ -144,7 +140,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private ListPreference mNavigationRecentsLongPressAction;
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
-    private SwitchPreference mCameraDoubleTapPowerGesture;
     private SwitchPreference mVolumeAnswerCall;
 
     private PreferenceCategory mNavigationPreferencesCat;
@@ -207,10 +202,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         // Power button ends calls.
         mPowerEndCall = (SwitchPreference) findPreference(KEY_POWER_END_CALL);
-
-        // Double press power to launch camera.
-        mCameraDoubleTapPowerGesture
-                    = (SwitchPreference) findPreference(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
 
         // Home button answers calls.
         mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
@@ -518,11 +509,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleSystemActionListChange(mVolumeKeyCursorControl, newValue,
                     Settings.System.VOLUME_KEY_CURSOR_CONTROL);
             return true;
-        } else if (preference == mCameraDoubleTapPowerGesture) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
-                    value ? 0 : 1 /* Backwards because setting is for disabling */);
-            return true;
         } else if (preference == mVolumeAnswerCall) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
@@ -640,11 +626,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR, (mHomeAnswerCall.isChecked()
                         ? CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : CMSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
-    }
-
-    private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
-        return res.getBoolean(
-                com.android.internal.R.bool.config_cameraDoubleTapPowerGestureEnabled);
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
