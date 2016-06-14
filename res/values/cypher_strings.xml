@@ -677,6 +677,7 @@
 	<!-- PA Pie control -->
     <string name="pa_piecontrol_settings_summary">Customize PA Pie 2.0 targets, sytle, size and color</string>
     <string name="pa_pie_control_title">PiControls</string>
+	<string name="pa_pie_control_title_summary">Navigate the Android system in a fluent and fast manner with great visualty and productivity</string>
     <string name="pa_pie_control_enable_title">Enable</string>
     <string name="pa_pie_targets_title">Targets</string>
     <string name="pa_pie_style_title">Style</string>
