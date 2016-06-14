@@ -638,6 +638,8 @@
     <string name="hide_from_recents_add_app">Add App</string>
 	
 	<string name="additions_settings">Additions</string>
+	<string name="additions_about_notice_title">About</string>
+	<string name="additions_about_notice_summary">Hello there. This is the resting place for all of your beloved features brought to you by the best developers around.</string>
 	
 	<string name="gestures_settings">Gestures</string>
 	

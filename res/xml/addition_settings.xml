@@ -17,6 +17,13 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+	
+	<Preference
+            style="?android:preferenceInformationStyle"
+            android:key="additions_about_notice"
+            android:selectable="false"
+            android:summary="@string/additions_about_notice_summary"
+            android:title="@string/additions_about_notice_title" />
 
     <!-- Status bar -->
     <PreferenceScreen
