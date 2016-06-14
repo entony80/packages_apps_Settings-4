@@ -639,9 +639,18 @@
     <!-- Hide apps from recents -->
     <string name="hide_from_recents_add_app">Add App</string>
 	
+	<!-- Additions Settings -->
 	<string name="additions_settings">Additions</string>
 	<string name="additions_about_notice_title">About</string>
 	<string name="additions_about_notice_summary">Hello there. This is the resting place for all of your beloved features brought to you by the best developers around.</string>
+	
+    <!-- Information Settings -->
+    <string name="device_information_title">Software information</string>	
+	
+	<!-- Build notes -->
+	<string name="build_notes_title">Build notes</string>
+	<string name="build_notes_title_summary">Check out the latest changes in CypherOS</string>
+	<string name="changelog_cypher_error">Build notes could not be located. Contact Software Manufacturer</string>
 	
 	<string name="gestures_settings">Gestures</string>
 	
