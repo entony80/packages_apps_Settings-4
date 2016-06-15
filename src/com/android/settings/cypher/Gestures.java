@@ -17,7 +17,10 @@
 package com.android.settings.cypher;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
@@ -27,6 +30,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.Utils;
+
+import android.preference.SwitchPreference;
 
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 
@@ -49,7 +54,7 @@ public class Gestures extends SettingsPreferenceFragment
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        addPreferencesFromResource(R.xml.gesture_settings);
+        addPreferencesFromResource(R.xml.gestures_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
 	    // Double press power to launch camera.
@@ -63,9 +68,6 @@ public class Gestures extends SettingsPreferenceFragment
             int cameraDoubleTapPowerDisabled = Settings.Secure.getInt(
                     getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 0);
             mCameraDoubleTapPowerGesture.setChecked(cameraDoubleTapPowerDisabled == 0);
-        } else {
-            powerCategory.removePreference(mCameraDoubleTapPowerGesture);
-            mCameraDoubleTapPowerGesture = null;
 	    }
     }
 
@@ -83,6 +85,7 @@ public class Gestures extends SettingsPreferenceFragment
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
             return true;
 		}
+	}
 
 	private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
         return res.getBoolean(
