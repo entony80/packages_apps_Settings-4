@@ -135,7 +135,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_MOD_VERSION, "ro.cypher.version");
-		setApiLevelSummary(KEY_API_LEVEL), "ro.cypher.api");
+		setApiLevelSummary(KEY_API_LEVEL, "ro.cypher.api");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_MOD_BUILD_DATE).setEnabled(true);

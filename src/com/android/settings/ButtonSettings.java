@@ -217,17 +217,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 powerCategory.removePreference(mPowerEndCall);
                 mPowerEndCall = null;
             }
-            if (mCameraDoubleTapPowerGesture != null &&
-                    isCameraDoubleTapPowerGestureAvailable(getResources())) {
-                // Update double tap power to launch camera if available.
-                mCameraDoubleTapPowerGesture.setOnPreferenceChangeListener(this);
-                int cameraDoubleTapPowerDisabled = Settings.Secure.getInt(
-                        getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 0);
-                mCameraDoubleTapPowerGesture.setChecked(cameraDoubleTapPowerDisabled == 0);
-            } else {
-                powerCategory.removePreference(mCameraDoubleTapPowerGesture);
-                mCameraDoubleTapPowerGesture = null;
-            }
         } else {
             prefScreen.removePreference(powerCategory);
         }

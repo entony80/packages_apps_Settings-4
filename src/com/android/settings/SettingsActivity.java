@@ -76,12 +76,12 @@ import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
 import com.android.settings.aicp.AicpSettingsExternal;
 import com.android.settings.aicp.LockscreenShortcutFragment;
-import com.android.settings.aicp.RecentAppSidebarFragment;
+import com.android.settings.cypher.fragments.RecentAppSidebarFragment;
 import com.android.settings.aicp.WakelockBlocker;
 import com.android.settings.applications.DrawOverlayDetails;
-import com.android.settings.aicp.Navbar;
+import com.android.settings.cypher.fragments.Navbar;
 import com.android.settings.aicp.FlingSettings;
-import com.android.settings.aicp.SmartbarSettings;
+import com.android.settings.cypher.fragments.SmartbarSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ManageAssist;
@@ -307,8 +307,6 @@ public class SettingsActivity extends Activity
             R.id.home_settings,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod,
-            R.id.aicp_settings,
-            R.id.supersu_settings
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -391,7 +389,7 @@ public class SettingsActivity extends Activity
             NotificationManagerSettings.class.getName(),
             com.android.settings.aicp.AicpSettingsExternal.class.getName(),
             com.android.settings.aicp.LockscreenShortcutFragment.class.getName(),
-            com.android.settings.aicp.RecentAppSidebarFragment.class.getName(),
+            com.android.settings.cypher.fragments.RecentAppSidebarFragment.class.getName(),
             com.android.settings.aicp.WakelockBlocker.class.getName(),
             Navbar.class.getName(),
             FlingSettings.class.getName(),
@@ -1348,15 +1346,6 @@ public class SettingsActivity extends Activity
                 } else if (id == R.id.development_settings) {
                     if (!showDev || um.hasUserRestriction(
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
-                        removeTile = true;
-                    }
-                } else if (id == R.id.aicp_settings) {
-                    boolean supported = false;
-                    try {
-                        supported = (getPackageManager().getPackageInfo("com.lordclockan", 0).versionCode > 0);
-                    } catch (PackageManager.NameNotFoundException e) {
-                    }
-                    if (!supported) {
                         removeTile = true;
                     }
                 } else if (id == R.id.supersu_settings) {
