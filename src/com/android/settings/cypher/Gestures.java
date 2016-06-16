@@ -41,7 +41,7 @@ import java.util.List;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class Gestures extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+        implements Preference.OnPreferenceChangeListener, OnPreferenceChange, Indexable {
 
     private static final String TAG = Gestures.class.getSimpleName();
 	
