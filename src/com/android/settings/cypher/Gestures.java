@@ -41,7 +41,7 @@ import java.util.List;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class Gestures extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, OnPreferenceChange, Indexable {
+    implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = Gestures.class.getSimpleName();
 	
@@ -77,17 +77,20 @@ public class Gestures extends SettingsPreferenceFragment
         return CMMetricsLogger.MAIN_SETTINGS;
     }
 	
-	@Override
-    public boolean onPreferenceChange(preference, newValue) {
-		if (preference == mCameraDoubleTapPowerGesture) {
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mCameraDoubleTapPowerGesture) {
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
             return true;
-		}
 	}
+        else {
+            return false;
+        }
+    }
 
-	private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
+    private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
         return res.getBoolean(
                 com.android.internal.R.bool.config_cameraDoubleTapPowerGestureEnabled);
     }	

@@ -302,23 +302,7 @@ public class Helpers {
     }
 
     public static void restartSystemUI() {
-<<<<<<< HEAD
-        CMDProcessor.startSuCommand("pkill -f com.android.systemui");
-    }
-
-    public static void restartSystem() {
-        try {
-            final IActivityManager am = ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
-            if (am != null) {
-                am.restart();
-            }
-        }
-        catch (RemoteException e) {
-            Log.e(TAG, "Failed to restart");
-        }
-=======
         CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
->>>>>>> 29babb7... [2/2] Settings: Implement App circle sidebar
     }
 
     public static void setSystemProp(String prop, String val) {
