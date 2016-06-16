@@ -35,12 +35,12 @@
         <PreferenceScreen
             android:key="smartbar_settings"
             android:title="@string/smartbar_settings_title"
-            android:fragment="com.android.settings.aicp.SmartbarSettings" />
+            android:fragment="com.android.settings.cypher.fragments.SmartbarSettings" />
 
         <PreferenceScreen
             android:key="fling_settings"
             android:title="@string/fling_settings"
-            android:fragment="com.android.settings.aicp.FlingSettings" />
+            android:fragment="com.android.settings.cypher.fragments.FlingSettings" />
 
     </PreferenceCategory>
     
@@ -51,7 +51,7 @@
 	 <PreferenceScreen
             android:key="pulse_settings"
             android:title="@string/pulse_settings"
-            android:fragment="com.android.settings.aicp.PulseSettings" />   
+            android:fragment="com.android.settings.cypher.fragments.PulseSettings" />   
 	    
 
     <com.android.settings.aicp.NavbarSizePreference

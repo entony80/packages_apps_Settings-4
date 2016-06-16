@@ -776,7 +776,7 @@
     <string name="volume_keys_control_ring_stream_summary_off">Volume keys control media volume</string>
 
     <string name="category_calibration">Calibration</string>
-    <string name="display_and_lights">Display &amp; lights</string>
+    <string name="display_and_lights">Display</string>
 
     <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
