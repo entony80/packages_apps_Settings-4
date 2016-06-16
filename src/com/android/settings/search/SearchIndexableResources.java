@@ -328,7 +328,7 @@ public final class SearchIndexableResources {
 		sResMap.put(Gestures.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(Gestures.class.getName()),
-                        R.xml.gesture_settings,
+                        R.xml.gestures_settings,
                         Gestures.class.getName(),
                         R.drawable.ic_settings_gestures));
 

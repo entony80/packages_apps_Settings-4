@@ -39,7 +39,7 @@ import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class Changelog extends Fragment {
+public class BuildNotes extends Fragment {
 
     private static final String CHANGELOG_PATH = "/system/etc/Changelog.txt";
 

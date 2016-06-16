@@ -41,7 +41,7 @@ import java.util.List;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class Gestures extends SettingsPreferenceFragment
-        implements Indexable {
+        implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = Gestures.class.getSimpleName();
 	
@@ -78,7 +78,7 @@ public class Gestures extends SettingsPreferenceFragment
     }
 	
 	@Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(preference, newValue) {
 		if (preference == mCameraDoubleTapPowerGesture) {
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
@@ -101,7 +101,7 @@ public class Gestures extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.gesture_settings;
+                    sir.xmlResId = R.xml.gestures_settings;
                     result.add(sir);
 
                     return result;
