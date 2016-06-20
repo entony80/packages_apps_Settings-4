@@ -99,7 +99,7 @@
         <Preference android:key="api_level"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/cypher_api"
-                android:summary="@string/device_info_default" />
+                android:summary="@string/device_api_default" />
 
         <!-- Security patch level -->
         <Preference android:key="security_patch"
