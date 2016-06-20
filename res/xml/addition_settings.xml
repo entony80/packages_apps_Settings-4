@@ -51,6 +51,14 @@
          android:summary="@string/app_circle_bar_title_summary"	
 		 android:icon="@drawable/ic_settings_wheel" />
 		 
+	<!-- Recent panel settings -->
+    <PreferenceScreen
+         android:key="recents_panel"
+         android:fragment="com.android.settings.cypher.fragments.RecentsPanelSettings"
+         android:title="@string/recents_panel_title"
+         android:summary="@string/recents_panel_title_summary"
+         android:icon="@drawable/ic_settings_recents" />
+		 
 	<!-- Navigation -->
 	<PreferenceScreen
          android:key="navigation_settings"
