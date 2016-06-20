@@ -867,5 +867,9 @@
 	<!-- Three-fingers-swipe to screenshot -->
     <string name="three_finger_gesture">Three-finger screeny</string>
     <string name="three_finger_gesture_summary">Swipe three fingers across the display to take a screenshot</string>
+	
+	<!-- Motion gestures -->
+	<string name="motion_gestures_title">Motion gestures</string>
+	<string name="motion_gestures_title_summary">Interact with your device using your hand and body movements</string>
 
 </resources>
