@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.aicp;
+package com.android.settings.cypher;
 
 import android.animation.AnimatorSet;
 import android.animation.PropertyValuesHolder;

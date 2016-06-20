@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.aicp;
+package com.android.settings.cypher;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -58,7 +58,7 @@ public class PlatLogoActivity extends Activity {
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                             | Intent.FLAG_ACTIVITY_CLEAR_TASK
                             | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-                        .setClassName("com.android.settings","com.android.settings.aicp.Nyandroid"));
+                        .setClassName("com.android.settings","com.android.settings.cypher.Nyandroid"));
                 } catch (ActivityNotFoundException ex) {
                     android.util.Log.e("PlatLogoActivity", "Couldn't find platlogo screensaver.");
                 }
@@ -74,7 +74,7 @@ public class PlatLogoActivity extends Activity {
         mZzz = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         mContent = new ImageView(this);
-        mContent.setImageResource(com.android.settings.R.drawable.platlogo_aicp);
+        mContent.setImageResource(com.android.settings.R.drawable.platlogo_cypher);
         mContent.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
         mContent.setOnTouchListener(new View.OnTouchListener() {
@@ -93,9 +93,9 @@ public class PlatLogoActivity extends Activity {
                         SnackbarManager.show(
                                 Snackbar.with(getApplicationContext())
                                 .text(getString(R.string.easter_egg_snack))
-                                .textColor(Color.YELLOW)
+                                .textColor(Color.WHITE)
                                 .textTypeface(Typeface.DEFAULT_BOLD)
-                                .color(Color.BLUE)
+                                .color(Color.DKGRAY)
                                 .duration(Snackbar.SnackbarDuration.LENGTH_LONG)
                         , PlatLogoActivity.this);
                     }
