@@ -193,7 +193,7 @@
     <string name="shortcut_action_search">Cerca in App</string>
 
     <!-- Double tap power button camera vibration toggle -->
-    <string name="dbl_tap_vib_title">Premere due volte il pulsante di accensione per la vibrazione della fotocamera</string>
+    <string name="dbl_tap_vib_title">Vibrazione doppia pressione</string>
     <string name="dbl_tap_vib_summary">Vibra sulla doppia pressione del pulsante accensione quanto l\'opzione è attiva</string>
 
     <!-- Battery Saver Settings -->
