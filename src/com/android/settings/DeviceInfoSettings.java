@@ -401,7 +401,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private void setApiLevelSummary(String preference, String property) {
         try {
             String api = SystemProperties.get(property,
-                    getResources().getString(R.string.device_info_default));
+                    getResources().getString(R.string.device_api_default));
             findPreference(preference).setSummary(api);
             if (api.contains(",")) {
                 findPreference(preference).setTitle(
