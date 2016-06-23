@@ -20,9 +20,11 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -40,6 +42,7 @@ import android.text.format.Formatter;
 import android.text.format.Formatter.BytesResult;
 import android.util.Log;
 import android.widget.Toast;
+import android.hardware.usb.UsbManager;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
@@ -63,6 +66,7 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
 
     private static final String TAG_VOLUME_UNMOUNTED = "volume_unmounted";
     private static final String TAG_DISK_INIT = "disk_init";
+	private static final String USB_CONFIGURATION_KEY = "select_usb_configuration";
 
 
     private int mPublicColor;
@@ -73,6 +77,8 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
 
     private PreferenceCategory mInternalCategory;
     private PreferenceCategory mExternalCategory;
+	
+	private ListPreference mUsbConfiguration;
 
     private StorageSummaryPreference mInternalSummary;
 
@@ -99,6 +105,7 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
 
         mInternalCategory = (PreferenceCategory) findPreference("storage_internal");
         mExternalCategory = (PreferenceCategory) findPreference("storage_external");
+		mUsbConfiguration = addListPreference(USB_CONFIGURATION_KEY);
 
         mInternalSummary = new StorageSummaryPreference(context);
 
@@ -227,6 +234,38 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
             finish();
         }
     }
+	
+	private void updateUsbConfigurationValues(boolean isUnlocked) {
+        if (mUsbConfiguration != null) {
+            UsbManager manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+
+            String[] values = getResources().getStringArray(R.array.usb_configuration_values);
+            String[] titles = getResources().getStringArray(R.array.usb_configuration_titles);
+            int index = 0;
+            // Assume if !isUnlocked -> charging, which should be at index 0
+            for (int i = 0; i < titles.length && isUnlocked; i++) {
+                if (manager.isFunctionEnabled(values[i])) {
+                    index = i;
+                    break;
+                }
+            }
+            mUsbConfiguration.setValue(values[index]);
+            mUsbConfiguration.setSummary(titles[index]);
+            mUsbConfiguration.setOnPreferenceChangeListener(this);
+        }
+    }
+
+    private void writeUsbConfigurationOption(Object newValue) {
+        UsbManager manager = (UsbManager)getActivity().getSystemService(Context.USB_SERVICE);
+        String function = newValue.toString();
+        if (function.equals("none")) {
+            manager.setCurrentFunction(null);
+            manager.setUsbDataUnlocked(false);
+        } else {
+            manager.setCurrentFunction(function);
+            manager.setUsbDataUnlocked(true);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -292,6 +331,14 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
 
         return false;
     }
+	
+	@Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mUsbConfiguration) {
+            writeUsbConfigurationOption(newValue);
+            return true;
+		}
+	}
 
     public static class MountTask extends AsyncTask<Void, Void, Exception> {
         private final Context mContext;
@@ -364,6 +411,24 @@ public class StorageSettings extends SettingsPreferenceFragment implements Index
             }
         }
     }
+	
+	@Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        if (mUnavailable) {
+            return;
+        }
+        getActivity().unregisterReceiver(mUsbReceiver);
+    }
+	
+	private BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean isUnlocked = intent.getBooleanExtra(UsbManager.USB_DATA_UNLOCKED, false);
+            updateUsbConfigurationValues(isUnlocked);
+        }
+    };
 
     public static class VolumeUnmountedFragment extends DialogFragment {
         public static void show(Fragment parent, String volumeId) {
