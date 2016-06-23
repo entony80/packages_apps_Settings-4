@@ -22,7 +22,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/aicp_logo_bg"
+        android:src="@drawable/cypher_logo_bg"
         android:tint="?android:attr/textColorPrimary"
         android:layout_gravity="bottom"
         android:scaleType="centerCrop"
@@ -30,7 +30,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/aicp_logo_letters"
+        android:src="@drawable/cypher_logo_letters"
         android:tint="?android:attr/colorAccent"
         android:layout_gravity="center_horizontal"
             />
