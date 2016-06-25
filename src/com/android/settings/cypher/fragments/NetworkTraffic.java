@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.temasek;
+package com.android.settings.cypher.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -62,6 +62,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     private static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
     private static final String NETWORK_TRAFFIC_PERIOD = "network_traffic_period";
     private static final String NETWORK_TRAFFIC_AUTOHIDE = "network_traffic_autohide";
+	private static final String NETWORK_TRAFFIC_HIDEARROW = "network_traffic_hidearrow";
     private static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
     private static final int MENU_RESET = Menu.FIRST;	
 
@@ -77,6 +78,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
     private ListPreference mNetTrafficUnit;
     private ListPreference mNetTrafficPeriod;
     private SwitchPreference mNetTrafficAutohide;
+	private SwitchPreference mNetTrafficHidearrow;
     private SeekBarPreference mNetTrafficAutohideThreshold;
     private ColorPickerPreference mNetTrafficColor;
     private ColorPickerPreference mColorPicker;		
@@ -114,6 +116,12 @@ public class NetworkTraffic extends SettingsPreferenceFragment
         mNetTrafficAutohide.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0) == 1));
         mNetTrafficAutohide.setOnPreferenceChangeListener(this);
+		
+		mNetTrafficHidearrow =
+            (SwitchPreference) prefSet.findPreference(NETWORK_TRAFFIC_HIDEARROW);
+        mNetTrafficHidearrow.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_HIDEARROW, 0) == 1));
+        mNetTrafficHidearrow.setOnPreferenceChangeListener(this);
 
         mNetTrafficAutohideThreshold = (SeekBarPreference) prefSet.findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         int netTrafficAutohideThreshold = Settings.System.getInt(resolver,
@@ -141,6 +149,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment
                 mNetTrafficUnit.setEnabled(false);
                 mNetTrafficPeriod.setEnabled(false);
                 mNetTrafficAutohide.setEnabled(false);
+				mNetTrafficHidearrow.setEnabled(false);
                 mNetTrafficAutohideThreshold.setEnabled(false);
             }
             mNetTrafficState.setValueIndex(intIndex >= 0 ? intIndex : 0);
@@ -175,7 +184,8 @@ public class NetworkTraffic extends SettingsPreferenceFragment
             mNetTrafficUnit.setEnabled(false);
             mNetTrafficPeriod.setEnabled(false);
             mNetTrafficAutohide.setEnabled(false);
-	    mNetTrafficColor.setEnabled(false);	
+	        mNetTrafficColor.setEnabled(false);
+            mNetTrafficHidearrow.setEnabled(false);			
             mNetTrafficAutohideThreshold.setEnabled(false);
         } else {
             mNetTrafficUnit.setEnabled(true);
@@ -217,6 +227,11 @@ public class NetworkTraffic extends SettingsPreferenceFragment
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE, value ? 1 : 0);
+            return true;
+		} else if (preference == mNetTrafficHidearrow) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_HIDEARROW, value ? 1 : 0);
             return true;
         } else if (preference == mNetTrafficAutohideThreshold) {
             int threshold = (Integer) newValue;
