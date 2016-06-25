@@ -25,6 +25,10 @@
     <string name="easter_egg_snack">"Guess the flavor"</string>
 	
 	<string name="device_api_default">Community Preview 3</string>
+	
+	<!-- Software Information, CypherOS device maintainer name -->
+    <string name="device_maintainer">Device maintainer</string>
+    <string name="device_maintainers">Device maintainers</string>
 
     <string name="general_options_title">General</string>
 

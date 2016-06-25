@@ -37,6 +37,8 @@ public class Information extends SettingsPreferenceFragment
         implements Indexable {
 
     private static final String TAG = Information.class.getSimpleName();
+	
+	private static final String KEY_DEVICE_MAINTAINER = "device_maintainer";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -44,6 +46,8 @@ public class Information extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.info_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
+		
+		setMaintainerSummary(KEY_DEVICE_MAINTAINER, "ro.cypher.maintainer");
 
     }
 
@@ -51,6 +55,20 @@ public class Information extends SettingsPreferenceFragment
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
         return CMMetricsLogger.MAIN_SETTINGS;
+    }
+	
+	private void setMaintainerSummary(String preference, String property) {
+        try {
+            String maintainers = SystemProperties.get(property,
+                    getResources().getString(R.string.device_info_default));
+            findPreference(preference).setSummary(maintainers);
+            if (maintainers.contains(",")) {
+                findPreference(preference).setTitle(
+                        getResources().getString(R.string.device_maintainers));
+            }
+        } catch (RuntimeException e) {
+            // No recovery
+        }
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
