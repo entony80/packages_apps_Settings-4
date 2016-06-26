@@ -25,6 +25,8 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
@@ -103,6 +105,10 @@ public class DashboardSummary extends InstrumentedFragment {
         filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         filter.addDataScheme("package");
         getActivity().registerReceiver(mHomePackageReceiver, filter);
+
+        final IntentFilter airplaneModeFilter
+                = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        getActivity().registerReceiver(mHomePackageReceiver, airplaneModeFilter);
     }
 
     @Override
@@ -162,6 +168,9 @@ public class DashboardSummary extends InstrumentedFragment {
 
                 tileView.setTile(tile);
 
+                if (tile.id == R.id.mobile_networks) {
+                    tileView.setEnabledTile(!Utils.isAirplaneModeEnabled(context));
+                }
                 categoryContent.addView(tileView);
             }
 
@@ -172,8 +181,13 @@ public class DashboardSummary extends InstrumentedFragment {
         Log.d(LOG_TAG, "rebuildUI took: " + delta + " ms");
     }
 
+<<<<<<< HEAD
+    public void updateTileView(Context context, Resources res, DashboardTile tile,
+            ImageView tileIcon, TextView tileTextView, TextView statusTextView, Switch switchBar) {
+=======
     private void updateTileView(Context context, Resources res, DashboardTile tile,
             ImageView tileIcon, TextView tileTextView, TextView statusTextView) {
+>>>>>>> parent of 47cd596... Settings: add switches for dashboard items
 
         if (!TextUtils.isEmpty(tile.iconPkg)) {
             try {
@@ -213,6 +227,28 @@ public class DashboardSummary extends InstrumentedFragment {
         } else {
             statusTextView.setVisibility(View.GONE);
         }
+<<<<<<< HEAD
+
+        if (tile.switchControl != null) {
+            boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+            int dashboardSwitches = isPrimary ? getDashboardSwitches(context) : 0;
+
+            if (dashboardSwitches == 0) {
+                switchBar.setVisibility(View.GONE);
+            }
+            if (dashboardSwitches == 1) {
+                switchBar.setVisibility(View.VISIBLE);
+            }
+        } else {
+            // do nothing
+        }
+=======
+>>>>>>> parent of 47cd596... Settings: add switches for dashboard items
+    }
+
+    private static int getDashboardSwitches(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.DASHBOARD_SWITCHES, 0);
     }
 
     private void sendRebuildUI() {
