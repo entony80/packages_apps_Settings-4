@@ -17,7 +17,6 @@
 package com.android.settings.fuelgauge;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -31,8 +30,6 @@ import android.os.BatteryManager;
 import android.os.BatteryStats;
 import android.os.Build;
 import android.os.Bundle;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
@@ -92,10 +89,9 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final String KEY_BATTERY_SAVER = "low_power";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
-    private static final int MENU_STATS_RESET = Menu.FIRST + 2;
-    private static final int MENU_BATTERY_SAVER = Menu.FIRST + 3;
-    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
-    private static final int MENU_HELP = Menu.FIRST + 5;
+    private static final int MENU_BATTERY_SAVER = Menu.FIRST + 2;
+    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
+    private static final int MENU_HELP = Menu.FIRST + 4;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
@@ -257,12 +253,6 @@ public class PowerUsageSummary extends PowerUsageBase
                     .setAlphabeticShortcut('t');
         }
 
-        MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.battery_stats_reset)
-                .setIcon(R.drawable.ic_actionbar_delete)
-                .setAlphabeticShortcut('d');
-        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
         MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
 
@@ -274,9 +264,6 @@ public class PowerUsageSummary extends PowerUsageBase
     public boolean onOptionsItemSelected(MenuItem item) {
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
-            case MENU_STATS_RESET:
-                resetStats();
-                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
