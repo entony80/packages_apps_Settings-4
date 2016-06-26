@@ -37,7 +37,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -45,8 +44,6 @@ import com.android.settings.HelpUtils;
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
-import com.android.settings.Utils;
-import com.android.settings.widget.SwitchBar;
 
 import java.util.List;
 
@@ -167,8 +164,7 @@ public class DashboardSummary extends InstrumentedFragment {
 
                 DashboardTileView tileView = new DashboardTileView(context);
                 updateTileView(context, res, tile, tileView.getImageView(),
-                        tileView.getTitleTextView(), tileView.getStatusTextView(),
-                        tileView.getSwitchView());
+                        tileView.getTitleTextView(), tileView.getStatusTextView());
 
                 tileView.setTile(tile);
 
@@ -185,8 +181,13 @@ public class DashboardSummary extends InstrumentedFragment {
         Log.d(LOG_TAG, "rebuildUI took: " + delta + " ms");
     }
 
+<<<<<<< HEAD
     public void updateTileView(Context context, Resources res, DashboardTile tile,
             ImageView tileIcon, TextView tileTextView, TextView statusTextView, Switch switchBar) {
+=======
+    private void updateTileView(Context context, Resources res, DashboardTile tile,
+            ImageView tileIcon, TextView tileTextView, TextView statusTextView) {
+>>>>>>> parent of 47cd596... Settings: add switches for dashboard items
 
         if (!TextUtils.isEmpty(tile.iconPkg)) {
             try {
@@ -226,6 +227,7 @@ public class DashboardSummary extends InstrumentedFragment {
         } else {
             statusTextView.setVisibility(View.GONE);
         }
+<<<<<<< HEAD
 
         if (tile.switchControl != null) {
             boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
@@ -240,6 +242,8 @@ public class DashboardSummary extends InstrumentedFragment {
         } else {
             // do nothing
         }
+=======
+>>>>>>> parent of 47cd596... Settings: add switches for dashboard items
     }
 
     private static int getDashboardSwitches(Context context) {

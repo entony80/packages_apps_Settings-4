@@ -611,5 +611,4 @@ public class WirelessSettings extends SettingsPreferenceFragment implements
                 return result;
             }
         };
-
 }
