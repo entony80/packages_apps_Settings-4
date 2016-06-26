@@ -74,9 +74,7 @@ import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
-import com.android.settings.aicp.AicpSettingsExternal;
 import com.android.settings.aicp.LockscreenShortcutFragment;
-import com.android.settings.cypher.fragments.RecentAppSidebarFragment;
 import com.android.settings.aicp.WakelockBlocker;
 import com.android.settings.applications.DrawOverlayDetails;
 import com.android.settings.cypher.fragments.Navbar;
@@ -387,9 +385,7 @@ public class SettingsActivity extends Activity
             BlacklistSettings.class.getName(),
             ProfilesSettings.class.getName(),
             NotificationManagerSettings.class.getName(),
-            com.android.settings.aicp.AicpSettingsExternal.class.getName(),
             com.android.settings.aicp.LockscreenShortcutFragment.class.getName(),
-            com.android.settings.cypher.fragments.RecentAppSidebarFragment.class.getName(),
             com.android.settings.aicp.WakelockBlocker.class.getName(),
             Navbar.class.getName(),
             FlingSettings.class.getName(),
