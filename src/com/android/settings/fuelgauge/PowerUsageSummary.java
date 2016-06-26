@@ -47,7 +47,6 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.SubMenu;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.os.BatterySipper;
@@ -405,6 +404,24 @@ public class PowerUsageSummary extends PowerUsageBase
         Preference notAvailable = new Preference(getActivity());
         notAvailable.setTitle(R.string.power_usage_not_available);
         mAppListGroup.addPreference(notAvailable);
+    }
+
+    private void resetStats() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.battery_stats_reset)
+            .setMessage(R.string.battery_stats_message)
+            .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Reset stats and request a refresh to initialize vars
+                    mStatsHelper.resetStatistics();
+                    refreshStats();
+                    mHandler.removeMessages(MSG_REFRESH_STATS);
+                }
+            })
+            .setNegativeButton(android.R.string.cancel, null)
+            .create();
+        dialog.show();
     }
 
     private void refreshBatterySaverOptions() {
