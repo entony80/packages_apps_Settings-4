@@ -34,6 +34,7 @@ import com.android.settings.Utils;
 import android.preference.SwitchPreference;
 
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
+import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,8 @@ public class Gestures extends SettingsPreferenceFragment
 	
 	private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
+	
+	private static final String KEY_TAP_TO_WAKE = "tap_to_wake";		
 			
 	private SwitchPreference mCameraDoubleTapPowerGesture;
 	
@@ -61,6 +64,8 @@ public class Gestures extends SettingsPreferenceFragment
         mCameraDoubleTapPowerGesture
                     = (SwitchPreference) findPreference(KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE);
 					
+		
+		
 	    if (mCameraDoubleTapPowerGesture != null &&
                 isCameraDoubleTapPowerGestureAvailable(getResources())) {
             // Update double tap power to launch camera if available.
@@ -69,6 +74,11 @@ public class Gestures extends SettingsPreferenceFragment
                     getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 0);
             mCameraDoubleTapPowerGesture.setChecked(cameraDoubleTapPowerDisabled == 0);
 	    }
+		
+		mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
+        if (mTapToWakePreference != null && isTapToWakeAvailable(getResources())) {
+            mTapToWakePreference.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -76,6 +86,14 @@ public class Gestures extends SettingsPreferenceFragment
         // todo add a constant in MetricsLogger.java
         return CMMetricsLogger.MAIN_SETTINGS;
     }
+	
+	private void updateState() {
+	// Update tap to wake if it is available.
+        if (mTapToWakePreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
+            mTapToWakePreference.setChecked(value != 0);
+        }
+	}
 	
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -87,6 +105,10 @@ public class Gestures extends SettingsPreferenceFragment
 	}
         else {
             return false;
+        }
+		if (preference == mTapToWakePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
         }
     }
 
@@ -113,6 +135,9 @@ public class Gestures extends SettingsPreferenceFragment
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     ArrayList<String> result = new ArrayList<String>();
+					if (!isTapToWakeAvailable(context.getResources())) {
+                        result.add(KEY_TAP_TO_WAKE);
+                    }
                     return result;
                 }
             };
