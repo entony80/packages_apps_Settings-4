@@ -199,14 +199,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment
             mBugReportPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_BUGREPORT));
         }
 
-        if (mPowermenuTorch != null) {
-            if (!AicpUtils.deviceSupportsFlashLight(getActivity())) {
-                getPreferenceScreen().removePreference(mPowermenuTorch);
-            } else {
-                mPowermenuTorch.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_TORCH));
-            }
-        }
-
         if (mSilentPref != null) {
             mSilentPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_SILENT));
         }

@@ -121,7 +121,6 @@ public class Information extends SettingsPreferenceFragment
                     ArrayList<String> result = new ArrayList<String>();
                     return result;
                 }
-            };
-		}	
+            };	
 	}
 }
