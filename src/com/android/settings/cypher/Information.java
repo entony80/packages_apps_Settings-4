@@ -75,7 +75,6 @@ public class Information extends SettingsPreferenceFragment
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mWebUrl) {
             launchUrl("get.cypheros.co");
-        }
 		} else if (preference == mGoogleUrl) {
             launchUrl("https://plus.google.com/communities/111402352496339801246");
 		}
@@ -123,4 +122,6 @@ public class Information extends SettingsPreferenceFragment
                     return result;
                 }
             };
+		}	
+	}
 }
