@@ -74,7 +74,7 @@ public class Information extends SettingsPreferenceFragment
 	@Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mWebUrl) {
-            launchUrl("get.cypheros.co");
+            launchUrl("http://www.cypheros.co/");
 		} else if (preference == mGoogleUrl) {
             launchUrl("https://plus.google.com/communities/111402352496339801246");
 		}
