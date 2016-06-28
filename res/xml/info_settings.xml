@@ -44,7 +44,7 @@
 	<!-- CypherOS GooglePlus -->
 	<Preference android:key="cypher_plus"
 			android:title="@string/cypher_plus_title"
-			android:summary="@string/cypher_website_plus_summary"
+			android:summary="@string/cypher_plus_title_summary"
             android:icon="@drawable/ic_settings_plus" />
 
 </PreferenceScreen>
