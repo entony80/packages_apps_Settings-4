@@ -26,10 +26,4 @@
         android:layout_gravity="bottom"
         android:scaleType="centerCrop"
            />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/cypher_logo_letters"
-        android:layout_gravity="center_horizontal"
-            />
 </FrameLayout>

@@ -36,6 +36,18 @@
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
+		
+		<!-- Device Information -->
+		<PreferenceScreen
+                android:key="cypher_info"
+                android:title="@string/device_information_title"
+                android:fragment="com.android.settings.cypher.Information" />
+				
+		<!-- Legal Information -->
+        <PreferenceScreen
+                android:key="container"
+                android:title="@string/legal_information"
+                android:fragment="com.android.settings.LegalSettings" />
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
@@ -45,12 +57,6 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
-		
-		<!-- Device Information -->
-		<PreferenceScreen
-                android:key="cypher_info"
-                android:title="@string/device_information_title"
-                android:fragment="com.android.settings.cypher.Information" />
 
         <!-- Manual -->
         <PreferenceScreen
@@ -58,12 +64,6 @@
                 android:title="@string/manual">
             <intent android:action="android.settings.SHOW_MANUAL" />
         </PreferenceScreen>
-
-        <!-- Legal Information -->
-        <PreferenceScreen
-                android:key="container"
-                android:title="@string/legal_information"
-                android:fragment="com.android.settings.LegalSettings" />
 
         <PreferenceScreen
                 android:key="regulatory_info"
