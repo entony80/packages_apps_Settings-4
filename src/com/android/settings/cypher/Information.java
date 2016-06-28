@@ -122,5 +122,4 @@ public class Information extends SettingsPreferenceFragment
                     return result;
                 }
             };	
-	}
 }
