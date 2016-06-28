@@ -16,11 +16,17 @@
 
 package com.android.settings.cypher;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.provider.SearchIndexableResource;
 
 import com.android.settings.R;
@@ -31,6 +37,7 @@ import com.android.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
@@ -40,6 +47,9 @@ public class Information extends SettingsPreferenceFragment
     private static final String TAG = Information.class.getSimpleName();
 	
 	private static final String KEY_DEVICE_MAINTAINER = "device_maintainer";
+	
+	Preference mWebUrl;
+	Preference mGoogleUrl;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -47,6 +57,9 @@ public class Information extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.info_settings);
         final PreferenceScreen prefScreen = getPreferenceScreen();
+		
+		mWebUrl = findPreference("cypher_web");
+		mGoogleUrl = findPreference("cypher_plus");
 		
 		setMaintainerSummary(KEY_DEVICE_MAINTAINER, "ro.cypher.maintainer");
 
@@ -56,6 +69,23 @@ public class Information extends SettingsPreferenceFragment
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
         return CMMetricsLogger.MAIN_SETTINGS;
+    }
+	
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mWebUrl) {
+            launchUrl("get.cypheros.co");
+        }
+		} else if (preference == mGoogleUrl) {
+            launchUrl("https://plus.google.com/communities/111402352496339801246");
+		}
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+	
+	private void launchUrl(String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);
+        getActivity().startActivity(donate);
     }
 	
 	private void setMaintainerSummary(String preference, String property) {
