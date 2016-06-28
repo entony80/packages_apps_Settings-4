@@ -31,13 +31,6 @@
             android:summary="@string/autoperf_summary"
             android:defaultValue="true" />
 
-        <!-- Bar color -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-            android:defaultValue="true" />
-			
 	    <PreferenceScreen
             android:key="battery_bar"
             android:fragment="com.android.settings.cypher.fragments.BatteryBar"
@@ -50,7 +43,7 @@
                 android:title="@string/battery_light_title"
 				android:summary="@string/battery_light_title_summary"
                 android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-
+				
         <com.android.settings.fuelgauge.BatteryHistoryPreference
             android:key="battery_history" />
 
