@@ -886,4 +886,42 @@
     <string name="recents_clear_all_location_bottom_left">In basso a sinistra</string>
     <string name="recents_clear_all_location_bottom_center">In basso al centro</string>
 
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Traffico di rete</string>
+    <string name="network_traffic_summary">Monitorare i dati e la velocità della connessione wi-fi in uscita e entrata</string>
+   <string name="show_network_traffic_state">Monitorare il traffico di rete nella barra di stato</string>
+   <string name="show_network_traffic_unit">Unità di visualizzazione</string>
+   <string name="show_network_traffic_frequency">Intervallo di aggiornamento</string>
+   <string name="show_network_traffic_disable">Disabilitato</string>
+   <string name="show_network_traffic_up">In uscita</string>
+   <string name="show_network_traffic_down">In entrata</string>
+   <string name="show_network_traffic_all">In uscita e in entrata</string>
+   <string name="show_network_traffic_bit">Bit al secondo</string>
+   <string name="show_network_traffic_byte">Byte al secondo</string>
+   <string name="show_network_traffic_500">500 ms</string>
+   <string name="show_network_traffic_1000">1000 ms</string>
+   <string name="show_network_traffic_1500">1500 ms</string>
+   <string name="show_network_traffic_2000">2000 ms</string>
+   <string name="network_traffic_hidearrow">Nascondi frecce</string>
+   <string name="network_traffic_hidearrow_summary">Nascondere le frecce degli indicatori di traffico</string>
+   <string name="network_traffic_autohide">Nascondi automaticamente</string>
+   <string name="network_traffic_autohide_summary">Nascondi il traffico rete quando non c\'è attività</string>
+   <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
+   <string name="network_traffic_color_style">Stile colore</string>
+   <string name="network_traffic_color_reset">Ripristina colore</string>
+   <string name="network_traffic_color_reset_message">Ripristinare il colore del traffico di rete di default?</string>
+	
+	<!-- Status bar - Battery -->
+    <string name="battery_style_title">Stile dello stato batteria</string>
+    <string name="battery_style_icon">Icona</string>
+    <string name="battery_style_circle">Cerchio</string>
+    <string name="battery_style_text">Testo</string>
+    <string name="battery_style_hidden">Nascosto</string>
+
+    <!-- Status bar - Battery percentage -->
+    <string name="battery_percentage_title">Percentuale batteria</string>
+    <string name="battery_percentage_default">Nascosto (default)</string>
+    <string name="battery_percentage_text_inside">All\'interno dell\'icona</string>
+    <string name="battery_percentage_text_next">Accanto all\'icona</string>
+	
 </resources>
