@@ -15,14 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Aicp Settings -->
-    <string name="aicp_settings_title">AICP Extras</string>
-    <string name="aicp_settings_external_title">AICP External</string>
-    <string name="header_category_personalization">Personalization</string>
-    <string name="supersu_title">SuperSU</string>
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
-    <string name="easter_egg_snack">"Guess the flavor"</string>
+    <string name="easter_egg_snack">"I am the new flavor!"</string>
 	
 	<string name="device_api_default">Community Preview 3</string>
 	
