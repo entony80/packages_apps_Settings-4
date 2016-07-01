@@ -3,7 +3,9 @@
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+     
           http://www.apache.org/licenses/LICENSE-2.0
+          
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -12,18 +14,24 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Aicp Settings -->
-    <string name="aicp_settings_title">AICP Extra</string>
-    <string name="aicp_settings_external_title">AICP esterno</string>
-    <string name="header_category_personalization">Personalizzazione</string>
-    <string name="supersu_title">SuperSU</string>
     <string name="reset">Reimposta</string>
     <string name="attention">Attenzione</string>
-    <string name="easter_egg_snack">"A. I. C. P."</string>
+    <string name="easter_egg_snack">"Io sono il nuovo sapore!"</string>
 
     <string name="device_api_default">Community Preview 3</string>
-    
+	
+    <!-- Software Information, CypherOS device maintainer name -->
+    <string name="device_maintainer">Manutentore dispositivo</string>
+    <string name="device_maintainers">Manutentori del dispositivo</string>
+	
+	<string name="social_category_title">Social</string>
+	<string name="cypher_website_title">OnTheWeb</string>
+	<string name="cypher_website_title_summary">Per avere le ultime notizie e aggiornare le informazioni visitate il nostro sito</string>
+	<string name="cypher_plus_title">CypherPlus</string>
+	<string name="cypher_plus_title_summary">Se si desidera maggiori interazioni, unitevi con altri utenti alla nostra comunità Google Plus</string>
+
     <string name="general_options_title">Generale</string>
+
 
     <string name="allow_lights_title">Luci in modalità silenziosa</string>
 
@@ -116,8 +124,6 @@
     <string name="shortcut_action_help_button">Pulsante</string>
     <string name="shortcut_action_help_app">App</string>
     <string name="shortcut_action_help_icon">, mentre selezionando l\'icona, si aprono possibilità  di personalizzazione</string>
-       <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona Aggiungi. Una volta %1$s è aggiunto, selezionando la riga cambierà il target%2$s\n\nPer rimuovere un %1$s, strisciare la riga in orizzontale verso sinistra o destra. Riordinare un %1$s nell\'elenco trascinando verticalmente l\'ancora a sinistra.\n\nPer cancellare o ripristinare le impostazioni, selezionare l\'icona di ripristino.</string>
-
     <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona aggiungi. Una volta che un %1$s si aggiunge, selezionando la riga cambierà l\'obiettivo %2$s\n\nper rimuovere un %1$s , strisciare la fila orizzontale verso sinistra o destra. Re-ordine a %1$s nella lista trascinando verticalmente l\'ancora a sinistra.\n\nPer trasparente o ripristinare le impostazioni, selezionare l\'icona per ripristinare.</string>
     <string name="shortcut_action_help_delete_last_entry">Rimozione di ogni %1$s nella lista si disattierà la funzione del tutto.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Rimozione di ogni %1$s nella lista disabiliterà il secondo strato di torta del tutto.</string>
@@ -202,11 +208,6 @@
     <string name="dbl_tap_vib_title">Vibrazione doppia pressione</string>
     <string name="dbl_tap_vib_summary">Vibra sulla doppia pressione del pulsante accensione quanto l\'opzione è attiva</string>
 
-    <!-- Battery Saver Settings -->
-    <!-- Disable Battery Saver Warning Color -->
-    <string name="battery_saver_color_title">Colore avviso</string>
-    <string name="battery_saver_color_summary">Attiva il colore arancio nella barra di stato quando viene attivato il risparmio batteria</string>
-
     <!-- Doze options -->
     <string name="display_category_doze_options_title">Display ambiente</string>
     <string name="doze_settings_title">Opzioni avanzate Doze</string>
@@ -231,11 +232,6 @@
     <string name="doze_notification_color_invert_title">Inversione dei colori</string>
     <string name="doze_notification_color_invert_summary_off">Le notifiche di visualizzazione ambientali non saranno invertite. Utilizzare per i temi scuri.</string>
     <string name="doze_notification_color_invert_summary_on">Le notifiche di visualizzazione ambientali si mostreranno invertite. Utilizza per temi light/stock.</string>
-
-    <!-- On-The-Go -->
-    <string name="power_menu_onthego_title">Modalità On-The-Go</string>
-    <string name="onthego_alpha_title">Modalità trasparenza On-The-Go</string>
-    <string name="onthego_alpha_summary">Valore di trasparenza della modalità On-The-Go.</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category">SlimDim</string>
@@ -268,12 +264,6 @@
     <string name="less_notification_sounds_2m">2 minuti</string>
     <string name="less_notification_sounds_5m">5 minuti</string>
 
-    <!-- Battery notifications -->
-    <string name="battery_saver_notif_title">Notifica risparmio batteria</string>
-    <string name="battery_saver_notif_summary">Mostra la notifica del risparmio batteria quando attivato</string>
-    <string name="battery_low_notif_title">Notifica della batteria scarica</string>
-    <string name="battery_low_notif_summary">Mostra la notifica della batteria scarica quando attivato</string>
-
     <!--Status bar date -->
     <string name="status_bar_date_title">Data</string>
     <string name="status_bar_date_none">Nascosta (Predefinito)</string>
@@ -290,7 +280,6 @@
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_category">Orologio</string>
-    <string name="clock_color_switch">Abilita colore orologio</string>
     <string name="clock_color_title">Colore</string>
     <string name="status_bar_clock_style_reset">Ripristino colore</string>
     <string name="status_bar_clock_style_reset_message">Ripristinare colore orologio?</string>
@@ -359,11 +348,6 @@
     <string name="show_enter_key_title">Mostra tasto invio</string>
     <string name="show_enter_key_summary">Forzare la tastiera per visualizzare il tasto Invio invece di emoticons</string>
 
-    <!-- Battery stats reset -->
-    <string name="battery_stats_reset">Ripristina statistiche</string>
-    <string name="battery_stats_message">Le statistiche e la storia della batteria stanno per essere ripristinate</string>
-    <string name="ok_string">Ok</string>
-
     <!-- Slim Recent App Sidebar  -->
     <string name="recent_panel_category">Slim Applicazioni recenti</string>
     <string name="recent_app_sidebar_title">Applicazione Side Bar</string>
@@ -375,7 +359,6 @@
     <string name="recent_app_sidebar_bg_color_title">Colore di sfondo</string>
     <string name="recent_app_sidebar_scale_title">Dimensione</string>
 
-    
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock Blocker</string>
     <string name="wakelock_blocker_summary">Blocco di sistema Wakelocks</string>
@@ -455,7 +438,7 @@
     <string name="action_value_default_action">Azione predefinita</string>
     <string name="action_value_select_app">Azione App</string>
     <string name="action_value_custom_action">Azione personalizzata</string>
-
+    
     <string name="action_value_default_action">Predefinito</string>
     <string name="action_value_select_app">app</string>
     <string name="action_value_back">Indietro</string>
@@ -601,7 +584,7 @@
     <string name="smartbar_button_animation_ripple">Ondulazione</string>
     <string name="smartbar_button_animation_spring">Spring</string>
     <string name="smartbar_factory_reset_title">Ripristina impostazioni di fabbrica</string>
-    <string name="smartbar_factory_reset_summary">La SmartBar si ripristinerà a una configurazione di fabbrica</string>
+        <string name="reset">Ripristina</string>
     <string name="smartbar_factory_reset_confirm">Sei sicuro di voler ripristinare la Smartbar alle impostazioni di fabbrica?</string>
     <string name="smartbar_ime_action_title">Azioni d\'ingresso</string>
     <string name="smartbar_ime_action_summary">Impostare i pulsanti da visualizzare quando viene visualizzatala tastiera</string>
@@ -642,7 +625,7 @@
     <!-- Hide apps from recents -->
     <string name="hide_from_recents_add_app">Aggiungi App</string>
     
-<!-- Additions Settings -->
+    <!-- Additions Settings -->
 	<string name="addition_settings">Aggiunte</string>
 	<string name="additions_about_notice_title">About</string>
 	<string name="additions_about_notice_summary">Ciao. Questo è il luogo di tutte quelle funzioni amate e portate per voi dai migliori sviluppatori.</string>
@@ -655,11 +638,10 @@
 	<string name="build_notes_title">Note di costruzione</string>
 	<string name="build_notes_title_summary">Scopri le ultime modifiche di CypherOS</string>
 	<string name="changelog_cypher_error">Le note di costruzione non possono essere localizzate. Contatta il produttore del Software</string>
-	
 	<string name="gestures_settings">Gesti</string>
 	
-	<!-- Battery Bar -->
-    <string name="battery_icon">Stile icona batteria</string>
+  <!-- Battery Bar -->
+  <string name="battery_icon">Stile icona batteria</string>
   <string name="battery_not_title">Icona della batteria nelle notifiche</string>
   <string name="battery_not_summary">Icona della batteria mostrerà dove il pulsante cancella tutto si presenta</string>
   <string name="battery_bar_location">Posizione barra batteria</string>
@@ -674,6 +656,7 @@
   <!-- PA Pie control -->
    <string name="pa_piecontrol_settings_summary">Personalizzare i controlli PA Pie 2.0, stile, dimensione e colore</string>
   <string name="pa_pie_control_title">Pie controllo</string>
+  <string name="pa_pie_control_title_summary">Navigare con il sistema Android in maniera fluida e veloce con grande visualty e produttività</string>
   <string name="pa_pie_control_enable_title">Abilita controllo Pie</string>
   <string name="pa_pie_targets_title">Azioni Pie</string>
   <string name="pa_pie_style_title">Stile Pie</string>
@@ -735,11 +718,13 @@
   <string name="pa_pie_button_color_title">Colore pulsanti</string>
   
   <string name="reset_cypher">CypherOS</string>
-    <string name="reset_android">Android</string>
+   <string name="reset_android">Android</string>
     
-    <!-- Gesture Anywhere -->
-    <string name="gesture_anywhere_title">Gesti ovunque</string>
-    <string name="gesture_anywhere_title_summary">Accedi alle tue applicazioni preferite con un semplice tocco del dito</string>
+
+
+   <!-- Gesture Anywhere -->
+   <string name="gesture_anywhere_title">Gesti ovunque</string>
+   <string name="gesture_anywhere_title_summary">Accedi alle tue applicazioni preferite con un semplice tocco del dito</string>
   <string name="gesture_anywhere_enabled_title">Abilita gesti ovunque</string>
   <string name="gesture_anywhere_enabled_summary">Abilita il gesto in primo piano ovunque</string>
   <string name="gesture_anywhere_position_title">Posizione attivazione</string>
@@ -825,7 +810,7 @@
     <string name="status_bar_logo_position_left">Sinistra</string>
     <string name="status_bar_logo_position_right">Destra</string>
 	<string name="status_bar_carrier_font_style_title">Stile carattere</string>
-	
+
 	<!-- Status bar temperature -->
     <string name="status_bar_temperature_title">Temperatura del meteo</string>
   <string name="status_bar_temperature_hidden">Nascosto</string>
@@ -867,7 +852,7 @@
   <!-- Three-fingers-swipe to screenshot -->
     <string name="three_finger_gesture">Gesto tre dita</string>
   <string name="three_finger_gesture_summary">Strisciare tre dita per catturare l\'immagine dello schermo (screenshot)</string>
-	
+
 	<!-- Motion gestures -->
 	<string name="motion_gestures_title">Gesti di movimento</string>
 	<string name="motion_gestures_title_summary">Interagisci con il tuo dispositivo utilizzando i movimenti della mano e del corpo</string>
@@ -923,5 +908,13 @@
     <string name="battery_percentage_default">Nascosto (default)</string>
     <string name="battery_percentage_text_inside">All\'interno dell\'icona</string>
     <string name="battery_percentage_text_next">Accanto all\'icona</string>
-	
+    
+    <!-- Floating peeking notifications -->
+    <string name="app_notification_floating_title">Controllo fluttuante</string>
+    <string name="app_notification_floating_summary">Attivare la modalità fluttuante per controllare le notifiche</string>
+    <string name="filter_notif_no_floating">No fluttuante</string>
+    <string name="notifications_no_floating">No fluttuante</string>
+    <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
+    <string name="usage_access_title_summary">Cambia con le applicazioni che possono avere il rispettivo accesso al dispositivo</string>
+
 </resources>
