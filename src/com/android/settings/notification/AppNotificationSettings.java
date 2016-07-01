@@ -59,6 +59,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_PEEKABLE = "peekable";
     private static final String KEY_SENSITIVE = "sensitive";
     private static final String KEY_APP_SETTINGS = "app_settings";
+	private static final String KEY_FLOATING = "floating";
     private static final String KEY_SHOW_ON_KEYGUARD = "show_on_keyguard";
     private static final String KEY_NO_ONGOING_ON_KEYGUARD = "no_ongoing_on_keyguard";
 
@@ -73,6 +74,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mPriority;
     private SwitchPreference mPeekable;
     private SwitchPreference mSensitive;
+	private SwitchPreference mFloating;
     private SwitchPreference mShowOnKeyguard;
     private SwitchPreference mShowNoOngoingOnKeyguard;
     private AppRow mAppRow;
@@ -156,6 +158,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority.setChecked(mAppRow.priority);
         mPeekable.setChecked(mAppRow.peekable);
         mSensitive.setChecked(mAppRow.sensitive);
+		mFloating.setChecked(mAppRow.floating);
 
         mBlock.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
@@ -185,6 +188,14 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean peekable = (Boolean) newValue;
                 return mBackend.setPeekable(pkg, mUid, peekable);
+            }
+        });
+		
+		mFloating.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                final boolean status = (Boolean) newValue;
+                return mBackend.setFloating(pkg, status);
             }
         });
 
@@ -271,6 +282,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         setVisible(mBlock, !mIsSystemPackage);
         setVisible(mPriority, mIsSystemPackage || !banned);
         setVisible(mPeekable, mIsSystemPackage || !banned && headsUpEnabled);
+		setVisible(mFloating, mIsSystemPackage || !banned);
         setVisible(mSensitive, mIsSystemPackage || !banned && lockscreenSecure
                 && lockscreenNotificationsEnabled && allowPrivate);
         setVisible(mShowOnKeyguard, mIsSystemPackage || !banned);

@@ -46,6 +46,7 @@ public class NotificationBackend {
         row.banned = getNotificationsBanned(row.pkg, row.uid);
         row.priority = getHighPriority(row.pkg, row.uid);
         row.peekable = getPeekable(row.pkg, row.uid);
+		row.floating = getFloating(row.pkg);
         row.sensitive = getSensitive(row.pkg, row.uid);
         return row;
     }
@@ -108,6 +109,25 @@ public class NotificationBackend {
            return false;
         }
     }
+	
+	public boolean getFloating(String pkg) {
+        try {
+            return sINM.isPackageAllowedForFloatingMode(pkg);
+        } catch (Exception e) {
+            Log.w(TAG, "Error calling NoMan", e);
+            return false;
+        }
+    }
+
+    public boolean setFloating(String pkg, boolean status) {
+        try {
+            sINM.setFloatingModeBlacklistStatus(pkg, status);
+            return true;
+        } catch (Exception e) {
+           Log.w(TAG, "Error calling NoMan", e);
+           return false;
+        }
+    }
 
     public boolean getSensitive(String pkg, int uid) {
         try {
@@ -162,6 +182,7 @@ public class NotificationBackend {
         public boolean banned;
         public boolean priority;
         public boolean peekable;
+		public boolean floating;
         public boolean sensitive;
         public boolean first;  // first app in section
     }

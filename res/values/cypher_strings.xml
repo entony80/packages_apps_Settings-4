@@ -908,4 +908,9 @@
     <string name="battery_percentage_text_inside">Inside the icon</string>
     <string name="battery_percentage_text_next">Next to the icon</string>
 	
+	<!-- Floating peeking notifications -->
+    <string name="app_notification_floating_title">Floating peek</string>
+    <string name="app_notification_floating_summary">Activate floating mode for peeking notifications</string>
+    <string name="filter_notif_no_floating">No floating</string>
+	
 </resources>
