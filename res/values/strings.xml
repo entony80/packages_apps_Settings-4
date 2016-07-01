@@ -4645,7 +4645,6 @@
 
     <!-- Title of Usage Access preference item [CHAR LIMIT=30] -->
     <string name="usage_access_title">Apps access</string>
-	<string name="usage_access_title_summary">Change which applications can have it's respective access to your device</string>
 
     <!-- Sound settings screen, setting check box label -->
     <string name="emergency_tone_title">Emergency tone</string>
