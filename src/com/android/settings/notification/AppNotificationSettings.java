@@ -81,6 +81,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private boolean mCreated;
     private boolean mIsSystemPackage;
     private int mUid;
+	private String mPkg;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -114,24 +115,24 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             return;
         }
 
-        final String pkg = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_NAME)
+        mPkg = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_NAME)
                 ? args.getString(AppInfoBase.ARG_PACKAGE_NAME)
                 : intent.getStringExtra(Settings.EXTRA_APP_PACKAGE);
         mUid = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_UID)
                 ? args.getInt(AppInfoBase.ARG_PACKAGE_UID)
                 : intent.getIntExtra(Settings.EXTRA_APP_UID, -1);
-        if (mUid == -1 || TextUtils.isEmpty(pkg)) {
-            Log.w(TAG, "Missing extras: " + Settings.EXTRA_APP_PACKAGE + " was " + pkg + ", "
+        if (mUid == -1 || TextUtils.isEmpty(mPkg)) {
+            Log.w(TAG, "Missing extras: " + Settings.EXTRA_APP_PACKAGE + " was " + mPkg + ", "
                     + Settings.EXTRA_APP_UID + " was " + mUid);
             toastAndFinish();
             return;
         }
 
-        if (DEBUG) Log.d(TAG, "Load details for pkg=" + pkg + " uid=" + mUid);
+        if (DEBUG) Log.d(TAG, "Load details for pkg=" + mPkg + " uid=" + mUid);
         final PackageManager pm = getPackageManager();
-        final PackageInfo info = findPackageInfo(pm, pkg, mUid);
+        final PackageInfo info = findPackageInfo(pm, mPkg, mUid);
         if (info == null) {
-            Log.w(TAG, "Failed to find package info: " + Settings.EXTRA_APP_PACKAGE + " was " + pkg
+            Log.w(TAG, "Failed to find package info: " + Settings.EXTRA_APP_PACKAGE + " was " + mPkg
                     + ", " + Settings.EXTRA_APP_UID + " was " + mUid);
             toastAndFinish();
             return;
@@ -167,7 +168,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
                 if (banned) {
                     MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BAN_APP_NOTES, pkg);
                 }
-                final boolean success =  mBackend.setNotificationsBanned(pkg, mUid, banned);
+                final boolean success =  mBackend.setNotificationsBanned(mPkg, mUid, banned);
                 if (success) {
                     updateDependents(banned);
                 }
@@ -179,7 +180,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean priority = (Boolean) newValue;
-                return mBackend.setHighPriority(pkg, mUid, priority);
+                return mBackend.setHighPriority(mPkg, mUid, priority);
             }
         });
 
@@ -187,15 +188,15 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean peekable = (Boolean) newValue;
-                return mBackend.setPeekable(pkg, mUid, peekable);
+                return mBackend.setPeekable(mPkg, mUid, peekable);
             }
         });
 		
 		mFloating.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final boolean status = (Boolean) newValue;
-                return mBackend.setFloating(pkg, status);
+                final boolean floating = (Boolean) newValue;
+                return mBackend.setFloating(mPkg, mUid, floating);
             }
         });
 
@@ -203,7 +204,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean sensitive = (Boolean) newValue;
-                return mBackend.setSensitive(pkg, mUid, sensitive);
+                return mBackend.setSensitive(mPkg, mUid, sensitive);
             }
         });
 
