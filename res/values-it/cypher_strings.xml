@@ -12,14 +12,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Aicp Settings -->
-    <string name="aicp_settings_title">AICP Extra</string>
-    <string name="aicp_settings_external_title">AICP esterno</string>
-    <string name="header_category_personalization">Personalizzazione</string>
-    <string name="supersu_title">SuperSU</string>
+   
     <string name="reset">Reimposta</string>
     <string name="attention">Attenzione</string>
-    <string name="easter_egg_snack">"A. I. C. P."</string>
+    <string name="easter_egg_snack">"Io sono il nuovo sapore!"</string>
 
     <string name="device_api_default">Community Preview 3</string>
     
