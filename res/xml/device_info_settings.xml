@@ -42,12 +42,6 @@
                 android:key="cypher_info"
                 android:title="@string/device_information_title"
                 android:fragment="com.android.settings.cypher.Information" />
-				
-		<!-- Legal Information -->
-        <PreferenceScreen
-                android:key="container"
-                android:title="@string/legal_information"
-                android:fragment="com.android.settings.LegalSettings" />
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"

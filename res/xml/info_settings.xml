@@ -26,6 +26,12 @@
             android:fragment="com.android.settings.cypher.BuildNotes"
             />
 			
+	<!-- Legal Information -->
+        <PreferenceScreen
+                android:key="container"
+                android:title="@string/legal_information"
+                android:fragment="com.android.settings.LegalSettings" />
+			
 	<!-- Device Maintainer -->
 	<Preference android:key="device_maintainer"
             style="?android:preferenceInformationStyle"
