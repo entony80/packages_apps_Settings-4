@@ -82,9 +82,8 @@ public class PowerUsageSummary extends PowerUsageBase
     static final String TAG = "PowerUsageSummary";
 
     private static final String KEY_APP_LIST = "app_list";
-
     private static final String KEY_BATTERY_HISTORY = "battery_history";
-    private static final String KEY_PERF_PROFILE = "pref_perf_profile";
+	private static final String KEY_PERF_PROFILE = "pref_perf_profile";
     private static final String KEY_PER_APP_PROFILES = "app_perf_profiles_enabled";
 
     private static final String KEY_BATTERY_SAVER = "low_power";
@@ -106,7 +105,7 @@ public class PowerUsageSummary extends PowerUsageBase
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
-    private ListPreference mPerfProfilePref;
+	private ListPreference mPerfProfilePref;
     private SwitchPreference mPerAppProfiles;
     private SwitchPreference mBatterySaverPref;
 
@@ -123,8 +122,8 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final int MAX_ITEMS_TO_LIST = USE_FAKE_DATA ? 30 : 10;
     private static final int MIN_AVERAGE_POWER_THRESHOLD_MILLI_AMP = 10;
     private static final int SECONDS_IN_HOUR = 60 * 60;
-
-    private PowerManager mPowerManager;
+	
+	private PowerManager mPowerManager;
     private PerformanceManager mPerf;
 
     private class PerformanceProfileObserver extends ContentObserver {
@@ -141,14 +140,14 @@ public class PowerUsageSummary extends PowerUsageBase
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-
-        mPowerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
+		
+		mPowerManager = (PowerManager)getSystemService(Context.POWER_SERVICE);
         mPerf = PerformanceManager.getInstance(getActivity());
 
         addPreferencesFromResource(R.xml.power_usage_summary);
         mHistPref = (BatteryHistoryPreference) findPreference(KEY_BATTERY_HISTORY);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
-        mBatterySaverPref = (SwitchPreference) findPreference(KEY_BATTERY_SAVER);
+		mBatterySaverPref = (SwitchPreference) findPreference(KEY_BATTERY_SAVER);
 
         mNumPerfProfiles = mPerf.getNumberOfProfiles();
         mPerfProfilePref = (ListPreference) findPreference(KEY_PERF_PROFILE);
@@ -165,8 +164,8 @@ public class PowerUsageSummary extends PowerUsageBase
             mPerfProfilePref.setOrder(-1);
             mPerfProfileEntries = new String[mNumPerfProfiles];
             mPerfProfileValues = new String[mNumPerfProfiles];
-
-            // Filter out unsupported profiles
+			
+			// Filter out unsupported profiles
             final String[] entries = getResources().getStringArray(
                     org.cyanogenmod.platform.internal.R.array.perf_profile_entries);
             final int[] values = getResources().getIntArray(
@@ -196,8 +195,8 @@ public class PowerUsageSummary extends PowerUsageBase
     public void onResume() {
         super.onResume();
         refreshStats();
-
-        if (mBatterySaverPref != null) {
+		
+		if (mBatterySaverPref != null) {
             refreshBatterySaverOptions();
         }
 
@@ -214,8 +213,8 @@ public class PowerUsageSummary extends PowerUsageBase
         BatteryEntry.stopRequestQueue();
         mHandler.removeMessages(BatteryEntry.MSG_UPDATE_NAME_ICON);
         super.onPause();
-
-        if (mPerfProfilePref != null) {
+		
+		if (mPerfProfilePref != null) {
             ContentResolver resolver = getActivity().getContentResolver();
             resolver.unregisterContentObserver(mPerformanceProfileObserver);
         }
@@ -240,8 +239,8 @@ public class PowerUsageSummary extends PowerUsageBase
                 mStatsType, entry, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
-    @Override
+	
+	@Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (newValue != null) {
             if (preference == mPerfProfilePref) {
@@ -258,7 +257,7 @@ public class PowerUsageSummary extends PowerUsageBase
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		int selectedIcon = Settings.System.getInt(getActivity().getContentResolver(),
+        int selectedIcon = Settings.System.getInt(getActivity().getContentResolver(),
                                     Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
         int selectedPercentage = Settings.System.getInt(getActivity().getContentResolver(),
                                     Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
@@ -267,16 +266,16 @@ public class PowerUsageSummary extends PowerUsageBase
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
                     .setAlphabeticShortcut('t');
         }
-		
-		SubMenu batteryStyle = menu.addSubMenu(1, MENU_BATTERY_STYLE, 1, R.string.battery_style_title);
 
-        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.status_bar_battery_style_icon)
+        SubMenu batteryStyle = menu.addSubMenu(1, MENU_BATTERY_STYLE, 1, R.string.battery_style_title);
+
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_style_icon)
                     .setChecked(selectedIcon == 0);
-        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 2, R.string.status_bar_battery_style_circle)
+        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 2, R.string.battery_style_circle)
                     .setChecked(selectedIcon == 2);
-        batteryStyle.add(1, SUBMENU_BATTERY_TEXT, 3, R.string.status_bar_battery_style_text)
+        batteryStyle.add(1, SUBMENU_BATTERY_TEXT, 3, R.string.battery_style_text)
                     .setChecked(selectedIcon == 6);
-        batteryStyle.add(1, SUBMENU_BATTERY_HIDDEN, 4, R.string.status_bar_battery_style_hidden)
+        batteryStyle.add(1, SUBMENU_BATTERY_HIDDEN, 4, R.string.battery_style_hidden)
                     .setChecked(selectedIcon == 4);
         batteryStyle.setGroupCheckable(1, true, true);
 
@@ -334,7 +333,7 @@ public class PowerUsageSummary extends PowerUsageBase
                                 Utils.formatPercentage(intVals[i]));
                     } else {
                         strVals[i] =
-                                res.getString(R.string.battery_saver_turn_on_automatically_never);
+						        res.getString(R.string.battery_saver_turn_on_automatically_never);
                     }
                 }
 
@@ -352,7 +351,6 @@ public class PowerUsageSummary extends PowerUsageBase
                                 })
                         .setPositiveButton(R.string.okay, null);
                 builder.create().show();
-
                 return true;
             case MENU_HIGH_POWER_APPS:
                 Bundle args = new Bundle();
@@ -361,7 +359,7 @@ public class PowerUsageSummary extends PowerUsageBase
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
                 return true;
-			case SUBMENU_BATTERY_BAR:
+            case SUBMENU_BATTERY_BAR:
                 item.setChecked(true);
                 Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
@@ -406,8 +404,8 @@ public class PowerUsageSummary extends PowerUsageBase
         notAvailable.setTitle(R.string.power_usage_not_available);
         mAppListGroup.addPreference(notAvailable);
     }
-
-    private void refreshBatterySaverOptions() {
+	
+	private void refreshBatterySaverOptions() {
         if (mBatterySaverPref != null) {
             mBatterySaverPref.setEnabled(!mBatteryPluggedIn);
             mBatterySaverPref.setChecked(!mBatteryPluggedIn && mPowerManager.isPowerSaveMode());
@@ -424,8 +422,8 @@ public class PowerUsageSummary extends PowerUsageBase
     private static boolean isSystemUid(int uid) {
         return uid >= Process.SYSTEM_UID && uid < Process.FIRST_APPLICATION_UID;
     }
-
-    private boolean isBatteryPluggedIn(Intent intent) {
+	
+	private boolean isBatteryPluggedIn(Intent intent) {
         int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS,
                 BatteryManager.BATTERY_STATUS_UNKNOWN);
         return status == BatteryManager.BATTERY_STATUS_CHARGING
@@ -521,8 +519,8 @@ public class PowerUsageSummary extends PowerUsageBase
         });
         return results;
     }
-
-    private void updatePerformanceSummary() {
+	
+	private void updatePerformanceSummary() {
         int value = mPerf.getPowerProfile();
         String summary = "";
         int count = mPerfProfileValues.length;
@@ -537,8 +535,8 @@ public class PowerUsageSummary extends PowerUsageBase
         }
         mPerfProfilePref.setSummary(String.format("%s", summary));
     }
-
-    private void updatePerformanceValue() {
+	
+	private void updatePerformanceValue() {
         if (mPerfProfilePref == null) {
             return;
         }
@@ -555,7 +553,6 @@ public class PowerUsageSummary extends PowerUsageBase
     protected void refreshStats() {
         super.refreshStats();
         updatePreference(mHistPref);
-
         mAppListGroup.removeAll();
         mAppListGroup.setOrderingAsAdded(false);
         boolean addedSome = false;
