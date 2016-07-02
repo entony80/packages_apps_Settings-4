@@ -166,7 +166,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean banned = (Boolean) newValue;
                 if (banned) {
-                    MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BAN_APP_NOTES, mPkg);
+                    MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BAN_APP_NOTES, pkg);
                 }
                 final boolean success =  mBackend.setNotificationsBanned(mPkg, mUid, banned);
                 if (success) {
@@ -221,7 +221,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             removePreference(KEY_APP_SETTINGS);
         }
 
-        int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(mPkg, mUid);
+        int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
         mShowOnKeyguard.setChecked((keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) != 0);
         mShowNoOngoingOnKeyguard.setChecked(
                 (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) != 0);
@@ -230,14 +230,14 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean showOnKeyguard = (Boolean) newValue;
-                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(mPkg, mUid);
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
 
                 if (showOnKeyguard && (keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) == 0) {
                     keyguard |= Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
                 } else {
                     keyguard &= ~Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
                 }
-                return mBackend.setShowNotificationForPackageOnKeyguard(mPkg, mUid, keyguard);
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, mUid, keyguard);
             }
         });
 
@@ -245,14 +245,14 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean showNoOngoingOnKeyguard = (Boolean) newValue;
-                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(mPkg, mUid);
+                int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
                 if (showNoOngoingOnKeyguard
                         && (keyguard & Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD) == 0) {
                     keyguard |= Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
                 } else {
                     keyguard &= ~Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
                 }
-                return mBackend.setShowNotificationForPackageOnKeyguard(mPkg, mUid, keyguard);
+                return mBackend.setShowNotificationForPackageOnKeyguard(pkg, mUid, keyguard);
             }
         });
 
