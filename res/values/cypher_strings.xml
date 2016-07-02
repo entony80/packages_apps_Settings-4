@@ -1014,6 +1014,10 @@
     <string name="lockscreen_alpha">Alpha</string>
     <string name="lockscreen_security_alpha">Bouncer alpha</string>
 	
+	<!-- Application Settings -->
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
+	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
 	
