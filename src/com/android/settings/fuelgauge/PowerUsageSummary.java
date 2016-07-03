@@ -88,12 +88,13 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final String KEY_BATTERY_SAVER = "low_power";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
-    private static final int MENU_BATTERY_SAVER = Menu.FIRST + 2;
-    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
-    private static final int MENU_HELP = Menu.FIRST + 4;
+    private static final int MENU_BATTERY_SAVER = Menu.FIRST + 1;
+    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 2;
+    private static final int MENU_HELP = Menu.FIRST + 3;
 
-    private static final int MENU_BATTERY_STYLE             = Menu.FIRST + 5;
-    private static final int SUBMENU_BATTERY_BAR            = Menu.FIRST + 6;
+    private static final int MENU_BATTERY_STYLE             = Menu.FIRST + 4;
+    private static final int SUBMENU_BATTERY_BAR            = Menu.FIRST + 5;
+    private static final int SUBMENU_BATTERY_BAR_LANDSCAPE  = Menu.FIRST + 6;
     private static final int SUBMENU_BATTERY_CIRCLE         = Menu.FIRST + 7;
     private static final int SUBMENU_BATTERY_TEXT           = Menu.FIRST + 8;
     private static final int SUBMENU_BATTERY_HIDDEN         = Menu.FIRST + 9;
@@ -267,14 +268,15 @@ public class PowerUsageSummary extends PowerUsageBase
         }
 
         SubMenu batteryStyle = menu.addSubMenu(1, MENU_BATTERY_STYLE, 1, R.string.battery_style_title);
-
-        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_style_icon)
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_style_icon_portrait)
                     .setChecked(selectedIcon == 0);
-        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 2, R.string.battery_style_circle)
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR_LANDSCAPE, 2, R.string.battery_style_icon_landscape)
+                    .setChecked(selectedIcon == 5);
+        batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 3, R.string.battery_style_circle)
                     .setChecked(selectedIcon == 2);
-        batteryStyle.add(1, SUBMENU_BATTERY_TEXT, 3, R.string.battery_style_text)
+        batteryStyle.add(1, SUBMENU_BATTERY_TEXT, 4, R.string.battery_style_text)
                     .setChecked(selectedIcon == 6);
-        batteryStyle.add(1, SUBMENU_BATTERY_HIDDEN, 4, R.string.battery_style_hidden)
+        batteryStyle.add(1, SUBMENU_BATTERY_HIDDEN, 5, R.string.battery_style_hidden)
                     .setChecked(selectedIcon == 4);
         batteryStyle.setGroupCheckable(1, true, true);
 
@@ -362,6 +364,11 @@ public class PowerUsageSummary extends PowerUsageBase
                 item.setChecked(true);
                 Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
+                return true;
+            case SUBMENU_BATTERY_BAR_LANDSCAPE:
+                item.setChecked(true);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, 5);
                 return true;
             case SUBMENU_BATTERY_CIRCLE:
                 item.setChecked(true);
