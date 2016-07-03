@@ -71,9 +71,14 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String PREF_COLOR_PICKER = "clock_color";
     private static final String PREF_FONT_STYLE = "font_style";
     private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
+    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
+
+    private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
 
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
@@ -92,6 +97,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private ListPreference mFontStyle;
     private ListPreference mStatusBarClockFontSize;
     private ListPreference mClockDatePosition;
+
+    private ListPreference mStatusBarBattery;
+    private ListPreference mStatusBarBatteryShowPercent;
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
@@ -125,6 +133,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mStatusBarDate = (ListPreference) findPreference(STATUS_BAR_DATE);
         mStatusBarDateStyle = (ListPreference) findPreference(STATUS_BAR_DATE_STYLE);
         mStatusBarDateFormat = (ListPreference) findPreference(STATUS_BAR_DATE_FORMAT);
+        mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
+        mStatusBarBatteryShowPercent =
+                (ListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
         mQuickPulldown = (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
 
         int clockStyle = CMSettings.System.getInt(resolver,
@@ -170,6 +181,19 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         }
 
         parseClockDateFormats();
+
+        int batteryStyle = CMSettings.System.getInt(resolver,
+                CMSettings.System.STATUS_BAR_BATTERY_STYLE, 0);
+        mStatusBarBattery.setValue(String.valueOf(batteryStyle));
+        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
+        mStatusBarBattery.setOnPreferenceChangeListener(this);
+
+        int batteryShowPercent = CMSettings.System.getInt(resolver,
+                CMSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
+        mStatusBarBatteryShowPercent.setValue(String.valueOf(batteryShowPercent));
+        mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
+        enableStatusBarBatteryDependents(batteryStyle);
+        mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
 
         mColorPicker = (ColorPickerPreference) findPreference(PREF_COLOR_PICKER);
         mColorPicker.setOnPreferenceChangeListener(this);
@@ -334,6 +358,22 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 }
             }
             return true;
+        } else if (preference == mStatusBarBattery) {
+            int batteryStyle = Integer.valueOf((String) newValue);
+            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
+            CMSettings.System.putInt(
+                    resolver, CMSettings.System.STATUS_BAR_BATTERY_STYLE, batteryStyle);
+            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+            enableStatusBarBatteryDependents(batteryStyle);
+            return true;
+        } else if (preference == mStatusBarBatteryShowPercent) {
+            int batteryShowPercent = Integer.valueOf((String) newValue);
+            int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
+            CMSettings.System.putInt(
+                    resolver, CMSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, batteryShowPercent);
+            mStatusBarBatteryShowPercent.setSummary(
+                    mStatusBarBatteryShowPercent.getEntries()[index]);
+            return true;
         } else if (preference == mColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
                     .valueOf(newValue)));
@@ -395,6 +435,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 return true;
              default:
                 return super.onContextItemSelected(item);
+        }
+    }
+
+    private void enableStatusBarBatteryDependents(int batteryIconStyle) {
+        if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
+                batteryIconStyle == STATUS_BAR_BATTERY_STYLE_TEXT) {
+            mStatusBarBatteryShowPercent.setEnabled(false);
+        } else {
+            mStatusBarBatteryShowPercent.setEnabled(true);
         }
     }
 
