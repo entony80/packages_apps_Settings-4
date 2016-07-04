@@ -59,11 +59,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "RecentPanelSettings";
 
-    private static final String SHOW_RECENTS_SEARCHBAR = "recents_show_search_bar";
-    private static final String SHOW_MEMBAR_RECENTS = "systemui_recents_mem_display";
-    private static final String SHOW_FULLSCREEN_RECENTS = "recents_full_screen";
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
-    private static final String RECENTS_DISMISS_ALL = "recents_clear_all_dismiss_all";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
     // Preferences
@@ -85,12 +81,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
     private static final String RECENT_CARD_TEXT_COLOR =
             "recent_card_text_color";
 
-
-    private SwitchPreference mRecentsSearchBar;
-    private SwitchPreference mRecentsMemBar;
-    private SwitchPreference mRecentsFullscreen;
     private SwitchPreference mRecentsClearAll;
-    private SwitchPreference mRecentsDismissAll;
     private ListPreference mRecentsClearAllLocation;
     private SwitchPreference mUseSlimRecents;
     private SwitchPreference mShowRunningTasks;
@@ -112,11 +103,6 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.recents_panel_settings);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefSet = getPreferenceScreen();
-
-        mRecentsSearchBar = (SwitchPreference) prefSet.findPreference(SHOW_RECENTS_SEARCHBAR);
-        mRecentsMemBar = (SwitchPreference) prefSet.findPreference(SHOW_MEMBAR_RECENTS);
-        mRecentsFullscreen = (SwitchPreference) prefSet.findPreference(SHOW_FULLSCREEN_RECENTS);
-        mRecentsDismissAll = (SwitchPreference) prefSet.findPreference(RECENTS_DISMISS_ALL);
 
         mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
         mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
@@ -143,20 +129,12 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                     Settings.System.USE_SLIM_RECENTS, 0) == 1;
 
         if (slimRecent) {
-            mRecentsSearchBar.setEnabled(false);
-            mRecentsMemBar.setEnabled(false);
-            mRecentsFullscreen.setEnabled(false);
             mRecentsClearAll.setEnabled(false);
-            mRecentsDismissAll.setEnabled(false);
             mRecentsClearAllLocation.setEnabled(false);
             initializeAllPreferences();
             updateRecentPanelPreferences();
         } else {
-            mRecentsSearchBar.setEnabled(true);
-            mRecentsMemBar.setEnabled(true);
-            mRecentsFullscreen.setEnabled(true);
             mRecentsClearAll.setEnabled(true);
-            mRecentsDismissAll.setEnabled(true);
             mRecentsClearAllLocation.setEnabled(true);
         }
     }
