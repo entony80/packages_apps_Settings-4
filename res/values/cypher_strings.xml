@@ -935,16 +935,4 @@
     <string name="battery_stats_reset">Reset stats</string>
     <string name="battery_stats_message">Battery history stats are going to be reset</string>
     <string name="ok_string">Ok</string>
-	
-	<!-- Status bar notification settings -->
-	<string name="notification_ticker_title">Ticker</string>
-	<string name="notification_ticker_title_summary">The classic android notification style with a simple interface and compact usability</string>
-    <string name="notification_show_ticker_title">Enable</string>
-    <string name="notification_show_ticker_summary">Use ticker to present compact notifications</string>
-    <string name="notification_ticker_text_color_title">Text color</string>
-	<string name="ticker_reset_title">Reset</string>
-	<string name="ticker_reset_message">Would you like to reset ticker\'s text color to default"</string>
-	<string name="ticker_yes">Yes</string>
-	<string name="ticker_no">No</string>
-    
 </resources>
