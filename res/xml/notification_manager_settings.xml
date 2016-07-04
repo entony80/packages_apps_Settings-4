@@ -23,6 +23,13 @@
             android:key="heads_up_notifications"
             android:title="@string/heads_up_notifications"
             android:fragment="com.android.settings.headsup.HeadsUpSettings" />
+			
+	<!-- Ticker notifications -->
+	<PreferenceScreen
+	        android:key="ticker_notif"
+			android:title="@string/notification_ticker_title"
+			android:summary="@string/notification_ticker_title_summary"
+            android:fragment="com.android.settings.cypher.fragments.Ticker" />
 
     <!-- Zen Mode -->
     <PreferenceScreen
