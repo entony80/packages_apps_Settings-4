@@ -15,11 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- SmartDialog: Denial confirmation [CHAR LIMIT=NONE] -->
-    <string name="on_the_spot_deny">NO</string>
-    <!-- SmartDialog: Accept confirmation [CHAR LIMIT=NONE] -->
-    <string name="on_the_spot_confirm">YES</string>
-
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
     <string name="easter_egg_snack">"I am the new flavor!"</string>
