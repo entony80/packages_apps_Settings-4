@@ -66,5 +66,10 @@
          android:title="@string/navigation_settings_title"
          android:summary="@string/navigation_settings_title_summary"	
 		 android:icon="@drawable/ic_settings_navigation" />
+		 
+	<PreferenceScreen
+        android:key="floating_windows"
+	    android:title="@string/floating_windows"  
+        android:fragment="com.android.settings.cypher.fragments.FloatingWindows"/>
 
 </PreferenceScreen>
