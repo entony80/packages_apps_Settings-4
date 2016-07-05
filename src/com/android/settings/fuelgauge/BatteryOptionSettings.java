@@ -29,17 +29,22 @@ import android.provider.Settings.Global;
 import android.util.Log;
 import android.widget.Switch;
 
+import com.android.internal.logging.MetricsLogger
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 import com.android.settings.notification.SettingPref;
 import com.android.settings.widget.SwitchBar;
 
 public class BatteryOptionSettings extends SettingsPreferenceFragment {
     private static final String TAG = "BatteryOptionSettings";
 
-    private final H mHandler = new H();
-    private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
+	
+	@Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.FUELGAUGE_POWER_USAGE_SUMMARY;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

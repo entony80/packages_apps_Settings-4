@@ -62,7 +62,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class ClockAndDate extends SettingsPreferenceFragment
-        implements Indexable {
+        implements OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = ClockAndDate.class.getSimpleName();
 	

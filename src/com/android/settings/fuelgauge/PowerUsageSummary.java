@@ -333,9 +333,9 @@ public class PowerUsageSummary extends PowerUsageBase
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
                 return true;
-			case MENU_BATTERY_SAVER:
-                final SettingsActivity sa = (SettingsActivity) getActivity();
-                sa.startPreferencePanel(BatteryOptionSettings.class.getName(), null,
+			case MENU_BATTERY_OPTIONS:
+                final SettingsActivity sat = (SettingsActivity) getActivity();
+                sat.startPreferencePanel(BatteryOptionSettings.class.getName(), null,
                         R.string.battery_options, null, null, 0);
                 return true;
             default:
@@ -361,7 +361,7 @@ public class PowerUsageSummary extends PowerUsageBase
                     refreshStats();
                     mHandler.removeMessages(MSG_REFRESH_STATS);
 					Utils.showSnackbar(getString(R.string.battery_stats_reset_completed),
-                            Snackbar.SnackbarDuration.LENGTH_LONG, null, null, activity);
+                            Snackbar.SnackbarDuration.LENGTH_LONG, null, null, context);
                 }
             })
             .setNegativeButton(android.R.string.cancel, null)
