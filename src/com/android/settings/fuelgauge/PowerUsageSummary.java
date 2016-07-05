@@ -60,6 +60,8 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.Utils;
 
+import com.nispok.snackbar.Snackbar;
+
 import cyanogenmod.power.PerformanceManager;
 import cyanogenmod.providers.CMSettings;
 
@@ -90,6 +92,7 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final String KEY_BATTERY_SAVER = "low_power";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
+	private static final int MENU_STATS_RESET = Menu.FIRST + 2;
     private static final int MENU_BATTERY_SAVER = Menu.FIRST + 3;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
 	private static final int MENU_BATTERY_OPTIONS = Menu.FIRST + 5;
@@ -254,6 +257,11 @@ public class PowerUsageSummary extends PowerUsageBase
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
                     .setAlphabeticShortcut('t');
         }
+		
+		MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.battery_stats_reset)
+                .setIcon(R.drawable.ic_delete)
+                .setAlphabeticShortcut('d');
+        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
@@ -269,6 +277,9 @@ public class PowerUsageSummary extends PowerUsageBase
     public boolean onOptionsItemSelected(MenuItem item) {
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
+			 case MENU_STATS_RESET:
+                resetStats();
+                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
@@ -349,6 +360,8 @@ public class PowerUsageSummary extends PowerUsageBase
                     mStatsHelper.resetStatistics();
                     refreshStats();
                     mHandler.removeMessages(MSG_REFRESH_STATS);
+					Utils.showSnackbar(getString(R.string.battery_stats_reset_completed),
+                            Snackbar.SnackbarDuration.LENGTH_LONG, null, null, activity);
                 }
             })
             .setNegativeButton(android.R.string.cancel, null)

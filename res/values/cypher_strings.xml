@@ -958,6 +958,9 @@
     <string name="gesture_anywhere_floating">Gesture Anywhere</string>
     <string name="gesture_anywhere_floating_summary">Launch Gesture Anywhere shortcuts in float mode</string>
 	
+	<!-- Snackbar notices -->
+	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
+	
 	<!-- Navbar notice -->
 	<string name="navigation_enable_bar_notice_title">Notice</string>
 	<string name="navigation_enable_bar_notice_summary">This enables the on-screen nav buttons. This is only reliable for devices with existing hardware buttons</string>
