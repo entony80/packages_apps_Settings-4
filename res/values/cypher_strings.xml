@@ -637,8 +637,8 @@
 	
 	<!-- Additions Settings -->
 	<string name="addition_settings">Additions</string>
-	<string name="additions_about_notice_title">About</string>
-	<string name="additions_about_notice_summary">Hello there. This is the resting place for all of your beloved features brought to you by the best developers around.</string>
+	<string name="additions_about_notice_title">Hello there</string>
+	<string name="additions_about_notice_summary">This is the resting place for all of your beloved features brought to you by the best developers around.</string>
 	
     <!-- Information Settings -->
     <string name="device_information_title">Software information</string>
