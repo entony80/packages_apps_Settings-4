@@ -45,7 +45,9 @@ import com.android.settings.widget.SwitchBar;
 
 import cyanogenmod.providers.CMSettings;
 
-public class BatteryOptionSettings extends SettingsPreferenceFragment {
+public class BatteryOptionSettings extends SettingsPreferenceFragment
+        implements Preference.OnPreferenceChangeListener {
+			
     private static final String TAG = "BatteryOptionSettings";
 	
 	private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
