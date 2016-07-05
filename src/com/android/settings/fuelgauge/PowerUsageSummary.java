@@ -105,6 +105,7 @@ public class PowerUsageSummary extends PowerUsageBase
     private SwitchPreference mBatterySaverPref;
 	
 	protected Context mContext;
+	protected Resources mResources;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
@@ -371,10 +372,10 @@ public class PowerUsageSummary extends PowerUsageBase
     }
 	
 	private void snackbarReset() {
-		final String message = mContext.getString(
+		final String message = mResources.getString(
                 R.string.battery_stats_reset_completed);
         Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_SHORT,
-                null, null, mContext);
+                null, null, mResources);
 	}
 
     private void refreshBatterySaverOptions() {
