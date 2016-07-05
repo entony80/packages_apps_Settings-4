@@ -418,6 +418,7 @@
     <string name="navbar_interface_title">Interface</string>
     <string name="navbar_size">Bar size</string>
     <string name="navbar_mode">Navigation mode</string>
+	<string name="navbar_mode_summary">Enhance your navigating experience by using various navigation techniques</string>
     <string name="navbar_visibility">Enable navigation bar</string>
     <string name="navigationbar_settings_title">Navigation</string>
     <string name="aosp_navigation_bar">Navigation bar</string>
@@ -450,6 +451,7 @@
 
     <!-- Fling -->
     <string name="fling_settings">Fling</string>
+	<string name="fling_settings_summary">Replace your traditional navigation bar with a motion gesture interface</string>
     <string name="fling_interface">Fling interface</string>
     <string name="fling_enable_title">Enable Fling</string>
     <string name="fling_back_home_policy">Back and Home are required to be set at all times. To change a Back or Home assignment, set the desired assignment first</string>
@@ -502,6 +504,7 @@
     <string name="pulse_help_policy_notice_title">About Pulse</string>
     <string name="pulse_help_policy_notice_summary">Pulse is brilliant equalizer bar style audio visualization on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker. Be Sure To Play/Pause Track again After Resetting Pulse Dimension.</string>
     <string name="pulse_settings">Pulse</string>
+	<string name="pulse_settings_summary">Include a simple yet highly customizable equalizer on your navigation bar while enjoying tunes</string>
     <string name="pulse_settings_summary">Navigation bar audio visualization</string>
     <string name="fling_show_pulse_title">Show Pulse</string>
     <string name="fling_show_pulse_summary">Audio visualization on the navigation bar</string>
@@ -565,6 +568,7 @@
 
     <!-- Navbar height -->
     <string name="navigation_bar_size_title">Dimensions</string>
+	<string name="navigation_bar_size_title_summary">Change the height and width of your navigation bar for your personal user experience</string>
     <string name="portrait_title">Portrait height</string>
     <string name="land_vert_title">Landscape width</string>
     <string name="land_hor_title">Landscape height</string>
@@ -573,6 +577,7 @@
     <!-- SmartBar -->
     <string name="smartbar_category">Smartbar</string>
     <string name="smartbar_settings_title">Smartbar</string>
+	<string name="smartbar_settings_title_summary">Improve the navigation bar by adding additional buttons and useful hand keys</string>
     <string name="smartbar_editor_title">Toggle button editor</string>
     <string name="smartbar_editor_summary">Medium press and drag to change position. Long press to show edit menu. Button position may be changed while menu is showing.</string>
     <string name="smartbar_context_menu_position_title">Context buttons layout position</string>
@@ -941,9 +946,14 @@
     <string name="floating_master_switch">Master Switch</string>
     <string name="floating_additional_options">Additional Float Options</string>
     <string name="floating_windows">Floating Windows</string>
+	<string name="floating_windows_summary">Make your applications and selected features appear in a small window for easier access</string>
     <string name="floating_windows_switch">Whether to allow global use of float mode, if this is off none of the below options will work DUH!!!</string>
     <string name="slim_action_floats">Slim Actions &amp; Pie</string>
     <string name="slim_action_floats_summary">Launch Slim &amp; Pie Actions in Floating Window Mode</string>
     <string name="gesture_anywhere_floating">Gesture Anywhere</string>
     <string name="gesture_anywhere_floating_summary">Launch Gesture Anywhere shortcuts in float mode</string>
+	
+	<!-- Navbar notice -->
+	<string name="navigation_enable_bar_notice_title">Notice</string>
+	<string name="navigation_enable_bar_notice_summary">This enables the on-screen nav buttons. This is only reliable for devices with existing hardware buttons</string>
 </resources>
