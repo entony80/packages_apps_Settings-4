@@ -103,6 +103,8 @@ public class PowerUsageSummary extends PowerUsageBase
     private ListPreference mPerfProfilePref;
     private SwitchPreference mPerAppProfiles;
     private SwitchPreference mBatterySaverPref;
+	
+	protected Context mContext;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
@@ -359,15 +361,21 @@ public class PowerUsageSummary extends PowerUsageBase
                     // Reset stats and request a refresh to initialize vars
                     mStatsHelper.resetStatistics();
                     refreshStats();
+					snackbarReset();
                     mHandler.removeMessages(MSG_REFRESH_STATS);
-					Utils.showSnackbar(getString(R.string.battery_stats_reset_completed),
-                            Snackbar.SnackbarDuration.LENGTH_LONG, null, null, this);
                 }
             })
             .setNegativeButton(android.R.string.cancel, null)
             .create();
         dialog.show();
     }
+	
+	private void snackbarReset() {
+		final String message = mContext.getString(
+                R.string.battery_stats_reset_completed);
+        Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_SHORT,
+                null, null, mContext);
+	}
 
     private void refreshBatterySaverOptions() {
         if (mBatterySaverPref != null) {
