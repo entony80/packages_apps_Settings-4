@@ -360,11 +360,8 @@ public class PowerUsageSummary extends PowerUsageBase
                     mStatsHelper.resetStatistics();
                     refreshStats();
                     mHandler.removeMessages(MSG_REFRESH_STATS);
-					
-					final String message = context.getString(
-                            R.string.battery_stats_reset_completed);
-					Utils.showSnackbar(message, Snackbar.SnackbarDuration.LENGTH_SHORT,
-                            null, null, context);
+					Utils.showSnackbar(getString(R.string.battery_stats_reset_completed),
+                            Snackbar.SnackbarDuration.LENGTH_LONG, null, null, this);
                 }
             })
             .setNegativeButton(android.R.string.cancel, null)
