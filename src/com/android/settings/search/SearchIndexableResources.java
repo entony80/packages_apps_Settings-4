@@ -40,6 +40,7 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
+import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.location.ScanningSettings;
@@ -205,6 +206,13 @@ public final class SearchIndexableResources {
                         Ranking.getRankForClassName(PowerUsageSummary.class.getName()),
                         R.xml.power_usage_summary,
                         PowerUsageSummary.class.getName(),
+                        R.drawable.ic_settings_battery));
+						
+		sResMap.put(BatteryOptionSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(BatteryOptionSettings.class.getName()),
+                        R.xml.battery_option_settings,
+                        BatteryOptionSettings.class.getName(),
                         R.drawable.ic_settings_battery));
 
         sResMap.put(AdvancedAppSettings.class.getName(),

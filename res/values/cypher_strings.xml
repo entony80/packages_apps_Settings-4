@@ -18,6 +18,7 @@
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
     <string name="easter_egg_snack">"I am the new flavor!"</string>
+	<string name="battery_options">Options</string>
 	
 	<string name="device_api_default">Community Preview 3</string>
 	

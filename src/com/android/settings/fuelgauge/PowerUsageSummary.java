@@ -92,7 +92,8 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_BATTERY_SAVER = Menu.FIRST + 3;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
-    private static final int MENU_HELP = Menu.FIRST + 5;
+	private static final int MENU_BATTERY_OPTIONS = Menu.FIRST + 5;
+    private static final int MENU_HELP = Menu.FIRST + 6;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
@@ -259,6 +260,9 @@ public class PowerUsageSummary extends PowerUsageBase
 
         menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
         super.onCreateOptionsMenu(menu, inflater);
+		
+		MenuItem batteryOptions = menu.add(0, MENU_BATTERY_OPTIONS, 0, R.string.battery_options);
+        batteryOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 
     @Override
@@ -317,6 +321,11 @@ public class PowerUsageSummary extends PowerUsageBase
                         HighPowerApplicationsActivity.class.getName());
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
+                return true;
+			case MENU_BATTERY_SAVER:
+                final SettingsActivity sa = (SettingsActivity) getActivity();
+                sa.startPreferencePanel(BatteryOptionSettings.class.getName(), null,
+                        R.string.battery_options, null, null, 0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
