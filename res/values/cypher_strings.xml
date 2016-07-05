@@ -906,7 +906,7 @@
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
 	
 	<!-- Status bar - Battery -->
-    <string name="battery_style_title">Battery status style</string>
+    <string name="battery_style_title">Battery icon</string>
     <string name="battery_style_icon">Icon</string>
     <string name="battery_style_circle">Circle</string>
     <string name="battery_style_text">Text</string>
