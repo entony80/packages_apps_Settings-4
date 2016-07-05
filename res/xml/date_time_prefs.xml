@@ -51,5 +51,12 @@
     <SwitchPreference android:key="24 hour"
         android:title="@string/date_time_24hour"
         />
+		
+	<PreferenceScreen
+        android:fragment="com.android.settings.cypher.fragments.ClockAndDate"
+        android:key="clock_and_date"
+        android:title="@string/clock_date_title"
+        android:summary="@string/clock_date_title_summary"
+        />
 
 </PreferenceScreen>

@@ -279,7 +279,7 @@
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar - Clock -->
-    <string name="status_bar_clock_category">Clock</string>
+    <string name="status_bar_clock_category">Settings</string>
     <string name="clock_color_title">Color</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
@@ -331,6 +331,10 @@
     <string name="clock_font_size_21">21</string>
     <string name="clock_font_size_22">22</string>
     <string name="clock_font_size_23">23</string>
+	
+	<!-- Clock and Date -->
+	<string name="clock_date_title">Clock &amp; date</string>
+	<string name="clock_date_title_summary">Change the appearance of the clock and date reources on the statusbar</string>
 
     <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
