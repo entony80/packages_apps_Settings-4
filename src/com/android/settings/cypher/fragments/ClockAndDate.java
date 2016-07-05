@@ -135,7 +135,7 @@ public class ClockAndDate extends SettingsPreferenceFragment
             mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
         } else {
             int statusBarAmPm = CMSettings.System.getInt(resolver,
-                    CMSettings.System.STATUS_BAR_AM_PM, 2);
+                    CMSettings.System.STATUS_BAR_AM_PM, 1);
             mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
             mStatusBarAmPm.setOnPreferenceChangeListener(this);
@@ -186,7 +186,7 @@ public class ClockAndDate extends SettingsPreferenceFragment
         mFontStyle.setOnPreferenceChangeListener(this);
         mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_FONT_STYLE,
-                4)));
+                2)));
         mFontStyle.setSummary(mFontStyle.getEntry());
 		
 		mStatusBarClockFontSize = (ListPreference) findPreference(PREF_STATUS_BAR_CLOCK_FONT_SIZE);
