@@ -31,5 +31,21 @@
             android:dialogTitle="@string/status_bar_battery_percentage_title"
             android:entries="@array/status_bar_battery_percentage_entries"
             android:entryValues="@array/status_bar_battery_percentage_values" />
+			
+	<PreferenceCategory android:key="more_category"
+	        android:title="@string/battery_options_additional" />
+			
+	<!-- Battery light -->
+    <PreferenceScreen
+            android:key="battery_light"
+            android:title="@string/battery_light_title"
+	        android:summary="@string/battery_light_title_summary"
+            android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
+			
+	<PreferenceScreen
+            android:key="battery_bar"
+            android:fragment="com.android.settings.cypher.fragments.BatteryBar"
+            android:title="@string/battery_bar"
+			android:summary="@string/battery_bar_summary" />
 
 </PreferenceScreen>
