@@ -908,13 +908,31 @@
     <string name="battery_percentage_default">Nascosto (default)</string>
     <string name="battery_percentage_text_inside">All\'interno dell\'icona</string>
     <string name="battery_percentage_text_next">Accanto all\'icona</string>
-    
-    <!-- Floating peeking notifications -->
-    <string name="app_notification_floating_title">Controllo fluttuante</string>
-    <string name="app_notification_floating_summary">Attivare la modalità fluttuante per controllare le notifiche</string>
-    <string name="filter_notif_no_floating">No fluttuante</string>
-    <string name="notifications_no_floating">No fluttuante</string>
-    <string name="notifications_four_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g></string>
-    <string name="usage_access_title_summary">Cambia con le applicazioni che possono avere il rispettivo accesso al dispositivo</string>
-
+   <string name="usage_access_title_summary">Change which applications can have it\'s respective access to your device</string>
+	
+	<string name="battery_options_additional">Extra</string>
+	
+	<!-- Battery stats reset -->
+    <string name="battery_stats_reset">Ripristina statistiche</string>
+    <string name="battery_stats_message">La storia e le statistiche della batteria stanno per essere ripristinate</string>
+    <string name="ok_string">Ok</string>
+	
+	<!-- Floating Windows -->
+    <string name="shortcut_action_floating_windows">Finestra fluttuante</string>
+    <string name="floating_master_switch">Abilitato</string>
+    <string name="floating_additional_options">Aggiuntivo</string>
+    <string name="floating_windows">Finestra fluttuante</string>
+	<string name="floating_windows_summary">Le tue applicazioni e funzioni selezionate appariranno in una piccola finestra per facilitarne l\'accesso</string>
+    <string name="floating_windows_switch">Si ha per consentire l\'uso globale della modalità fluttuante, se questo è spento nelle opzioni non funzionerà</string>
+    <string name="slim_action_floats">PiControls</string>
+    <string name="slim_action_floats_summary">Avviare azioni PiControl in modalità fluttuante</string>
+    <string name="gesture_anywhere_floating">MiGestures</string>
+    <string name="gesture_anywhere_floating_summary">Avviare MiGestures in modalità fluttuante</string>
+	
+	<!-- Snackbar notices -->
+	<string name="battery_stats_reset_completed">Le statistiche della batteria sono state ripristinate</string>
+	
+	<!-- Navbar notice -->
+	<string name="navigation_enable_bar_notice_title">Avviso</string>
+	<string name="navigation_enable_bar_notice_summary">Questo abilita i pulsanti della navigazione sullo schermo. Questo è affidabile solo per dispositivi con pulsanti hardware esistenti</string>
 </resources>
