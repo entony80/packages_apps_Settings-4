@@ -808,7 +808,7 @@
   <string name="app_circle_bar_title">Applicazioni in cerchio</string>
   <string name="app_circle_bar_title_summary">Mostra il cerchio e avvia le applicazioni dopo aver toccato il lato destro dello schermo</string>
   <string name="app_circle_bar_included_apps_title">Applicazioni incluse</string>
-  <string name="app_circle_bar_included_apps_summary">Applicazioni che verranno mostrate all'interno del cerchio</string>
+  <string name="app_circle_bar_included_apps_summary">Applicazioni che verranno mostrate all\'interno del cerchio</string>
   <string name="trigger_width_title">Larghezza</string>
   <string name="trigger_width_summary">Regola la larghezza della zona di attivazione</string>
   <string name="trigger_top_title">Verticale</string>
