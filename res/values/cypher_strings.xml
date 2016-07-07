@@ -20,7 +20,7 @@
     <string name="easter_egg_snack">"I am the new flavor!"</string>
 	<string name="battery_options">Options</string>
 	
-	<string name="device_api_default">Community Preview 3</string>
+	<string name="device_api_default">Hazelnut</string>
 	
 	<!-- Software Information, CypherOS device maintainer name -->
     <string name="device_maintainer">Device maintainer</string>
