@@ -30,19 +30,6 @@
             android:title="@string/autoperf_title"
             android:summary="@string/autoperf_summary"
             android:defaultValue="true" />
-
-	    <PreferenceScreen
-            android:key="battery_bar"
-            android:fragment="com.android.settings.cypher.fragments.BatteryBar"
-            android:title="@string/battery_bar"
-			android:summary="@string/battery_bar_summary" />
-
-		<!-- Battery light -->
-        <PreferenceScreen
-                android:key="battery_light"
-                android:title="@string/battery_light_title"
-				android:summary="@string/battery_light_title_summary"
-                android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
 				
         <com.android.settings.fuelgauge.BatteryHistoryPreference
             android:key="battery_history" />
