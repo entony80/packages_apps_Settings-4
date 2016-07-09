@@ -22,16 +22,12 @@
     <PreferenceCategory
         android:key="general_category"
         android:title="@string/general_options_title" >
-
-        <PreferenceScreen
-            android:key="status_bar_icons"
+		
+		<PreferenceScreen
+		    android:key="status_bar_icons"
+			android:fragment="com.android.settings.cypher.fragments.StatusBarIcons"
             android:title="@string/status_bar_icons_title"
-            android:summary="@string/status_bar_icons_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.TunerActivity$StatusBarIconActivity" />
-        </PreferenceScreen>
+            android:summary="@string/status_bar_icons_summary" />
 
         <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
             android:key="status_bar_brightness_control"

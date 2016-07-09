@@ -33,6 +33,10 @@
 	<string name="cypher_plus_title_summary">If you want more interaction with fellow users join our Google Plus community</string>
 
     <string name="general_options_title">General</string>
+	
+	<!-- Status bar - icon blacklist -->
+    <string name="status_bar_icons_title">Statusbar icons</string>
+    <string name="status_bar_icons_summary">Control which icons are shown on the statusbar</string>
 
     <string name="allow_lights_title">Lights in do not disturb mode</string>
 
@@ -945,6 +949,11 @@
     <string name="slim_action_floats_summary">Launch PiControl actions in float mode</string>
     <string name="gesture_anywhere_floating">MiGestures</string>
     <string name="gesture_anywhere_floating_summary">Launch MiGestures shortcuts in float mode</string>
+	
+	<!-- Superuser indicator on status bar -->
+    <string name="su_indicator">Superuser indicator</string>
+    <string name="su_indicator_summary_on">Superuser indicator is visible when a session is active</string>
+    <string name="su_indicator_summary_off">Superuser indicator isn\'t visible when a session is active</string>
 	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
