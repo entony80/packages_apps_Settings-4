@@ -60,8 +60,7 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.Utils;
 
-com.android.systemui.statusbar.phone.PhoneStatusBar
-import com.android.systemui.statusbar.SettingConfirmationSnackbarView
+import com.nispok.snackbar.Snackbar;
 
 import cyanogenmod.power.PerformanceManager;
 import cyanogenmod.providers.CMSettings;
@@ -351,23 +350,21 @@ public class PowerUsageSummary extends PowerUsageBase
     }
 
     private void resetStats() {
-        SettingConfirmationHelper.prompt(
-                mStatusBar.getSnackbarView(),
-                getContext().getString(R.string.battery_saver_summary_unavailable),
-                new SettingConfirmationHelper.OnSettingChoiceListener() {
-                    @Override
-                    public void onSettingConfirm(final String settingName) {
-                        // Reset stats and request a refresh to initialize vars
-                        mStatsHelper.resetStatistics();
-                        refreshStats();
-                        mHandler.removeMessages(MSG_REFRESH_STATS);
-                    }
-				    @Override
-				    public void onSettingDeny(final String settingName) {
-					    refreshStats();
-				    }
-				},
-				null);
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.battery_stats_reset)
+            .setMessage(R.string.battery_stats_message)
+            .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Reset stats and request a refresh to initialize vars
+                    mStatsHelper.resetStatistics();
+                    refreshStats();
+                    mHandler.removeMessages(MSG_REFRESH_STATS);
+                }
+            })
+            .setNegativeButton(android.R.string.cancel, null)
+            .create();
+        dialog.show();
     }
 
     private void refreshBatterySaverOptions() {
