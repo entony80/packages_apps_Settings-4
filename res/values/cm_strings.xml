@@ -847,8 +847,8 @@
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
 
     <!-- Status bar - icon blacklist -->
-    <string name="status_bar_icons_title">Status bar icons</string>
-    <string name="status_bar_icons_summary">Control which status bar icons are shown</string>
+    <string name="status_bar_icons_secondary_title">System icons</string>
+    <string name="status_bar_icons_secondary_summary">Control which system icons are shown on the statusbar</string>
 
     <!-- EdgeGesture service -->
     <string name="edge_gesture_service_title">Block gesture touch events</string>
