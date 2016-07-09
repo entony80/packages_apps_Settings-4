@@ -60,8 +60,8 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.Utils;
 
-com.android.systemui.statusbar.phone.PhoneStatusBar;
-import com.android.systemui.statusbar.SettingConfirmationSnackbarView;
+com.android.systemui.statusbar.phone.PhoneStatusBar
+import com.android.systemui.statusbar.SettingConfirmationSnackbarView
 
 import cyanogenmod.power.PerformanceManager;
 import cyanogenmod.providers.CMSettings;
@@ -121,10 +121,6 @@ public class PowerUsageSummary extends PowerUsageBase
 
     private PowerManager mPowerManager;
     private PerformanceManager mPerf;
-	
-	public void setStatusBar(PhoneStatusBar bar) {
-        mStatusBar = bar;
-    }
 
     private class PerformanceProfileObserver extends ContentObserver {
         public PerformanceProfileObserver(Handler handler) {
