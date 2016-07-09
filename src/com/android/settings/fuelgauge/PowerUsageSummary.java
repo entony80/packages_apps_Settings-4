@@ -22,6 +22,7 @@ import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -59,6 +60,8 @@ import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.Utils;
 
+import com.nispok.snackbar.Snackbar;
+
 import cyanogenmod.power.PerformanceManager;
 import cyanogenmod.providers.CMSettings;
 
@@ -89,9 +92,11 @@ public class PowerUsageSummary extends PowerUsageBase
     private static final String KEY_BATTERY_SAVER = "low_power";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
+	private static final int MENU_STATS_RESET = Menu.FIRST + 2;
     private static final int MENU_BATTERY_SAVER = Menu.FIRST + 3;
     private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
-    private static final int MENU_HELP = Menu.FIRST + 5;
+	private static final int MENU_BATTERY_OPTIONS = Menu.FIRST + 5;
+    private static final int MENU_HELP = Menu.FIRST + 6;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
@@ -252,18 +257,29 @@ public class PowerUsageSummary extends PowerUsageBase
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
                     .setAlphabeticShortcut('t');
         }
+		
+		MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.battery_stats_reset)
+                .setIcon(R.drawable.ic_menu_reset)
+                .setAlphabeticShortcut('d');
+        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
         batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
 
         menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
         super.onCreateOptionsMenu(menu, inflater);
+		
+		MenuItem batteryOptions = menu.add(0, MENU_BATTERY_OPTIONS, 0, R.string.battery_options);
+        batteryOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
+			 case MENU_STATS_RESET:
+                resetStats();
+                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
@@ -316,6 +332,11 @@ public class PowerUsageSummary extends PowerUsageBase
                         HighPowerApplicationsActivity.class.getName());
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
+                return true;
+			case MENU_BATTERY_OPTIONS:
+                final SettingsActivity sat = (SettingsActivity) getActivity();
+                sat.startPreferencePanel(BatteryOptionSettings.class.getName(), null,
+                        R.string.battery_options, null, null, 0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -89,7 +89,7 @@ public class Navbar extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.aicp_navbar_settings);
+        addPreferencesFromResource(R.xml.navigation_settings);
 		
 		Activity activity = getActivity();
 		

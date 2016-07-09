@@ -34,6 +34,16 @@
         android:fragment="com.android.settings.TetherSettings"
         android:key="tether_settings"
         android:title="@string/tether_settings_title_all" />
+		
+    <PreferenceScreen
+                android:id="@+id/mobile_networks"
+                android:title="@string/network_settings_title"
+                >
+            <intent
+                    android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.phone"
+                    android:targetClass="com.android.phone.MobileNetworkSettings" />
+    </PreferenceScreen>
 
     <PreferenceScreen
         android:fragment="com.android.settings.vpn2.VpnSettings"

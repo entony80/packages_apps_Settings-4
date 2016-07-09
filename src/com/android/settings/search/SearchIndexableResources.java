@@ -40,6 +40,7 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
+import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.location.ScanningSettings;
@@ -58,6 +59,7 @@ import com.android.settings.wifi.WifiSettings;
 
 import com.android.settings.cypher.Additions;
 import com.android.settings.cypher.Gestures;
+import com.android.settings.cypher.fragments.ClockAndDate;
 
 import com.android.settings.ButtonSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
@@ -205,6 +207,13 @@ public final class SearchIndexableResources {
                         R.xml.power_usage_summary,
                         PowerUsageSummary.class.getName(),
                         R.drawable.ic_settings_battery));
+						
+		sResMap.put(BatteryOptionSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(BatteryOptionSettings.class.getName()),
+                        R.xml.battery_option_settings,
+                        BatteryOptionSettings.class.getName(),
+                        R.drawable.ic_settings_battery));
 
         sResMap.put(AdvancedAppSettings.class.getName(),
                 new SearchIndexableResource(
@@ -331,6 +340,13 @@ public final class SearchIndexableResources {
                         R.xml.gestures_settings,
                         Gestures.class.getName(),
                         R.drawable.ic_settings_gestures));
+		
+		sResMap.put(ClockAndDate.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(ClockAndDate.class.getName()),
+                        R.xml.clock_date_settings,
+                        ClockAndDate.class.getName(),
+                        R.drawable.ic_settings_date_time));
 
         // CyanogenMod Settings
         sResMap.put(ButtonSettings.class.getName(),

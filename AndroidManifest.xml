@@ -393,6 +393,12 @@
                 android:parentActivityName="Settings">
         </activity>
 
+        <activity android:name=".SubSettings$SecuritySubSettings"
+                android:taskAffinity="com.android.settings"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:parentActivityName="Settings">
+        </activity>
+
         <activity android:name="Settings$BluetoothSettingsActivity"
                 android:label="@string/bluetooth_settings_title"
                 android:taskAffinity="">
@@ -2050,6 +2056,22 @@
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
+		
+		<activity android:name="Settings$BatteryOptionSettingsActivity"
+                android:label="@string/battery_options"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.BATTERY_OPTION_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.fuelgauge.BatteryOptionSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/battery_settings" />
+        </activity>
 
         <activity android:name="Settings$PowerUsageSummaryActivity"
                 android:label="@string/power_usage_summary_title"
@@ -2327,6 +2349,18 @@
         </activity>
 
         <!-- AICP activities End -->
+		
+	    <!-- Floating Window -->
+        <activity android:name="Settings$FloatingWindowActivity"
+            android:label="@string/shortcut_action_floating_windows"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cypher.fragments.FloatingWindows" />
+        </activity>
 
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$ProfilesSettingsActivity"

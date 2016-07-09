@@ -104,6 +104,7 @@ import com.android.settings.deviceinfo.PrivateVolumeSettings;
 import com.android.settings.deviceinfo.PublicVolumeSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
+import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.livedisplay.LiveDisplay;
@@ -139,6 +140,7 @@ import com.android.settings.search.Index;
 import com.android.settings.privacyguard.PrivacyGuardPrefs;
 import com.android.settings.sim.SimSettings;
 import com.android.settings.slim.fragments.DozeSettingsFragment;
+import com.android.settings.cypher.fragments.FloatingWindows;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.vpn2.VpnSettings;
@@ -326,6 +328,7 @@ public class SettingsActivity extends Activity
             UserDictionaryList.class.getName(),
             UserDictionarySettings.class.getName(),
             HomeSettings.class.getName(),
+            FloatingWindows.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),
@@ -348,6 +351,7 @@ public class SettingsActivity extends Activity
             DevelopmentSettings.class.getName(),
             AndroidBeam.class.getName(),
             WifiDisplaySettings.class.getName(),
+			BatteryOptionSettings.class.getName(),
             PowerUsageSummary.class.getName(),
             AccountSyncSettings.class.getName(),
             AccountSettings.class.getName(),

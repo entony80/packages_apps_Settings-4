@@ -21,6 +21,13 @@
     <SwitchPreference
         android:key="navbar_visibility"
         android:title="@string/navbar_visibility" />
+		
+    <Preference
+            style="?android:preferenceInformationStyle"
+            android:key="navigation_enable_bar_notice"
+            android:selectable="false"
+            android:summary="@string/navigation_enable_bar_notice_summary"
+            android:title="@string/navigation_enable_bar_notice_title" />
 
     <PreferenceCategory
         android:key="category_navbar_interface"
@@ -30,19 +37,29 @@
             android:entries="@array/systemui_navbar_mode_entries"
             android:entryValues="@array/systemui_navbar_mode_values"
             android:key="navbar_mode"
-            android:title="@string/navbar_mode" />
-
+            android:title="@string/navbar_mode"
+            android:summary="@string/navbar_mode_summary" />
+			
+		<PreferenceScreen
+            android:key="fling_settings"
+            android:title="@string/fling_settings"
+			android:summary="@string/fling_settings_summary"
+            android:fragment="com.android.settings.aicp.FlingSettings" />
+		
         <PreferenceScreen
             android:key="smartbar_settings"
             android:title="@string/smartbar_settings_title"
+			android:summary="@string/smartbar_settings_title_summary"
             android:fragment="com.android.settings.cypher.fragments.SmartbarSettings" />
-
-        <PreferenceScreen
-            android:key="fling_settings"
-            android:title="@string/fling_settings"
-            android:fragment="com.android.settings.aicp.FlingSettings" />
+      
 
     </PreferenceCategory>
+	
+	<PreferenceScreen
+        android:key="floating_windows"
+	    android:title="@string/floating_windows" 
+        android:summary="@string/floating_windows_summary"		
+        android:fragment="com.android.settings.cypher.fragments.FloatingWindows" />
     
     <PreferenceCategory
         android:key="category_navbar_general"
@@ -51,12 +68,14 @@
 	 <PreferenceScreen
             android:key="pulse_settings"
             android:title="@string/pulse_settings"
+			android:summary="@string/pulse_settings_summary"
             android:fragment="com.android.settings.cypher.fragments.PulseSettings" />   
 	    
 
     <com.android.settings.aicp.NavbarSizePreference
             android:key="navigation_bar_size"
-            android:title="@string/navigation_bar_size_title" />
+            android:title="@string/navigation_bar_size_title"
+            android:summary="@string/navigation_bar_size_title_summary"	/>
 
     </PreferenceCategory>
 
