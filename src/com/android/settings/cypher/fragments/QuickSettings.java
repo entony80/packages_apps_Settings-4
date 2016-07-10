@@ -44,8 +44,10 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String TAG = QuickSettings.class.getSimpleName();
 	
+	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	
+	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
 	
     @Override
@@ -68,6 +70,14 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.QS_TRANSPARENT_SHADE, 255);
         mQSShadeAlpha.setValue(qSShadeAlpha / 1);
         mQSShadeAlpha.setOnPreferenceChangeListener(this);
+		
+		// QS header alpha
+        mQSHeaderAlpha =
+                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_HEADER);
+        int qSHeaderAlpha = Settings.System.getInt(resolver,
+                Settings.System.QS_TRANSPARENT_HEADER, 255);
+        mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
+        mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 
         return prefSet;
     }
@@ -87,7 +97,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
             return true;
-        }
+		} else if (preference == mQSHeaderAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
+            return true;
+		}
         return false;
     }
 	
