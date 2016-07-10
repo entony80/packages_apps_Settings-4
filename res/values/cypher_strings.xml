@@ -655,6 +655,7 @@
 	<!-- Quick settings -->
 	<string name="quick_settings_title">Quick settings</string>
 	<string name="quick_settings_title_summary">Change the appearance and functionality of the infamous quick settings menu</string>
+	<string name="qs_transparent_shade">Shade transparency</string>
 
     <!-- Information Settings -->
     <string name="device_information_title">Software information</string>

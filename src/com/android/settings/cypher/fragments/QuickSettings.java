@@ -32,6 +32,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.Utils;
 
+import com.android.settings.cypher.SeekBarPreference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,18 +44,51 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String TAG = QuickSettings.class.getSimpleName();
 	
+	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
+	
+	private SeekBarPreference mQSShadeAlpha;
+	
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+		createCustomView();
+	}
+	
+	private PreferenceScreen createCustomView() {
 
         addPreferencesFromResource(R.xml.qs_settings);
-        final PreferenceScreen prefScreen = getPreferenceScreen();
+        
+		PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+		
+		// QS shade alpha
+        mQSShadeAlpha =
+                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
+        int qSShadeAlpha = Settings.System.getInt(resolver,
+                Settings.System.QS_TRANSPARENT_SHADE, 255);
+        mQSShadeAlpha.setValue(qSShadeAlpha / 1);
+        mQSShadeAlpha.setOnPreferenceChangeListener(this);
+
+        return prefSet;
     }
 
     @Override
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
         return CMMetricsLogger.MAIN_SETTINGS;
+    }
+	
+	@Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQSShadeAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
+            return true;
+        }
+        return false;
     }
 	
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
