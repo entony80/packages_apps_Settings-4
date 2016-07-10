@@ -23,6 +23,13 @@
             android:entries="@array/qs_num_columns_entries"
             android:entryValues="@array/qs_num_columns_values"
             android:persistent="false" />
+			
+	<ListPreference
+            android:key="sysui_qs_num_rows"
+            android:title="@string/qs_num_rows_title"
+            android:entries="@array/qs_num_rows_entries"
+            android:entryValues="@array/qs_num_rows_values"
+            android:persistent="false" />
 				  
     <com.android.settings.cypher.SeekBarPreference
             android:key="qs_transparent_shade"
