@@ -2070,7 +2070,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.fuelgauge.BatteryOptionSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/display_and_lights_settings" />
+                android:resource="@id/battery_settings" />
         </activity>
 		
 		<activity android:name="Settings$DashOptionSettingsActivity"
@@ -2086,7 +2086,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.dashboard.DashOptionSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/dash_settings" />
+                android:resource="@id/display_and_lights_settings" />
         </activity>
 
         <activity android:name="Settings$PowerUsageSummaryActivity"
