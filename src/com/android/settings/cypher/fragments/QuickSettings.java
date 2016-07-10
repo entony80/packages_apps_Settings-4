@@ -19,7 +19,8 @@ package com.android.settings.cypher;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.provider.Settings
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -46,6 +47,8 @@ public class QuickSettings extends SettingsPreferenceFragment
 	
 	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
+	
+	private ListPreference mNumColumns;
 	
 	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
@@ -78,6 +81,15 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.QS_TRANSPARENT_HEADER, 255);
         mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
         mQSHeaderAlpha.setOnPreferenceChangeListener(this);
+		
+		// Number of QS Columns 3,4,5
+        mNumColumns = (ListPreference) findPreference("sysui_qs_num_columns");
+        int numColumns = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
+                UserHandle.USER_CURRENT);
+        mNumColumns.setValue(String.valueOf(numColumns));
+        updateNumColumnsSummary(numColumns);
+        mNumColumns.setOnPreferenceChangeListener(this);
 
         return prefSet;
     }
@@ -103,7 +115,33 @@ public class QuickSettings extends SettingsPreferenceFragment
                     Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
             return true;
 		}
+		} else if (preference == mNumColumns) {
+            int numColumns = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_COLUMNS,
+                    numColumns, UserHandle.USER_CURRENT);
+            updateNumColumnsSummary(numColumns);
+            return true;
+          }
         return false;
+    }
+	
+	private void updateNumColumnsSummary(int numColumns) {
+        String prefix = (String) mNumColumns.getEntries()[mNumColumns.findIndexOfValue(String
+                .valueOf(numColumns))];
+        mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
+    }
+
+    private int getDefaultNumColums() {
+        try {
+            Resources res = getActivity().getPackageManager()
+                    .getResourcesForApplication("com.android.systemui");
+            int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
+                    "com.android.systemui")); // better not be larger than 5, that's as high as the
+                                              // list goes atm
+            return Math.max(1, val);
+        } catch (Exception e) {
+            return 3;
+        }
     }
 	
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
