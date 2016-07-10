@@ -66,5 +66,13 @@
          android:title="@string/navigation_settings_title"
          android:summary="@string/navigation_settings_title_summary"	
 		 android:icon="@drawable/ic_settings_navigation" />
+		 
+	<!-- Quick settings -->
+	<PreferenceScreen
+         android:key="qs_settings"
+         android:fragment="com.android.settings.cypher.fragments.QuickSettings"
+         android:title="@string/quick_settings_title"
+         android:summary="@string/quick_settings_title_summary"	
+		 android:icon="@drawable/ic_settings_quick_settings" />
 
 </PreferenceScreen>

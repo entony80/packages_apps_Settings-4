@@ -652,6 +652,10 @@
 	<string name="additions_about_notice_title">Hello there</string>
 	<string name="additions_about_notice_summary">This is the resting place for all of your beloved features brought to you by the best developers around.</string>
 	
+	<!-- Quick settings -->
+	<string name="quick_settings_title">Quick settings</string>
+	<string name="quick_settings_title_summary">Change the appearance and functionality of the infamous quick settings menu</string>
+
     <!-- Information Settings -->
     <string name="device_information_title">Software information</string>
     <string name="cypher_api">API</string>	
