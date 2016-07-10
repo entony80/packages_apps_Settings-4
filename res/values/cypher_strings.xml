@@ -950,10 +950,9 @@
     <string name="gesture_anywhere_floating">MiGestures</string>
     <string name="gesture_anywhere_floating_summary">Launch MiGestures shortcuts in float mode</string>
 	
-	<!-- Superuser indicator on status bar -->
-    <string name="su_indicator">Superuser indicator</string>
-    <string name="su_indicator_summary_on">Superuser indicator is visible when a session is active</string>
-    <string name="su_indicator_summary_off">Superuser indicator isn\'t visible when a session is active</string>
+	<!-- Statusbar custom icons -->
+    <string name="su_indicator">Superuser</string>
+    <string name="show_headset_icon_title">Headset</string>
 	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
