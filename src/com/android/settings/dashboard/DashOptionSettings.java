@@ -18,6 +18,7 @@ package com.android.settings.dashboard;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.Uri;
@@ -25,26 +26,67 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.util.Log;
 import android.widget.Switch;
 
+import com.android.settings.dashboard.DashboardContainerView;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.notification.SettingPref;
 import com.android.settings.widget.SwitchBar;
 
+import cyanogenmod.providers.CMSettings;
+
 public class DashOptionSettings extends SettingsPreferenceFragment {
     private static final String TAG = "DashOptionSettings";
 
     private final H mHandler = new H();
     private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
+	
+	private static final String DASHBOARD_COLUMNS = "dashboard_columns";
+	
+	private ListPreference mDashboardColumns;
+	
+	@Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.DISPLAY;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         addPreferencesFromResource(R.xml.dash_option_settings);
+		
+		ContentResolver resolver = getActivity().getContentResolver();
+        Resources res = getResources();
+		
+		mDashboardColumns = (ListPreference) findPreference(DASHBOARD_COLUMNS);
+        mDashboardColumns.setValue(String.valueOf(Settings.System.getInt(
+               getContentResolver(), Settings.System.DASHBOARD_COLUMNS, DashboardContainerView.mDashboardValue)));
+        mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+        mDashboardColumns.setOnPreferenceChangeListener(this)
+    }
+	
+	@Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+        ContentResolver resolver = getActivity().getContentResolver();
+        Resources res = getResources();
+        
+        if (preference == mDashboardColumns) {
+            Settings.System.putInt(getContentResolver(), Settings.System.DASHBOARD_COLUMNS,
+                    Integer.valueOf((String) objValue));
+            mDashboardColumns.setValue(String.valueOf(objValue));
+            mDashboardColumns.setSummary(mDashboardColumns.getEntry());
+            return true;
+        }
+        return false;
     }
 }
