@@ -45,7 +45,9 @@ import com.android.settings.widget.SwitchBar;
 
 import cyanogenmod.providers.CMSettings;
 
-public class DashOptionSettings extends SettingsPreferenceFragment {
+public class DashOptionSettings extends SettingsPreferenceFragment
+    implements Preference.OnPreferenceChangeListener {
+		
     private static final String TAG = "DashOptionSettings";
 	
 	private static final String DASHBOARD_COLUMNS = "dashboard_columns";

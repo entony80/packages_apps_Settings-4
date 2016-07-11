@@ -85,6 +85,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
@@ -746,8 +747,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
 			case MENU_DASH_OPTIONS:
-                final SettingsActivity sat = (SettingsActivity) getActivity();
-                sat.startPreferencePanel(DashOptionSettings.class.getName(), null,
+                sa.startPreferencePanel(DashOptionSettings.class.getName(), null,
                         R.string.dash_board_options, null, null, 0);
                 return true;
             default:

@@ -189,7 +189,7 @@ public class QuickSettings extends SettingsPreferenceFragment
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.gestures_settings;
+                    sir.xmlResId = R.xml.qs_settings;
                     result.add(sir);
 
                     return result;
