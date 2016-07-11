@@ -152,12 +152,6 @@ public class QuickSettings extends SettingsPreferenceFragment
                 .valueOf(numRows))];
         mNumRows.setSummary(getResources().getString(R.string.qs_num_rows_showing, prefix));
     }
-	
-	private void updateNumColumnsSummary(int numColumns) {
-        String prefix = (String) mNumColumns.getEntries()[mNumColumns.findIndexOfValue(String
-                .valueOf(numColumns))];
-        mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
-    }
 
 	private int getDefaultNumRows() {
         try {
