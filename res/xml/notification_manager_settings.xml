@@ -53,6 +53,16 @@
             android:title="@string/manage_notification_access_title"
             android:persistent="false"
             android:fragment="com.android.settings.notification.NotificationAccessSettings" />
+			
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="force_expanded_notifications"
+            android:title="@string/force_expanded_notifications_title"
+            android:summary="@string/force_expanded_notifications_summary" />
+			
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="disable_immersive_message"
+            android:title="@string/disable_immersive_message_title"
+            android:summary="@string/disable_immersive_message_summary" />
 
     <!-- Filter notifications -->
     <PreferenceScreen

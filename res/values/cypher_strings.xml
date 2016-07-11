@@ -18,7 +18,8 @@
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
     <string name="easter_egg_snack">"I am the new flavor!"</string>
-	<string name="battery_options">Options</string>
+	<string name="battery_options">Settings</string>
+	<string name="dash_board_options">Dashboard</string>
 	
 	<string name="device_api_default">Hazelnut</string>
 	
@@ -651,6 +652,16 @@
 	<string name="additions_about_notice_title">Hello there</string>
 	<string name="additions_about_notice_summary">This is the resting place for all of your beloved features brought to you by the best developers around.</string>
 	
+	<!-- Quick settings -->
+	<string name="quick_settings_title">Quick settings</string>
+	<string name="quick_settings_title_summary">Change the appearance and functionality of the infamous quick settings menu</string>
+	<string name="qs_transparent_shade">Shade transparency</string>
+	<string name="qs_transparent_header">Header transparency</string>
+	<string name="qs_num_columns_title">QS tiles per row</string>
+    <string name="qs_num_columns_showing">%1$s tiles per row are shown</string>
+	<string name="qs_num_rows_title">QS rows</string>
+    <string name="qs_num_rows_showing">%1$s rows are shown</string>
+
     <!-- Information Settings -->
     <string name="device_information_title">Software information</string>
     <string name="cypher_api">API</string>	
@@ -950,10 +961,55 @@
     <string name="gesture_anywhere_floating">MiGestures</string>
     <string name="gesture_anywhere_floating_summary">Launch MiGestures shortcuts in float mode</string>
 	
-	<!-- Superuser indicator on status bar -->
-    <string name="su_indicator">Superuser indicator</string>
-    <string name="su_indicator_summary_on">Superuser indicator is visible when a session is active</string>
-    <string name="su_indicator_summary_off">Superuser indicator isn\'t visible when a session is active</string>
+	<!-- Statusbar custom icons -->
+    <string name="su_indicator">Superuser</string>
+    <string name="show_headset_icon_title">Headset</string>
+	
+	<!-- Force expanded notifications -->
+    <string name="force_expanded_notifications_title">Expand-it</string>
+    <string name="force_expanded_notifications_summary">Force notifications to automatically be expanded for supported applications</string>
+	
+	<!-- Disabling immersive mode messages -->
+    <string name="disable_immersive_message_title">D-mersive</string>
+    <string name="disable_immersive_message_summary">Disable all immersive mode messages</string>
+	
+	<!-- Lockscreen weather -->
+    <string name="status_bar_show_weather_category">Weather</string>
+    <string name="lock_screen_weather_settings_title">Lockscreen weather</string>
+	<string name="lock_screen_weather_settings_title_summary">Show weather information on the lockscreen with icon visualization</string>
+    <string name="weather_show_weather_title">Show weather</string>
+    <string name="weather_show_weather_summary">Show general weather information for location</string>
+    <string name="weather_show_location_title">Show location</string>
+    <string name="weather_show_location_summary">Enable to show the location</string>
+    <string name="weather_show_timestamp_title">Show timestamp</string>
+    <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
+    <string name="weather_condition_icon_title">Condition icon</string>
+    <string name="weather_condition_icon_dlg_title">Coose an icon for displaying the weather condition</string>
+    <string name="weather_condition_icon_monochrome_title">Monochrome</string>
+    <string name="weather_condition_icon_colored_title">Colored</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorize all icons</string>
+    <string name="weather_colorize_all_icons_summary">Enable to colorize all icons, disable to colorize only the monochrome icons</string>
+    <string name="icons_title">Icons</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
+    <string name="hidden_title">Hidden</string>
+    <string name="dlg_reset_values_message">Reset values to default?</string>
+    <string name="dlg_reset_android">Ok</string>
+    <string name="colors_title">Colors</string>
+    <string name="text_title">Text</string>
+	
+	<!-- Dashboard columns -->
+    <string name="dashboard_columns_title">Dashboard Columns</string>
+    <string name="dashboard_columns_summary">Change the number of columns displayed in the dashboard</string>
+    <string name="dashboard_columns_dialog_title">Select dashboard columns</string>
+    <string name="dashboard_columns_one">One</string>
+    <string name="dashboard_columns_two">Two</string>
+    <string name="dashboard_columns_three">Three</string>
+    <string name="dashboard_tileview_double_lines_title">Dashboard title view</string>
+    <string name="dashboard_tileview_double_lines_summary">Show dashboard tile titles in 2 lines</string>
+    <string name="dashboard_tileview_dividers_title">Dashboard dividers</string>
+    <string name="dashboard_tileview_dividers_summary">Hide dashboard tile dividers</string>
 	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>

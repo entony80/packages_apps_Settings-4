@@ -79,9 +79,14 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import cyanogenmod.hardware.LiveDisplayManager;
@@ -117,6 +122,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_LIVEDISPLAY = "live_display";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
+	
+	private static final int MENU_DASH_OPTIONS = Menu.FIRST;
 
     private ListPreference mLcdDensityPreference;
     private FontDialogPreference mFontSizePref;
@@ -725,6 +732,27 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return true;
+    }
+	
+	@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+		
+		MenuItem dashOptions = menu.add(0, MENU_DASH_OPTIONS, 0, R.string.dash_board_options);
+        dashOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+    }
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final SettingsActivity sa = (SettingsActivity) getActivity();
+        switch (item.getItemId()) {
+			case MENU_DASH_OPTIONS:
+                sa.startPreferencePanel(DashOptionSettings.class.getName(), null,
+                        R.string.dash_board_options, null, null, 0);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void showLcdConfirmationDialog(final String lcdDensity) {

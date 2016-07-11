@@ -60,6 +60,7 @@ import com.android.settings.wifi.WifiSettings;
 import com.android.settings.cypher.Additions;
 import com.android.settings.cypher.Gestures;
 import com.android.settings.cypher.fragments.ClockAndDate;
+import com.android.settings.cypher.fragments.QuickSettings;
 
 import com.android.settings.ButtonSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
@@ -340,6 +341,13 @@ public final class SearchIndexableResources {
                         R.xml.gestures_settings,
                         Gestures.class.getName(),
                         R.drawable.ic_settings_gestures));
+						
+		sResMap.put(QuickSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(QuickSettings.class.getName()),
+                        R.xml.qs_settings,
+                        QuickSettings.class.getName(),
+                        R.drawable.ic_settings_quick_settings));
 		
 		sResMap.put(ClockAndDate.class.getName(),
                 new SearchIndexableResource(

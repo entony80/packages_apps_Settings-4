@@ -95,6 +95,7 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.cyanogenmod.LiveLockScreenSettings;
 import com.android.settings.dashboard.DashboardCategory;
+import com.android.settings.dashboard.DashOptionSettings;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.DashboardTile;
 import com.android.settings.dashboard.NoHomeDialogFragment;
@@ -352,6 +353,7 @@ public class SettingsActivity extends Activity
             AndroidBeam.class.getName(),
             WifiDisplaySettings.class.getName(),
 			BatteryOptionSettings.class.getName(),
+			DashOptionSettings.class.getName(),
             PowerUsageSummary.class.getName(),
             AccountSyncSettings.class.getName(),
             AccountSettings.class.getName(),

@@ -972,4 +972,60 @@
         <item>2</item>
     </string-array>
 	
+	<!-- LS Weather -->
+    <string-array name="weather_condition_icon_entries">
+        <item>@string/weather_condition_icon_monochrome_title</item>
+        <item>@string/weather_condition_icon_colored_title</item>
+        <item>@string/weather_condition_icon_vclouds_title</item>
+    </string-array>
+
+    <string-array name="weather_condition_icon_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="clock_date_position_entries">
+        <item>@string/position_right_title</item>
+        <item>@string/position_centered_title</item>
+        <item>@string/hidden_title</item>
+    </string-array>
+	
+	<!-- Dashboard columns -->
+    <string-array name="dashboard_columns_entries">
+        <item>@string/dashboard_columns_one</item>
+        <item>@string/dashboard_columns_two</item>
+        <item>@string/dashboard_columns_three</item>
+    </string-array>
+
+    <string-array name="dashboard_columns_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+	
+	<!-- QS Tiles Columns -->
+    <string-array name="qs_num_columns_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="qs_num_columns_entries">
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+    </string-array>
+	
+	<!-- QS Tiles Rows -->
+    <string-array name="qs_num_rows_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="qs_num_rows_entries">
+        <item>Three</item>
+        <item>Four</item>
+    </string-array>
+	
 </resources>
