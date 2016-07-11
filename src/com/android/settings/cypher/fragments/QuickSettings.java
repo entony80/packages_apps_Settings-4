@@ -16,7 +16,9 @@
 
 package com.android.settings.cypher;
 
+import android.content.Intent;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -30,13 +32,17 @@ import android.preference.SwitchPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.util.aicp.AicpUtils;
 import com.android.settings.Utils;
 
 import com.android.settings.cypher.SeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.List;
+import java.util.Map;
 
+import cyanogenmod.providers.CMSettings;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class QuickSettings extends SettingsPreferenceFragment
@@ -113,6 +119,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
         ContentResolver resolver = getActivity().getContentResolver();
+		Resources res = getResources();
         if (preference == mQSShadeAlpha) {
             int alpha = (Integer) newValue;
             Settings.System.putInt(resolver,
@@ -123,14 +130,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
             return true;
-		}
 		} else if (preference == mNumColumns) {
             int numColumns = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_COLUMNS,
                     numColumns, UserHandle.USER_CURRENT);
             updateNumColumnsSummary(numColumns);
             return true;
-        }
 		} else if (preference == mNumRows) {
             int numRows = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_ROWS,

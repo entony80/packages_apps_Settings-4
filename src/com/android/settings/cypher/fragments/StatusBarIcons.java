@@ -53,4 +53,5 @@ public class StatusBarIcons extends SettingsPreferenceFragment {
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
         return MetricsLogger.APPLICATION;
+	}
 }
