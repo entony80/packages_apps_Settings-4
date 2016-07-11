@@ -85,6 +85,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.android.settings.SettingsActivity;
 import com.android.settings.Utils;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import cyanogenmod.hardware.LiveDisplayManager;

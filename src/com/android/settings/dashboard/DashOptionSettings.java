@@ -35,6 +35,7 @@ import android.provider.Settings.Global;
 import android.util.Log;
 import android.widget.Switch;
 
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.dashboard.DashboardContainerView;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
@@ -46,9 +47,6 @@ import cyanogenmod.providers.CMSettings;
 
 public class DashOptionSettings extends SettingsPreferenceFragment {
     private static final String TAG = "DashOptionSettings";
-
-    private final H mHandler = new H();
-    private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 	
 	private static final String DASHBOARD_COLUMNS = "dashboard_columns";
 	
@@ -71,11 +69,11 @@ public class DashOptionSettings extends SettingsPreferenceFragment {
         mDashboardColumns.setValue(String.valueOf(Settings.System.getInt(
                getContentResolver(), Settings.System.DASHBOARD_COLUMNS, DashboardContainerView.mDashboardValue)));
         mDashboardColumns.setSummary(mDashboardColumns.getEntry());
-        mDashboardColumns.setOnPreferenceChangeListener(this)
+        mDashboardColumns.setOnPreferenceChangeListener(this);
     }
 	
 	@Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
 
         ContentResolver resolver = getActivity().getContentResolver();
         Resources res = getResources();
