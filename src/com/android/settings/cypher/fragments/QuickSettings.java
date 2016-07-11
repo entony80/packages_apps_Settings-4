@@ -47,6 +47,7 @@ import java.util.List;
 import java.util.Map;
 
 import cyanogenmod.providers.CMSettings;
+import org.cyanogenmod.internal.util.CmLockPatternUtils;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class QuickSettings extends SettingsPreferenceFragment
@@ -75,6 +76,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         
 		PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+		final CmLockPatternUtils lockPatternUtils = new CmLockPatternUtils(getActivity());
 		Context context = getActivity();
 
         Resources res = getResources();
