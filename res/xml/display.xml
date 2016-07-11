@@ -128,7 +128,7 @@
                 android:key="lockscreen_weather"
                 android:title="@string/lock_screen_weather_settings_title"
 				android:summary="@string/lock_screen_weather_settings_title_summary"
-                android:fragment="com.android.settings.cypher.fragments.LockScreenWeatherSettings" />
+                android:fragment="com.android.settings.cypher.fragments.LockScreenWeather" />
 
     </PreferenceCategory>
 

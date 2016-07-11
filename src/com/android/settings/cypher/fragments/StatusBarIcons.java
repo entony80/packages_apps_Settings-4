@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cypher;
+package com.android.settings.cypher.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -40,6 +40,8 @@ import java.util.Collections;
 import com.android.internal.logging.MetricsLogger;
 
 public class StatusBarIcons extends SettingsPreferenceFragment {
+	
+	private static final String TAG = StatusBarIcons.class.getSimpleName();
 	
     @Override
     public void onCreate(Bundle icicle) {

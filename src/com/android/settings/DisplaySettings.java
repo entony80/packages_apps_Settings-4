@@ -320,7 +320,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     CMSettings.System.PROXIMITY_ON_WAKE,
                     (proximityCheckOnWakeDefault ? 1 : 0)) == 1);
         }
-
+		
+		setHasOptionsMenu(true);
         mWakeWhenPluggedOrUnplugged =
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
     }

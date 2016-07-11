@@ -90,11 +90,11 @@ public class LockScreenWeather extends SettingsPreferenceFragment implements
 
     public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
+        addPreferencesFromResource(R.xml.lockscreen_weather);
         if (prefs != null) {
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.lockscreen_weather);
         mResolver = getActivity().getContentResolver();
 
         boolean showWeather = Settings.System.getInt(mResolver,
