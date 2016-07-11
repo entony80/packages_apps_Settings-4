@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings;
+package com.android.settings.dashboard;
 
 import android.content.ContentResolver;
 import android.content.Context;

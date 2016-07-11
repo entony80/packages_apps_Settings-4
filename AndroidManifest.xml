@@ -2084,7 +2084,7 @@
                 <category android:name="com.android.settings.SHORTCUT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.dashboard.DashOptionSettings" />
+                android:value="com.android.settings.DashOptionSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_and_lights_settings" />
         </activity>

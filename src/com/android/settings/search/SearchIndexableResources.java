@@ -19,7 +19,7 @@ package com.android.settings.search;
 import android.provider.SearchIndexableResource;
 
 import com.android.settings.ButtonSettings;
-import com.android.settings.dashboard.DashOptionSettings;
+import com.android.settings.DashOptionSettings;
 import com.android.settings.DataUsageSummary;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
