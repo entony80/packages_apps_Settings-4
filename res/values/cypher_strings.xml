@@ -657,8 +657,6 @@
 	<string name="quick_settings_title_summary">Change the appearance and functionality of the infamous quick settings menu</string>
 	<string name="qs_transparent_shade">Shade transparency</string>
 	<string name="qs_transparent_header">Header transparency</string>
-	<string name="qs_num_columns_title">QS tiles per row</string>
-    <string name="qs_num_columns_showing">%1$s tiles per row are shown</string>
 	<string name="qs_num_rows_title">QS rows</string>
     <string name="qs_num_rows_showing">%1$s rows are shown</string>
 

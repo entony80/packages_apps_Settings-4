@@ -17,13 +17,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_title">
-				  
-	<ListPreference
-            android:key="sysui_qs_num_columns"
-            android:title="@string/qs_num_columns_title"
-            android:entries="@array/qs_num_columns_entries"
-            android:entryValues="@array/qs_num_columns_values"
-            android:persistent="false" />
 			
 	<ListPreference
             android:key="sysui_qs_num_rows"
