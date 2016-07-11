@@ -19,8 +19,7 @@ package com.android.settings.cypher;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.Settings
-import android.preference.ListPreference;
+import android.provider.Settings;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
@@ -48,7 +47,6 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	
-	private ListPreference mNumColumns;
 	private ListPreference mNumRows;
 	
 	private SeekBarPreference mQSHeaderAlpha;
@@ -83,15 +81,6 @@ public class QuickSettings extends SettingsPreferenceFragment
         mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
         mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 		
-		// Number of QS Columns 3,4,5
-        mNumColumns = (ListPreference) findPreference("sysui_qs_num_columns");
-        int numColumns = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_NUM_TILE_COLUMNS, getDefaultNumColumns(),
-                UserHandle.USER_CURRENT);
-        mNumColumns.setValue(String.valueOf(numColumns));
-        updateNumColumnsSummary(numColumns);
-        mNumColumns.setOnPreferenceChangeListener(this);
-		
 		// Number of QS Rows 3,4
         mNumRows = (ListPreference) findPreference("sysui_qs_num_rows");
         int numRows = Settings.System.getIntForUser(resolver,
@@ -124,14 +113,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver,
                     Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
             return true;
-		}
-		} else if (preference == mNumColumns) {
-            int numColumns = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_COLUMNS,
-                    numColumns, UserHandle.USER_CURRENT);
-            updateNumColumnsSummary(numColumns);
-            return true;
-        }
 		} else if (preference == mNumRows) {
             int numRows = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_ROWS,
@@ -165,21 +146,9 @@ public class QuickSettings extends SettingsPreferenceFragment
         } catch (Exception e) {
             return 3;
         }
+        return false;
     }
-	
-    private int getDefaultNumColums() {
-        try {
-            Resources res = getActivity().getPackageManager()
-                    .getResourcesForApplication("com.android.systemui");
-            int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
-                    "com.android.systemui")); // better not be larger than 5, that's as high as the
-                                              // list goes atm
-            return Math.max(1, val);
-        } catch (Exception e) {
-            return 3;
-        }
-    }
-	
+
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
