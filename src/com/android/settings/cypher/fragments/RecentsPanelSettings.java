@@ -15,6 +15,7 @@
  */
 package com.android.settings.cypher.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.content.ContentResolver;
@@ -25,6 +26,10 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import com.android.settings.Utils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;

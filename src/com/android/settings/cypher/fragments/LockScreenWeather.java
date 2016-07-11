@@ -269,8 +269,8 @@ public class LockScreenWeather extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        LockScreenWeatherSettings getOwner() {
-            return (LockScreenWeatherSettings) getTargetFragment();
+        LockScreenWeather getOwner() {
+            return (LockScreenWeather) getTargetFragment();
         }
 
         @Override
