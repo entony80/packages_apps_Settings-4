@@ -174,6 +174,19 @@ public class QuickSettings extends SettingsPreferenceFragment
                 .valueOf(numColumns))];
         mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
     }
+	
+	private int getDefaultNumColums() {
+        try {
+            Resources res = getActivity().getPackageManager()
+                    .getResourcesForApplication("com.android.systemui");
+            int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
+                    "com.android.systemui")); // better not be larger than 5, that's as high as the
+                                              // list goes atm
+            return Math.max(1, val);
+        } catch (Exception e) {
+            return 3;
+        }
+    }
 
 	private int getDefaultNumRows() {
         try {
@@ -181,19 +194,6 @@ public class QuickSettings extends SettingsPreferenceFragment
                     .getResourcesForApplication("com.android.systemui");
             int val = res.getInteger(res.getIdentifier("quick_settings_num_rows", "integer",
                     "com.android.systemui")); // better not be larger than 4, that's as high as the
-                                              // list goes atm
-            return Math.max(1, val);
-        } catch (Exception e) {
-            return 3;
-        }
-    }
-	
-    private int getDefaultNumColums() {
-        try {
-            Resources res = getActivity().getPackageManager()
-                    .getResourcesForApplication("com.android.systemui");
-            int val = res.getInteger(res.getIdentifier("quick_settings_num_columns", "integer",
-                    "com.android.systemui")); // better not be larger than 5, that's as high as the
                                               // list goes atm
             return Math.max(1, val);
         } catch (Exception e) {
