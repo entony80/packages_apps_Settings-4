@@ -40,6 +40,7 @@ import com.android.settings.dashboard.DashboardContainerView;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 import com.android.settings.notification.SettingPref;
 import com.android.settings.widget.SwitchBar;
 
@@ -47,7 +48,6 @@ import cyanogenmod.providers.CMSettings;
 
 public class DashOptionSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
-		
     private static final String TAG = "DashOptionSettings";
 	
 	private static final String DASHBOARD_COLUMNS = "dashboard_columns";

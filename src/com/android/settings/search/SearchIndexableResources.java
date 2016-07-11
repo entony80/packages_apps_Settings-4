@@ -19,6 +19,7 @@ package com.android.settings.search;
 import android.provider.SearchIndexableResource;
 
 import com.android.settings.ButtonSettings;
+import com.android.settings.dashboard.DashOptionSettings;
 import com.android.settings.DataUsageSummary;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
@@ -215,6 +216,13 @@ public final class SearchIndexableResources {
                         BatteryOptionSettings.class.getName(),
                         R.drawable.ic_settings_battery));
 
+		sResMap.put(DashOptionSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(DashOptionSettings.class.getName()),
+                        R.xml.dash_option_settings,
+                        DashOptionSettings.class.getName(),
+                        R.drawable.ic_settings_display));
+		
         sResMap.put(AdvancedAppSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(AdvancedAppSettings.class.getName()),

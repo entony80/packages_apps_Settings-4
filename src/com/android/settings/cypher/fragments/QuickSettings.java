@@ -71,6 +71,17 @@ public class QuickSettings extends SettingsPreferenceFragment
         
 		PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+		Context context = getActivity();
+
+        Resources res = getResources();
+        PackageManager pm = getPackageManager();
+        Resources systemUiResources;
+        try {
+            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            Log.e(TAG, "can't access systemui resources",e);
+            return null;
+        }
 		
 		// QS shade alpha
         mQSShadeAlpha =
