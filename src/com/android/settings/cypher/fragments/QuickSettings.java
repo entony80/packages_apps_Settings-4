@@ -18,6 +18,8 @@ package com.android.settings.cypher;
 
 import android.content.Intent;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 import android.content.res.Configuration;
 import android.content.res.Resources;
