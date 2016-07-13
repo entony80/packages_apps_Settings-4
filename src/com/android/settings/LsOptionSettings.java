@@ -36,6 +36,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.view.Menu;
@@ -286,8 +287,8 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             return frag;
         }
 
-        LockScreenWeather getOwner() {
-            return (LockScreenWeather) getTargetFragment();
+        LsOptionSettings getOwner() {
+            return (LsOptionSettings) getTargetFragment();
         }
 
         @Override

@@ -107,11 +107,10 @@ public class Gestures extends SettingsPreferenceFragment
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
         }
 		if (preference == mTapToWakePreference) {
-            boolean value = (Boolean) objValue;
+            boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
         }
 	    return true;
-	}
         else {
             return false;
         }
