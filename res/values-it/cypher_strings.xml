@@ -1011,6 +1011,16 @@
   <string name="dashboard_tileview_dividers_title">Divisori dashboard</string>
   <string name="dashboard_tileview_dividers_summary">Nascondi i divisori del tile della dashboard</string>
 
+  <!-- Disable Battery Saver Warning Color -->
+  <string name="battery_saver_color_title">Colore avviso</string>
+  <string name="battery_saver_color_summary">Colora di arancione la barra di stato e di navigazione quando viene attivato il risparmio batteria</string>
+ 
+  <!-- Battery notifications -->
+  <string name="battery_saver_notif_title">Notifica risparmio batteria</string>
+  <string name="battery_saver_notif_summary">Mostra una notifica del risparmio batteria quando abilitata</string>
+  <string name="battery_low_notif_title">Notifica di batteria scarica</string>
+  <string name="battery_low_notif_summary">Mostra una notifica di batteria scarica quando abilitata</string>
+ 	
   <!-- Snackbar notices -->
   <string name="battery_stats_reset_completed">Le statistiche della batteria sono state ripristinate</string>
  	
