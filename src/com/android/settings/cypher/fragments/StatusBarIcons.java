@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.settings.cypher;
+package com.android.settings.cypher.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.preference.PreferenceScreen;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
@@ -35,9 +37,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
-import org.cyanogenmod.internal.logging.CMMetricsLogger;
+import com.android.internal.logging.MetricsLogger;
 
 public class StatusBarIcons extends SettingsPreferenceFragment {
+	
+	private static final String TAG = StatusBarIcons.class.getSimpleName();
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -46,9 +50,10 @@ public class StatusBarIcons extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.status_bar_icons);
         final PreferenceScreen prefScreen = getPreferenceScreen();
     }
-
-    @Override
+	
+	@Override
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
-        return CMMetricsLogger.MAIN_SETTINGS;
-    }
+        return MetricsLogger.APPLICATION;
+	}
+}

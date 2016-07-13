@@ -19,6 +19,7 @@ package com.android.settings.search;
 import android.provider.SearchIndexableResource;
 
 import com.android.settings.ButtonSettings;
+import com.android.settings.DashOptionSettings;
 import com.android.settings.DataUsageSummary;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
@@ -60,7 +61,6 @@ import com.android.settings.wifi.WifiSettings;
 import com.android.settings.cypher.Additions;
 import com.android.settings.cypher.Gestures;
 import com.android.settings.cypher.fragments.ClockAndDate;
-import com.android.settings.cypher.fragments.QuickSettings;
 
 import com.android.settings.ButtonSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
@@ -216,6 +216,13 @@ public final class SearchIndexableResources {
                         BatteryOptionSettings.class.getName(),
                         R.drawable.ic_settings_battery));
 
+		sResMap.put(DashOptionSettings.class.getName(),
+                new SearchIndexableResource(
+                        Ranking.getRankForClassName(DashOptionSettings.class.getName()),
+                        R.xml.dash_option_settings,
+                        DashOptionSettings.class.getName(),
+                        R.drawable.ic_settings_display));
+		
         sResMap.put(AdvancedAppSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(AdvancedAppSettings.class.getName()),
@@ -342,13 +349,6 @@ public final class SearchIndexableResources {
                         Gestures.class.getName(),
                         R.drawable.ic_settings_gestures));
 						
-		sResMap.put(QuickSettings.class.getName(),
-                new SearchIndexableResource(
-                        Ranking.getRankForClassName(QuickSettings.class.getName()),
-                        R.xml.qs_settings,
-                        QuickSettings.class.getName(),
-                        R.drawable.ic_settings_quick_settings));
-		
 		sResMap.put(ClockAndDate.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(ClockAndDate.class.getName()),

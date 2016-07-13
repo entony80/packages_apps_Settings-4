@@ -18,6 +18,7 @@ package com.android.settings.search;
 
 import com.android.settings.ButtonSettings;
 import com.android.settings.ChooseLockGeneric;
+import com.android.settings.DashOptionSettings;
 import com.android.settings.DataUsageSummary;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
@@ -124,6 +125,7 @@ public final class Ranking {
         sRankMap.put(HomeSettings.class.getName(), RANK_HOME);
 
         // Display
+		sRankMap.put(DashOptionSettings.class.getName(), RANK_DISPLAY);
         sRankMap.put(DisplaySettings.class.getName(), RANK_DISPLAY);
         sRankMap.put(ButtonSettings.class.getName(), RANK_DISPLAY);
         sRankMap.put(StatusBarSettings.class.getName(), RANK_DISPLAY);

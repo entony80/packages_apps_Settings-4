@@ -14,33 +14,44 @@
  * limitations under the License.
  */
 
-package com.android.settings.cypher;
+package com.android.settings.cypher.fragments;
 
+import android.content.Intent;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.content.ContentResolver;
+import android.preference.ListPreference;
 import android.provider.Settings;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.provider.SearchIndexableResource;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.search.Indexable;
+import com.android.internal.util.aicp.AicpUtils;
 import com.android.settings.Utils;
 
 import com.android.settings.cypher.SeekBarPreference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.List;
+import java.util.Map;
 
+import cyanogenmod.providers.CMSettings;
+import org.cyanogenmod.internal.util.CmLockPatternUtils;
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
 public class QuickSettings extends SettingsPreferenceFragment
-    implements Preference.OnPreferenceChangeListener, Indexable {
+    implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = QuickSettings.class.getSimpleName();
 	
@@ -64,6 +75,18 @@ public class QuickSettings extends SettingsPreferenceFragment
         
 		PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
+		final CmLockPatternUtils lockPatternUtils = new CmLockPatternUtils(getActivity());
+		Context context = getActivity();
+
+        Resources res = getResources();
+        PackageManager pm = getPackageManager();
+        Resources systemUiResources;
+        try {
+            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            Log.e(TAG, "can't access systemui resources",e);
+            return null;
+        }
 		
 		// QS shade alpha
         mQSShadeAlpha =
@@ -103,6 +126,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
         ContentResolver resolver = getActivity().getContentResolver();
+		Resources res = getResources();
         if (preference == mQSShadeAlpha) {
             int alpha = (Integer) newValue;
             Settings.System.putInt(resolver,
@@ -128,12 +152,6 @@ public class QuickSettings extends SettingsPreferenceFragment
                 .valueOf(numRows))];
         mNumRows.setSummary(getResources().getString(R.string.qs_num_rows_showing, prefix));
     }
-	
-	private void updateNumColumnsSummary(int numColumns) {
-        String prefix = (String) mNumColumns.getEntries()[mNumColumns.findIndexOfValue(String
-                .valueOf(numColumns))];
-        mNumColumns.setSummary(getResources().getString(R.string.qs_num_columns_showing, prefix));
-    }
 
 	private int getDefaultNumRows() {
         try {
@@ -146,28 +164,5 @@ public class QuickSettings extends SettingsPreferenceFragment
         } catch (Exception e) {
             return 3;
         }
-        return false;
     }
-
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                                                                            boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.qs_settings;
-                    result.add(sir);
-
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    ArrayList<String> result = new ArrayList<String>();
-                    return result;
-                }
-            };
 }

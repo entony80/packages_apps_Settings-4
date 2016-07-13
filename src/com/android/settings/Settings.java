@@ -79,6 +79,7 @@ public class Settings extends SettingsActivity {
     public static class PowerUsageSummaryActivity extends SettingsActivity { /* empty */ }
 	public static class BatteryOptionSettingsActivity extends SettingsActivity { /* empty */ }
 	public static class DashOptionSettingsActivity extends SettingsActivity { /* empty */ }
+	public static class LsOptionSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSyncSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSyncSettingsInAddAccountActivity extends SettingsActivity { /* empty */ }

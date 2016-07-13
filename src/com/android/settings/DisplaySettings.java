@@ -35,7 +35,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
-import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
@@ -106,7 +105,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
-    private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_MODE = "night_mode";
@@ -124,6 +122,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 	
 	private static final int MENU_DASH_OPTIONS = Menu.FIRST;
+	private static final int MENU_LS_OPTIONS = Menu.FIRST + 2;
 
     private ListPreference mLcdDensityPreference;
     private FontDialogPreference mFontSizePref;
@@ -137,7 +136,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Preference mScreenSaverPreference;
     private SwitchPreference mAccelerometer;
     private SwitchPreference mLiftToWakePreference;
-    private SwitchPreference mTapToWakePreference;
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
@@ -296,15 +294,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
 
-        mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-        if (mTapToWakePreference != null && isTapToWakeAvailable(getResources())) {
-            mTapToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            if (displayPrefs != null && mTapToWakePreference != null) {
-                displayPrefs.removePreference(mTapToWakePreference);
-            }
-        }
-
         mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
         boolean proximityCheckOnWake = getResources().getBoolean(
                 org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
@@ -320,7 +309,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     CMSettings.System.PROXIMITY_ON_WAKE,
                     (proximityCheckOnWakeDefault ? 1 : 0)) == 1);
         }
-
+		
+		setHasOptionsMenu(true);
         mWakeWhenPluggedOrUnplugged =
                 (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
     }
@@ -355,10 +345,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static boolean isLiftToWakeAvailable(Context context) {
         SensorManager sensors = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         return sensors != null && sensors.getDefaultSensor(Sensor.TYPE_WAKE_GESTURE) != null;
-    }
-
-    private static boolean isTapToWakeAvailable(Resources res) {
-        return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
 
     private static boolean isAutomaticBrightnessAvailable(Resources res) {
@@ -575,12 +561,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mDozePreference.setChecked(value != 0);
         }
 
-        // Update tap to wake if it is available.
-        if (mTapToWakePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
-            mTapToWakePreference.setChecked(value != 0);
-        }
-
         // Update camera gesture #1 if it is available.
         if (mCameraGesturePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), CAMERA_GESTURE_DISABLED, 0);
@@ -712,10 +692,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
         }
-        if (preference == mTapToWakePreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
-        }
+        
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
@@ -740,6 +717,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 		
 		MenuItem dashOptions = menu.add(0, MENU_DASH_OPTIONS, 0, R.string.dash_board_options);
         dashOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+		
+		MenuItem lsOptions = menu.add(0, MENU_LS_OPTIONS, 0, R.string.lock_screen_options);
+        lsOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 	
 	@Override
@@ -749,6 +729,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 			case MENU_DASH_OPTIONS:
                 sa.startPreferencePanel(DashOptionSettings.class.getName(), null,
                         R.string.dash_board_options, null, null, 0);
+                return true;
+			case MENU_LS_OPTIONS:
+                sa.startPreferencePanel(LsOptionSettings.class.getName(), null,
+                        R.string.lock_screen_options, null, null, 0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -833,9 +817,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (!Utils.isDozeAvailable(context)) {
                         result.add(KEY_DOZE);
                         result.add(KEY_ADVANCED_DOZE_OPTIONS);
-                    }
-                    if (!isTapToWakeAvailable(context.getResources())) {
-                        result.add(KEY_TAP_TO_WAKE);
                     }
                     if (!context.getResources().getBoolean(
                             org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake)) {
