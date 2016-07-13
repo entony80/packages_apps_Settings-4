@@ -111,9 +111,6 @@ public class Gestures extends SettingsPreferenceFragment
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
         }
 	    return true;
-        else {
-            return false;
-        }
     }
 
     private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
