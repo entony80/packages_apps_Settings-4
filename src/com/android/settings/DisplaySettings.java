@@ -124,6 +124,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 	
 	private static final int MENU_DASH_OPTIONS = Menu.FIRST;
+	private static final int MENU_LS_OPTIONS = Menu.FIRST + 2;
 
     private ListPreference mLcdDensityPreference;
     private FontDialogPreference mFontSizePref;
@@ -741,6 +742,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 		
 		MenuItem dashOptions = menu.add(0, MENU_DASH_OPTIONS, 0, R.string.dash_board_options);
         dashOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+		
+		MenuItem lsOptions = menu.add(0, MENU_LS_OPTIONS, 0, R.string.lock_screen_options);
+        lsOptions.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 	
 	@Override
@@ -750,6 +754,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 			case MENU_DASH_OPTIONS:
                 sa.startPreferencePanel(DashOptionSettings.class.getName(), null,
                         R.string.dash_board_options, null, null, 0);
+                return true;
+			case MENU_LS_OPTIONS:
+                sa.startPreferencePanel(LsOptionSettings.class.getName(), null,
+                        R.string.lock_screen_options, null, null, 0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

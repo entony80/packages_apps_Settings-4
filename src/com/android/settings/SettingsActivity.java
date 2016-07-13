@@ -70,6 +70,7 @@ import com.nispok.snackbar.SnackbarManager;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.XmlUtils;
+import com.android.settings.LsOptionSettings;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
@@ -354,6 +355,7 @@ public class SettingsActivity extends Activity
             WifiDisplaySettings.class.getName(),
 			BatteryOptionSettings.class.getName(),
 			DashOptionSettings.class.getName(),
+			LsOptionSettings.class.getName(),
             PowerUsageSummary.class.getName(),
             AccountSyncSettings.class.getName(),
             AccountSettings.class.getName(),

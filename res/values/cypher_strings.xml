@@ -973,8 +973,7 @@
 	
 	<!-- Lockscreen weather -->
     <string name="status_bar_show_weather_category">Weather</string>
-    <string name="lock_screen_weather_settings_title">Lockscreen weather</string>
-	<string name="lock_screen_weather_settings_title_summary">Show weather information on the lockscreen with icon visualization</string>
+    <string name="lock_screen_options">Lockscreen</string>
     <string name="weather_show_weather_title">Show weather</string>
     <string name="weather_show_weather_summary">Show general weather information for location</string>
     <string name="weather_show_location_title">Show location</string>

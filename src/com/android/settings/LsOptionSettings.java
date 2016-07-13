@@ -1,5 +1,5 @@
-/* 
- * Copyright (C) 2014 DarkKat
+/*
+ * Copyright (C) 2016 CypherOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,36 +14,53 @@
  * limitations under the License.
  */
 
-package com.android.settings.cypher.fragments;
+package com.android.settings;
 
+import android.content.ContentResolver;
+import android.content.Context;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.SwitchPreference;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.PreferenceCategory;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
+import android.provider.Settings.Global;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
+import android.util.Log;
+import android.widget.Switch;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.settings.R;
+import com.android.settings.SettingsActivity;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+import com.android.settings.notification.SettingPref;
+import com.android.settings.widget.SwitchBar;
+
+import cyanogenmod.providers.CMSettings;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockScreenWeather extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-
-    private static final String PREF_CAT_COLORS =
+public class LsOptionSettings extends SettingsPreferenceFragment
+    implements Preference.OnPreferenceChangeListener {
+    private static final String TAG = "LsOptionSettings";
+	
+	private static final String PREF_CAT_COLORS =
             "weather_cat_colors";
     private static final String PREF_SHOW_WEATHER =
             "weather_show_weather";
@@ -76,19 +93,19 @@ public class LockScreenWeather extends SettingsPreferenceFragment implements
     private ColorPickerPreference mIconColor;
 
     private ContentResolver mResolver;
-
-    @Override
+	
+	@Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATION;
+        return MetricsLogger.DISPLAY;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         refreshSettings();
     }
-
-    public void refreshSettings() {
+	
+	public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
         addPreferencesFromResource(R.xml.lockscreen_weather);
         if (prefs != null) {
@@ -175,8 +192,8 @@ public class LockScreenWeather extends SettingsPreferenceFragment implements
 
         setHasOptionsMenu(true);
     }
-
-    @Override
+	
+	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
                 .setIcon(R.drawable.ic_settings_reset)
@@ -193,8 +210,8 @@ public class LockScreenWeather extends SettingsPreferenceFragment implements
                 return super.onContextItemSelected(item);
         }
     }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+	
+	public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean value;
         String hex;
         int intHex;
