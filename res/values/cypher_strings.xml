@@ -971,7 +971,6 @@
 	<!-- Statusbar custom icons -->
     <string name="su_indicator">Superuser</string>
     <string name="show_headset_icon_title">Headset</string>
-	<string name="show_fourg_title">4G</string>
 	
 	<!-- Force expanded notifications -->
     <string name="force_expanded_notifications_title">Expand-it</string>
