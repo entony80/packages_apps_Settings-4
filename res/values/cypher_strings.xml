@@ -678,6 +678,7 @@
 	<string name="changelog_cypher_error">Build notes could not be located. Contact Software Manufacturer</string>
 	
 	<string name="gestures_settings">Gestures</string>
+	<string name="power_category_title">Power</string>
 	
 	<!-- Battery Bar -->
     <string name="battery_icon">Icon style</string>
