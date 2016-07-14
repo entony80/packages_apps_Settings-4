@@ -134,7 +134,7 @@ public class LsOptionSettings extends SettingsPreferenceFragment
         mShowWeather.setOnPreferenceChangeListener(this);
 		
 		mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
-            mBlurRadius.setValue(Settings.System.getInt(resolver,
+            mBlurRadius.setValue(Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
             mBlurRadius.setOnPreferenceChangeListener(this);
 
