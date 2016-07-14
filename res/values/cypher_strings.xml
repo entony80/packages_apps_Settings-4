@@ -657,6 +657,8 @@
 	<string name="addition_settings">Additions</string>
 	<string name="additions_about_notice_title">Hello there</string>
 	<string name="additions_about_notice_summary">This is the resting place for all of your beloved features brought to you by the best developers around.</string>
+	<string name="additions_qs_about_title">About</string>
+	<string name="additions_qs_about_summary">If you ever get bored with the quick settings menu here\'s a simple package with game changing customizations</string>
 	
 	<!-- Quick settings -->
 	<string name="quick_settings_title">Quick settings</string>
