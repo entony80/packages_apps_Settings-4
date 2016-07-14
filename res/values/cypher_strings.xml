@@ -1027,6 +1027,11 @@
     <string name="battery_low_notif_title">Low battery notification</string>
     <string name="battery_low_notif_summary">Show low battery notification when enabled</string>
 	
+	<!-- Lockscreen Blur -->
+    <string name="lockscreen_see_through_title">Blur</string>
+    <string name="lockscreen_see_through_summary">Replace your wallpaper with a blurred lockscreen with the ability to see what\'s behind it</string>
+	<string name="lockscreen_blur_radius">Blur radius</string>
+	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
 	
