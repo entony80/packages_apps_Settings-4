@@ -649,8 +649,8 @@
   <string name="hide_from_recents_add_app">Aggiungi App</string>
     
   <!-- Additions Settings -->
-  <string name="addition_settings">Aggiunte</string>
-  <string name="additions_about_notice_title">About</string>
+  <string name="addition_settings">Impostazioni Aggiuntive</string>
+  <string name="additions_about_notice_title">Riguardo CypherOS</string>
   <string name="additions_about_notice_summary">Ciao. Questo è il luogo di tutte quelle funzioni amate e portate per voi dai migliori sviluppatori.</string>
 
   <!-- Quick settings -->
@@ -671,6 +671,8 @@
   <string name="changelog_cypher_error">Le note di costruzione non possono essere localizzate. Contatta il produttore del Software</string>
 
   <string name="gestures_settings">Gesti</string>
+  
+  <string name="power_category_title">Alimenta</string>
 
   <!-- Battery Bar -->
   <string name="battery_icon">Stile icona batteria</string>
@@ -1021,6 +1023,11 @@
   <string name="battery_low_notif_title">Notifica di batteria scarica</string>
   <string name="battery_low_notif_summary">Mostra una notifica di batteria scarica quando abilitata</string>
  	
+  <!-- Lockscreen Blur -->
+  <string name="lockscreen_see_through_title">Sfocatura schermata di blocco</string>
+  <string name="lockscreen_see_through_summary">Sfoca e visualizza il contenuto dietro la schermata di blocco</string>
+  <string name="lockscreen_blur_radius">Intensità dell\'effetto di sfocatura</string>
+ 
   <!-- Snackbar notices -->
   <string name="battery_stats_reset_completed">Le statistiche della batteria sono state ripristinate</string>
  	
