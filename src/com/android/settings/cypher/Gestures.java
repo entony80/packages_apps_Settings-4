@@ -16,9 +16,14 @@
 
 package com.android.settings.cypher;
 
+import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Message;
 import android.provider.Settings;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -97,14 +102,6 @@ public class Gestures extends SettingsPreferenceFragment
         updateState();
     }
 	
-	private void updateState() {
-        // Update tap to wake if it is available.
-        if (mTapToWakePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
-            mTapToWakePreference.setChecked(value != 0);
-        }
-    }
-	
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mCameraDoubleTapPowerGesture) {
@@ -115,6 +112,7 @@ public class Gestures extends SettingsPreferenceFragment
 		if (preference == mTapToWakePreference) {
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
+			warnTapToWake();
         }
 	    return true;
     }
@@ -126,6 +124,30 @@ public class Gestures extends SettingsPreferenceFragment
 	
 	private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
+    }
+	
+	private void warnTapToWake() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.tap_to_wake_warning)
+            .setMessage(R.string.tap_to_wake_warning_message)
+            .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Enable tap to wake when user presses ok
+                    updateState();
+                }
+            })
+            .setNegativeButton(android.R.string.cancel, null)
+            .create();
+        dialog.show();
+    }
+	
+	private void updateState() {
+        // Update tap to wake if it is available.
+        if (mTapToWakePreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
+            mTapToWakePreference.setChecked(value != 0);
+        }
     }
 	
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
