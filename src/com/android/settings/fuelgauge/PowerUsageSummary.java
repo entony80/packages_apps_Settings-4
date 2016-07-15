@@ -352,8 +352,9 @@ public class PowerUsageSummary extends PowerUsageBase
     private void resetStats() {
         AlertDialog dialog = new AlertDialog.Builder(getActivity())
             .setTitle(R.string.battery_stats_reset)
+			.setView(R.layout.smart_dialogs)
             .setMessage(R.string.battery_stats_message)
-            .setPositiveButton(R.string.ok_string, new OnClickListener() {
+            .setPositiveButton(R.string.smart_dialog_confirm, new OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // Reset stats and request a refresh to initialize vars
@@ -362,7 +363,7 @@ public class PowerUsageSummary extends PowerUsageBase
                     mHandler.removeMessages(MSG_REFRESH_STATS);
                 }
             })
-            .setNegativeButton(android.R.string.cancel, null)
+            .setNegativeButton(R.string.smart_dialog_deny, null)
             .create();
         dialog.show();
     }
