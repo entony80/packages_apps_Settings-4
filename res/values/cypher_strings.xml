@@ -291,6 +291,7 @@
 
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_category">Settings</string>
+    <string name="clock_color_switch_title">Color switch</string>
     <string name="clock_color_title">Color</string>
     <string name="status_bar_clock_style_reset">Reset color</string>
     <string name="status_bar_clock_style_reset_message">Reset clock color?</string>
@@ -515,15 +516,20 @@
 
     <!-- Pulse navigation bar music visualizer -->
     <string name="pulse_help_policy_notice_title">About Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse is brilliant equalizer bar style audio visualization on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker. Be Sure To Play/Pause Track again After Resetting Pulse Dimension.</string>
+    <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio graphic equalizer on the navigation bar when music plays. Pulse does not work with some audio sources when listening on device speaker</string>
     <string name="pulse_settings">Pulse</string>
 	<string name="pulse_settings_summary">Include a simple yet highly customizable equalizer on your navigation bar while enjoying tunes</string>
-    <string name="pulse_settings_summary">Navigation bar audio visualization</string>
+    <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
     <string name="fling_show_pulse_title">Show Pulse</string>
-    <string name="fling_show_pulse_summary">Audio visualization on the navigation bar</string>
+    <string name="fling_show_pulse_summary">Audio graphic equalizer on the navigation bar</string>
+    <string name="pulse_render_mode_title">Render mode</string>
+    <string name="pulse_render_mode_fading_bars">Fading blocks</string>
+    <string name="pulse_render_mode_solid_lines">Solid lines</string>
     <string name="fling_pulse_color">Pulse color</string>
     <string name="eos_fling_lavalamp_title">Turn on Lava Lamp</string>
     <string name="eos_fling_lavalamp_summary">Pulse animates a smooth lava lamp style color blend</string>
+	<string name="pulse_advanced_category">Advanced</string>
+    <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
 
     <string name="pulse_custom_dimen">Pulse Bar Width</string>
     <string name="pulse_dimen0">Default</string>
@@ -656,6 +662,8 @@
 	<string name="addition_settings">Additions</string>
 	<string name="additions_about_notice_title">Hello there</string>
 	<string name="additions_about_notice_summary">This is the resting place for all of your beloved features brought to you by the best developers around.</string>
+	<string name="additions_qs_about_title">About</string>
+	<string name="additions_qs_about_summary">If you ever get bored with the quick settings menu here\'s a simple package with game changing customizations</string>
 	
 	<!-- Quick settings -->
 	<string name="quick_settings_title">Quick settings</string>
@@ -675,6 +683,7 @@
 	<string name="changelog_cypher_error">Build notes could not be located. Contact Software Manufacturer</string>
 	
 	<string name="gestures_settings">Gestures</string>
+	<string name="power_category_title">Power</string>
 	
 	<!-- Battery Bar -->
     <string name="battery_icon">Icon style</string>
@@ -1022,6 +1031,11 @@
     <string name="battery_saver_notif_summary">Show battery saver notification when enabled</string>
     <string name="battery_low_notif_title">Low battery notification</string>
     <string name="battery_low_notif_summary">Show low battery notification when enabled</string>
+	
+	<!-- Lockscreen Blur -->
+    <string name="lockscreen_see_through_title">Blur</string>
+    <string name="lockscreen_see_through_summary">Replace your wallpaper with a blurred lockscreen with the ability to see what\'s behind it</string>
+	<string name="lockscreen_blur_radius">Blur radius</string>
 	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>

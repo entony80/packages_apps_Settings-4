@@ -28,6 +28,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;

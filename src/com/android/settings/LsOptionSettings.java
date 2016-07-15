@@ -36,6 +36,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.PreferenceCategory;
 import android.preference.Preference.OnPreferenceChangeListener;
+import com.android.settings.cypher.SeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.Global;
@@ -77,6 +78,7 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             "weather_text_color";
     private static final String PREF_ICON_COLOR =
             "weather_icon_color";
+	private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
 
     private static final int MONOCHROME_ICON = 0;
     private static final int DEFAULT_COLOR = 0xffffffff;
@@ -92,6 +94,7 @@ public class LsOptionSettings extends SettingsPreferenceFragment
     private SwitchPreference mColorizeAllIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+	private SeekBarPreference mBlurRadius;
 
     private ContentResolver mResolver;
 	
@@ -108,11 +111,11 @@ public class LsOptionSettings extends SettingsPreferenceFragment
 	
 	public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
-        addPreferencesFromResource(R.xml.lockscreen_weather);
         if (prefs != null) {
             prefs.removeAll();
         }
 
+		addPreferencesFromResource(R.xml.lockscreen_weather);
         mResolver = getActivity().getContentResolver();
 
         boolean showWeather = Settings.System.getInt(mResolver,
@@ -129,6 +132,11 @@ public class LsOptionSettings extends SettingsPreferenceFragment
                 (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
         mShowWeather.setOnPreferenceChangeListener(this);
+		
+		mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+            mBlurRadius.setValue(Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+            mBlurRadius.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
@@ -213,6 +221,7 @@ public class LsOptionSettings extends SettingsPreferenceFragment
     }
 	
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getActivity().getContentResolver();
         boolean value;
         String hex;
         int intHex;
@@ -266,6 +275,11 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_WEATHER_ICON_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+		} else if (preference == mBlurRadius) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
             return true;
         }
         return false;

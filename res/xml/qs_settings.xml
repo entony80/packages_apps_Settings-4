@@ -17,6 +17,18 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/quick_settings_title">
+	
+	<!-- QS border image -->
+    <PreferenceScreen android:key="qs_border"
+            android:enabled="false"
+            android:layout="@layout/additions_qs_border" />
+			
+	<Preference
+            style="?android:preferenceInformationStyle"
+            android:key="additions_about_qs"
+            android:selectable="false"
+            android:summary="@string/additions_qs_about_summary"
+            android:title="@string/additions_qs_about_title" />
 			
 	<ListPreference
             android:key="sysui_qs_num_rows"

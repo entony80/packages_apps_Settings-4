@@ -19,7 +19,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 	
 	<PreferenceCategory android:key="power_key"
-	        android:title="power_category_title">
+	        android:title="@string/power_category_title">
 			
 			<!-- Double tap to wake -->
             <SwitchPreference
