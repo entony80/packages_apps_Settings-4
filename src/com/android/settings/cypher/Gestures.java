@@ -91,6 +91,12 @@ public class Gestures extends SettingsPreferenceFragment
         return CMMetricsLogger.MAIN_SETTINGS;
     }
 	
+	@Override
+    public void onResume() {
+        super.onResume();
+        updateState();
+    }
+	
 	private void updateState() {
         // Update tap to wake if it is available.
         if (mTapToWakePreference != null) {
