@@ -27,11 +27,6 @@
     <string name="device_maintainer">Device maintainer</string>
     <string name="device_maintainers">Device maintainers</string>
 	
-	<!-- SmartDialog: Denial confirmation [CHAR LIMIT=NONE] -->
-    <string name="smart_dialog_deny">NO</string>
-    <!-- SmartDialog: Accept confirmation [CHAR LIMIT=NONE] -->
-    <string name="smart_dialog_confirm">YES</string>
-	
 	<string name="social_category_title">Social</string>
 	<string name="cypher_website_title">OnTheWeb</string>
 	<string name="cypher_website_title_summary">To get the latest news and update information check out our website</string>
