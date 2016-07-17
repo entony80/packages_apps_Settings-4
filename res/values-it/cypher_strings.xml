@@ -26,7 +26,10 @@
   <!-- Software Information, CypherOS device maintainer name -->
   <string name="device_maintainer">Manutentore dispositivo</string>
   <string name="device_maintainers">Manutentori del dispositivo</string>
-	
+
+  <string name="tap_to_wake_warning">Avvertenza</string>
+   <string name="tap_to_wake_warning_message">Il tocco per il risveglio può avere un effetto negativo sulle prestazioni della batteria, così come sui dispositivi con temperatura standard</string>
+		
   <string name="social_category_title">Sociale</string>
   <string name="cypher_website_title">In rete</string>
   <string name="cypher_website_title_summary">Per avere le ultime notizie e aggiornare le informazioni visitate il nostro sito</string>
@@ -131,6 +134,7 @@
   <string name="shortcut_action_help_app">App</string>
   <string name="shortcut_action_help_icon">, mentre selezionando l\'icona, si aprono possibilità  di personalizzazione</string>
   <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona aggiungi. Una volta che un %1$s si aggiunge, selezionando la riga cambierà l\'obiettivo %2$s\n\nper rimuovere un %1$s , strisciare la fila orizzontale verso sinistra o destra. Re-ordine a %1$s nella lista trascinando verticalmente l\'ancora a sinistra.\n\nPer trasparente o ripristinare le impostazioni, selezionare l\'icona per ripristinare.</string>
+ 
   <string name="shortcut_action_help_delete_last_entry">Rimozione di ogni %1$s nella lista si disattierà la funzione del tutto.</string>
   <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Rimozione di ogni %1$s nella lista disabiliterà il secondo strato di torta del tutto.</string>
   <string name="shortcuts_applications">Applicazioni</string>
@@ -243,6 +247,7 @@
   <string name="dim_nav_buttons_category">SlimDim</string>
   <string name="dim_nav_buttons_title">Oscurare i pulsanti dopo inattività</string>
   <string name="dim_nav_buttons_summary">Oscurare i pulsanti della barra di navigazione per un periodo di tempo specificato dopo che non si interaggisce più con la stessa</string>
+  
   <string name="dim_nav_buttons_timeout_title">Tempo prima dello spegnimento dello schermo</string>
   <string name="dim_nav_buttons_timeout_summary">Il tempo (in millisecondi) di attesa prima di spegnere i pulsanti</string>
   <string name="dim_nav_buttons_alpha_title">Valore alfa di oscuramento</string>
@@ -286,6 +291,7 @@
 
   <!-- Status bar - Clock -->
   <string name="status_bar_clock_category">Orologio</string>
+  <string name="clock_color_switch_title">Colore interruttori</string>
   <string name="clock_color_title">Colore</string>
   <string name="status_bar_clock_style_reset">Ripristino colore</string>
   <string name="status_bar_clock_style_reset_message">Ripristinare colore orologio?</string>
@@ -464,6 +470,7 @@
   <string name="fling_settings_summary">Sostituisce la barra di navigazione tradizionale con un\'interfaccia gesto di movimento</string>
   <string name="fling_interface">Interfaccia Fling</string>
   <string name="fling_enable_title">Abilita Fling</string>
+
   <string name="fling_back_home_policy">Indietro e Home devono essere sempre impostati. Per cambiare i collegamenti di Indietro o di Home, impostare prima l\'assegnazione desiderata</string>
   <string name="fling_split_bar_policy">Quando una singola azione (sinistra o destra) è impostato, si applica a entrambi i lati della barra</string>
   <string name="fling_def_summary">Nessuna azione impostata</string>
@@ -515,12 +522,19 @@
   <string name="pulse_help_policy_notice_summary">Pulse è un brillante equalizzatore audio in stile barra che compare sulla barra di navigazione quando si ascolta la musica. Pulse non funziona con alcune fonti audio durante l\'ascolto sull\'altoparlante del dispositivo. Essere sicuri di riprodurre/sospendere la traccia ancora dopo il ripristino di Pulse.</string>
   <string name="pulse_settings">Pulse</string>
   <string name="pulse_settings_summary">Equalizzatore audio sulla barra di navigazione</string>
+  <string name="pulse_settings_summary">Include un equalizzatore altamente personalizzabile ma semplice nella barra di navigazione mentre ti stati godendo la musica</string>
+  
   <string name="fling_show_pulse_title">Mostra Pulse</string>
   <string name="fling_show_pulse_summary">Visualizzazione audio sulla barra di navigazione</string>
+  <string name="pulse_render_mode_title">Modalità rendering</string>
+  <string name="pulse_render_mode_fading_bars">Dissolvenza blocchi</string>
+  <string name="pulse_render_mode_solid_lines">Linee continue</string>
   <string name="fling_pulse_color">Colore Pulse</string>
   <string name="eos_fling_lavalamp_title">Abilita lampe lava</string>
   <string name="eos_fling_lavalamp_summary">Pulse anima e regola lava, lamp miscela lo stile del colore</string>
-  <string name="pulse_custom_dimen">Dimensioni della barra di navigazione</string>
+  <string name="pulse_advanced_category">Avanzate</string>
+  <string name="pulse_legacy_mode_advanced_category">impostazioni della modalità dissolvenza blocchi</string>
+
   <string name="pulse_custom_dimen">Larghezza barra Pulse</string>
   <string name="pulse_dimen0">Predefinito</string>
   <string name="pulse_dimen1">7dp</string>
@@ -588,6 +602,7 @@
   <string name="smartbar_settings_title">Smartbar</string>
   <string name="smartbar_settings_title">Impostazioni Smartbar</string>
   <string name="smartbar_editor_title">Modifica dei pulsanti</string>
+
   <string name="smartbar_editor_summary">Pressione media e trascinare per cambiare la posizione. Premere a lungo per visualizzare il menù di modifica. La posizione del pulsante può essere modificata mentre il menù è visualizzato.</string>
   <string name="smartbar_context_menu_position_title">Posizione dei pulsanti di scelta rapida</string>
   <string name="smartbar_context_menu_position_summary">Impostare la posizione dei tasti contestuali, quali menu e il selettore della tastiera</string>
@@ -652,7 +667,9 @@
   <string name="addition_settings">Impostazioni Aggiuntive</string>
   <string name="additions_about_notice_title">Riguardo CypherOS</string>
   <string name="additions_about_notice_summary">Ciao. Questo è il luogo di tutte quelle funzioni amate e portate per voi dai migliori sviluppatori.</string>
-
+  <string name="additions_qs_about_title">A proposito</string>
+  <string name="additions_qs_about_summary">Se ti annoi con il menù delle impostazioni rapide con un semplice pacchetto puoi modificare e personalizzare</string>
+	
   <!-- Quick settings -->
   <string name="quick_settings_title">Impostazioni rapide</string>
   <string name="quick_settings_title_summary">Modificare l\'aspetto e la funzionalità del menù impostazioni rapide</string>
@@ -815,7 +832,7 @@
   <!-- App Circle sidebar -->
   <string name="category_app_circle_bar_title">App launcher</string>
   <string name="app_circle_bar_title">Applicazioni in cerchio</string>
-  <string name="app_circle_bar_title_summary">Mostra il cerchio e avvia le applicazioni dopo aver toccato il lato destro dello schermo</string>
+  <string name="app_circle_bar_title_summary">Mostra un cerchio e avvia le applicazioni dopo aver toccato il lato destro dello schermo</string>
   <string name="app_circle_bar_included_apps_title">Applicazioni incluse</string>
   <string name="app_circle_bar_included_apps_summary">Applicazioni che verranno mostrate all\'interno del cerchio</string>
   <string name="trigger_width_title">Larghezza</string>
@@ -957,7 +974,6 @@
   <string name="floating_windows">Finestra fluttuante</string>
   <string name="floating_windows_summary">Le tue applicazioni e funzioni selezionate appariranno in una piccola finestra per facilitarne l\'accesso</string>
   <string name="floating_windows_switch">Si ha per consentire l\'uso globale della modalità fluttuante, se questo è spento nelle opzioni non funzionerà</string>
-  
   <string name="slim_action_floats">PiControls</string>
   <string name="slim_action_floats_summary">Avviare azioni PiControl in modalità fluttuante</string>
   <string name="gesture_anywhere_floating">MiGestures</string>
@@ -977,8 +993,8 @@
 	
   <!-- Lockscreen weather -->
   <string name="status_bar_show_weather_category">Meteo</string>
-  <string name="lock_screen_weather_settings_title">Meteo Blocco schermo</string>
-  <string name="lock_screen_weather_settings_title_summary">Visualizza le informazioni meteo sul Blocco schermo con visualizzazione icona</string>
+  <string name="lock_screen_options">Schermata di blocco</string>
+
   <string name="weather_show_weather_title">Mostra meteo</string>
   <string name="weather_show_weather_summary">Visualizza le informazioni generali meteo per la posizione</string>
   <string name="weather_show_location_title">Mostra posizione</string>
