@@ -258,6 +258,7 @@
   <string name="battery_light_full_color_title">Carica completa</string>
   <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Luce di notifica</string>
+  <string name="notification_light_title_summary">Consenti di attivare l\'indicatore LED alle notifiche delle app</string>
   <string name="notification_light_general_title">Generale</string>
   <string name="notification_light_applist_title">App</string>
   <string name="notification_light_phonelist_title">Telefono</string>
@@ -702,6 +703,12 @@
   <string name="status_bar_quick_qs_pulldown_off">Disattivato</string>
   <string name="status_bar_quick_qs_pulldown_left">Sinistra</string>
   <string name="status_bar_quick_qs_pulldown_right">Destra</string>
+  <string name="smart_pulldown_title">Discesa intelligente</string>
+  <string name="smart_pulldown_summary">Apri le impostazioni rapide quando ci sono %1$s notifiche presenti</string>
+  <string name="smart_pulldown_off">Spenta</string>
+  <string name="smart_pulldown_dismissable">Non rimovibili</string>
+  <string name="smart_pulldown_persistent">Non persistenti</string>
+  <string name="smart_pulldown_all">Non rimovibili o persistenti</string>
   <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Posizione orologio</string>
   <string name="status_bar_clock_style_right">Destra</string>
