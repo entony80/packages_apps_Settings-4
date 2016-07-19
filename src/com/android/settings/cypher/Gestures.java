@@ -112,9 +112,23 @@ public class Gestures extends SettingsPreferenceFragment
 		if (preference == mTapToWakePreference) {
             boolean value = (Boolean) newValue;
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
-			warnTapToWake();
         }
 	    return true;
+    }
+	
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mTapToWakePreference) {
+            if (mTapToWakePreference.isChecked()) {
+                warnTapToWake();
+            } else {
+                isTapToWakeAvailable(false);
+            }
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        return false;
     }
 
     private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
@@ -127,19 +141,22 @@ public class Gestures extends SettingsPreferenceFragment
     }
 	
 	private void warnTapToWake() {
-        AlertDialog dialog = new AlertDialog.Builder(getActivity())
-            .setTitle(R.string.tap_to_wake_warning)
-            .setMessage(R.string.tap_to_wake_warning_message)
-            .setPositiveButton(R.string.ok_string, new OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // Enable tap to wake when user presses ok
-                    updateState();
-                }
-            })
-            .setNegativeButton(android.R.string.cancel, null)
-            .create();
-        dialog.show();
+		DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                isTapToWakeAvailable((which == DialogInterface.BUTTON_POSITIVE) ? true : false);
+                updateState();
+            }
+        };
+		
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.tap_to_wake_warning)
+                .setMessage(R.string.tap_to_wake_warning_message)
+                .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                .setNegativeButton(android.R.string.cancel, null)
+				.setCancelable(false)
+                .create();
+                .show();
     }
 	
 	private void updateState() {
