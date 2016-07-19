@@ -67,6 +67,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "SystemSettings";
 
     private static final String DISABLE_NAV_KEYS = "disable_nav_keys";	
+	private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
@@ -144,6 +145,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private PreferenceCategory mNavigationPreferencesCat;
     private SwitchPreference mDisableNavigationKeys;	
+	private SwitchPreference mNavigationBarLeftPref;
 
     private Handler mHandler;
 
@@ -209,6 +211,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mHandler = new Handler();
 
         mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
+		// Navigation bar left
+        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
 
         final CMHardwareManager hardware = CMHardwareManager.getInstance(getActivity());
 
@@ -558,6 +562,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (appSwitchCategory != null) {
             appSwitchCategory.setEnabled(!navbarEnabled);
         }
+		if (mNavigationBarLeftPref != null) {
+            mNavigationBarLeftPref.setEnabled(enabled);
+        }
     }
 
     public static void restoreKeyDisabler(Context context) {
@@ -601,6 +608,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 	}
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+	
+	private static boolean isKeyDisablerSupported() {
+        try {
+            return KeyDisabler.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
+        }
     }
 
     private void handleTogglePowerButtonEndsCallPreferenceClick() {

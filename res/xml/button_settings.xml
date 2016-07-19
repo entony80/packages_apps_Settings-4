@@ -24,6 +24,12 @@
         android:title="@string/disable_navkeys_title"
         android:summary="@string/disable_navkeys_summary"
         android:defaultValue="false" />
+		
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="navigation_bar_left"
+        android:title="@string/navigation_bar_left_title"
+        android:summary="@string/navigation_bar_left_summary"
+        android:defaultValue="false" />
 
     <com.android.settings.cyanogenmod.ButtonBacklightBrightness
         android:key="button_backlight"
