@@ -122,7 +122,7 @@ public class Gestures extends SettingsPreferenceFragment
             if (mTapToWakePreference.isChecked()) {
                 warnTapToWake();
             } else {
-                isTapToWakeAvailable(false);
+               isTapToWakeAvailable(getResources());
             }
         } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -144,7 +144,7 @@ public class Gestures extends SettingsPreferenceFragment
 		DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                isTapToWakeAvailable((which == DialogInterface.BUTTON_POSITIVE) ? true : false);
+                isTapToWakeAvailable(getResources());
                 updateState();
             }
         };
@@ -153,9 +153,15 @@ public class Gestures extends SettingsPreferenceFragment
                 .setTitle(R.string.tap_to_wake_warning)
                 .setMessage(R.string.tap_to_wake_warning_message)
                 .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                      @Override
+                      public void onClick(DialogInterface dialog, int which) {
+                         // Enable tap to wake when user presses ok
+                         updateState();
+                      }
+                   })
                 .setNegativeButton(android.R.string.cancel, null)
-				.setCancelable(false)
-                .create();
+		.setCancelable(false)
+                .create()
                 .show();
     }
 	
