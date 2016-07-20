@@ -144,14 +144,16 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mVolumeAnswerCall;
 
     private PreferenceCategory mNavigationPreferencesCat;
-    private SwitchPreference mDisableNavigationKeys;	
-	private SwitchPreference mNavigationBarLeftPref;
+    private SwitchPreference mDisableNavigationKeys;
+
+    private static boolean mIsKeyDisablerSupported;
 
     private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mIsKeyDisablerSupported = false;
 
         addPreferencesFromResource(R.xml.button_settings);
 
@@ -562,16 +564,20 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (appSwitchCategory != null) {
             appSwitchCategory.setEnabled(!navbarEnabled);
         }
-		if (mNavigationBarLeftPref != null) {
-            mNavigationBarLeftPref.setEnabled(enabled);
+        if (mNavigationBarLeftPref != null) {
+            mNavigationBarLeftPref.setEnabled(!navbarEnabled);
         }
     }
 
     public static void restoreKeyDisabler(Context context) {
         CMHardwareManager hardware = CMHardwareManager.getInstance(context);
         if (!hardware.isSupported(CMHardwareManager.FEATURE_KEY_DISABLE)) {
+            mIsKeyDisablerSupported = false;
+
             return;
         }
+
+        mIsKeyDisablerSupported = true;
 
         writeDisableNavkeysOption(context, CMSettings.Secure.getInt(context.getContentResolver(),
                 CMSettings.Secure.DEV_FORCE_SHOW_NAVBAR, 0) != 0);
@@ -610,9 +616,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 	
-	private static boolean isKeyDisablerSupported() {
+    private static boolean isKeyDisablerSupported() {
         try {
-            return KeyDisabler.isSupported();
+            return mIsKeyDisablerSupported;
         } catch (NoClassDefFoundError e) {
             // Hardware abstraction framework not installed
             return false;
