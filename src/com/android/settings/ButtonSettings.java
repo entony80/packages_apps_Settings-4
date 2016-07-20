@@ -565,7 +565,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             appSwitchCategory.setEnabled(!navbarEnabled);
         }
         if (mNavigationBarLeftPref != null) {
-            mNavigationBarLeftPref.setEnabled(!navbarEnabled);
+            mNavigationBarLeftPref.setEnabled(navbarEnabled);
         }
     }
 
