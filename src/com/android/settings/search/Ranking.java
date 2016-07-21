@@ -37,6 +37,8 @@ import com.android.settings.applications.AdvancedAppSettings;
 import com.android.settings.applications.ManageDefaultApps;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.StatusBarSettings;
+import com.android.settings.cypher.fragments.QuickSettingsColors;
+import com.android.settings.cypher.fragments.QuickSettingsFonts;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.fuelgauge.BatteryOptionSettings;
@@ -148,6 +150,10 @@ public final class Ranking {
         sRankMap.put(PowerUsageSummary.class.getName(), RANK_POWER_USAGE);
 		sRankMap.put(BatteryOptionSettings.class.getName(), RANK_POWER_USAGE);
 
+		// Quicksettings
+        sRankMap.put(QuickSettingsColors.class.getName(), RANK_POWER_USAGE);
+		sRankMap.put(QuickSettingsFonts.class.getName(), RANK_POWER_USAGE);
+		
         // Advanced app settings
         sRankMap.put(AdvancedAppSettings.class.getName(), RANK_APPS);
         sRankMap.put(ManageDefaultApps.class.getName(), RANK_APPS);

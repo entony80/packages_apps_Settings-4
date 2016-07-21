@@ -2073,6 +2073,38 @@
                 android:resource="@id/battery_settings" />
         </activity>
 		
+		<activity android:name="Settings$QuickSettingsColorsActivity"
+                android:label="@string/quick_settings_theme_colors"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.QUICK_SETTINGS_COLORS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cypher.fragments.QuickSettingsColors" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/addition_settings" />
+        </activity>
+		
+		<activity android:name="Settings$QuickSettingsFontsActivity"
+                android:label="@string/quick_settings_theme_colors"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.QUICK_SETTINGS_FONTS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cypher.fragments.QuickSettingsFonts" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/addition_settings" />
+        </activity>
+		
 		<activity android:name="Settings$DashOptionSettingsActivity"
                 android:label="@string/dash_board_options"
                 android:taskAffinity=""
