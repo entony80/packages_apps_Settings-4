@@ -95,8 +95,6 @@ import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.cyanogenmod.LiveLockScreenSettings;
-import com.android.settings.cypher.fragments.QuickSettingsColors;
-import com.android.settings.cypher.fragments.QuickSettingsFonts;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashOptionSettings;
 import com.android.settings.dashboard.DashboardSummary;
@@ -358,8 +356,6 @@ public class SettingsActivity extends Activity
 			BatteryOptionSettings.class.getName(),
 			DashOptionSettings.class.getName(),
 			LsOptionSettings.class.getName(),
-			QuickSettingsColors.class.getName(),
-			QuickSettingsFonts.class.getName(),
             PowerUsageSummary.class.getName(),
             AccountSyncSettings.class.getName(),
             AccountSettings.class.getName(),
