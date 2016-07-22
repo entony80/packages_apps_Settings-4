@@ -25,6 +25,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import com.android.settings.util.Helpers;
@@ -91,7 +92,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         updateSmartPulldownSummary(smartPulldown);
 		
 		// Task manager
-        mEnableTaskManager = (SwitchPreference) prefSet.findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager = (SwitchPreference) findPreference(PREF_ENABLE_TASK_MANAGER);
         mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
     }
