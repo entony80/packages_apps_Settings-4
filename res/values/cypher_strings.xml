@@ -990,6 +990,10 @@
     <string name="lockscreen_see_through_summary">Replace your wallpaper with a blurred lockscreen with the ability to see what\'s behind it</string>
 	<string name="lockscreen_blur_radius">Blur radius</string>
 	
+	<!-- Task Manager -->
+    <string name="enable_task_manager_title">Task Manager</string>
+    <string name="enable_task_manager_summary">Use a mini task manager button in the expanded statusbar area</string>
+	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>
 	
