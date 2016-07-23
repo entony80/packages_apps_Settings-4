@@ -88,6 +88,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_MOD_VERSION = "mod_version";
     private static final String KEY_API_LEVEL = "api_level";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
+    private static final String KEY_VENDOR_VERSION = "vendor_version";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -127,6 +128,14 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         } else {
             getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
 
+        }
+        String vendorfingerprint = SystemProperties.get("ro.vendor.build.fingerprint");
+        if (vendorfingerprint != null && !TextUtils.isEmpty(vendorfingerprint)) {
+            String[] splitfingerprint = vendorfingerprint.split("/");
+            String vendorid = splitfingerprint[3];
+            setStringSummary(KEY_VENDOR_VERSION, vendorid);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(KEY_VENDOR_VERSION));
         }
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
@@ -591,4 +600,3 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             }
         };
 }
-

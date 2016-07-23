@@ -27,6 +27,10 @@
     <string name="device_maintainer">Device maintainer</string>
     <string name="device_maintainers">Device maintainers</string>
 	
+	<!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
+	
 	<string name="tap_to_wake_warning">Warning</string>
     <string name="tap_to_wake_warning_message">Tap to wake can have a negative affect on your battery performance as well as your devices standard temperature</string>
 	
