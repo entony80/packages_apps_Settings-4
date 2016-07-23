@@ -999,6 +999,10 @@
   <string name="lockscreen_see_through_summary">Sfoca e visualizza il contenuto dietro la schermata di blocco</string>
   <string name="lockscreen_blur_radius">Intensità dell\'effetto di sfocatura</string>
  
+ <!-- Task Manager -->
+ <string name="enable_task_manager_title">Gestore processi</string>
+ <string name="enable_task_manager_summary">Utilizzare un mini pulsante di gestione dei processi nell\'area espansa della barra di stato</string>
+ 
   <!-- Snackbar notices -->
   <string name="battery_stats_reset_completed">Le statistiche della batteria sono state ripristinate</string>
  	
