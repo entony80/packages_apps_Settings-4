@@ -32,7 +32,7 @@
   <string name="root_access_all">অ্যাপস এবং এডিবি</string>
   <!-- NFC PreferenceCategory title -->
   <!-- About phone screen, CyanogenMod version -->
-  <string name="mod_version">AICP সংস্করণ</string>
+  <string name="mod_version">CypherOS সংস্করণ</string>
   <string name="mod_version_default">অজানা</string>
   <!-- About phone screen, Device model -->
   <!-- About phone screen, Device name -->
