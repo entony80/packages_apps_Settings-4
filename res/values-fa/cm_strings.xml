@@ -41,7 +41,7 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">ان‌اف‌سی</string>
   <!-- About phone screen, CyanogenMod version -->
-  <string name="mod_version">نسخه AICP</string>
+  <string name="mod_version">نسخه CypherOS</string>
   <string name="mod_version_default">ناشناخته</string>
   <!-- About phone screen, Device model -->
   <string name="device_model">مدل دستگاه</string>

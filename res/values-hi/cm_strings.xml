@@ -40,7 +40,7 @@
   <string name="root_access_all">ऐप और एडीबी</string>
   <!-- NFC PreferenceCategory title -->
   <!-- About phone screen, CyanogenMod version -->
-  <string name="mod_version">AICP संस्करण</string>
+  <string name="mod_version">CypherOS संस्करण</string>
   <string name="mod_version_default">अज्ञात</string>
   <!-- About phone screen, Device model -->
   <string name="device_model">डिवाइस मॉडेल</string>
