@@ -78,7 +78,14 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             "weather_text_color";
     private static final String PREF_ICON_COLOR =
             "weather_icon_color";
-	private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+	private static final String KEY_LOCKSCREEN_BLUR_RADIUS = 
+	        "lockscreen_blur_radius";
+	private static final String PREF_LS_BOUNCER = 
+	        "lockscreen_bouncer";
+    private static final String LOCKSCREEN_SECURITY_ALPHA = 
+            "lockscreen_security_alpha";
+	private static final String LOCKSCREEN_ALPHA = 
+	        "lockscreen_alpha";
 
     private static final int MONOCHROME_ICON = 0;
     private static final int DEFAULT_COLOR = 0xffffffff;
@@ -95,6 +102,9 @@ public class LsOptionSettings extends SettingsPreferenceFragment
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
 	private SeekBarPreference mBlurRadius;
+	private ListPreference mLsBouncer;
+    private SeekBarPreference mLsSecurityAlpha;
+	private SeekBarPreference mLsAlpha;	
 
     private ContentResolver mResolver;
 	
@@ -137,6 +147,25 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             mBlurRadius.setValue(Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
             mBlurRadius.setOnPreferenceChangeListener(this);
+			
+		mLsBouncer = (ListPreference) findPreference(PREF_LS_BOUNCER);
+        mLsBouncer.setOnPreferenceChangeListener(this);
+        int lockbouncer = Settings.Secure.getInt(resolver,
+                    Settings.Secure.LOCKSCREEN_BOUNCER, 0);
+        mLsBouncer.setValue(String.valueOf(lockbouncer));
+        updateBouncerSummary(lockbouncer);
+	
+     	mLsSecurityAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
+        float alpha2 = Settings.System.getFloat(resolver,
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
+        mLsSecurityAlpha.setValue((int)(100 * alpha2));
+        mLsSecurityAlpha.setOnPreferenceChangeListener(this);
+		
+		mLsAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
+		float alpha = Settings.System.getFloat(resolver,
+                    Settings.System.LOCKSCREEN_ALPHA, 0.45f);
+        mLsAlpha.setValue((int)(100 * alpha));
+        mLsAlpha.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
@@ -220,6 +249,34 @@ public class LsOptionSettings extends SettingsPreferenceFragment
         }
     }
 	
+	private void updateBouncerSummary(int value) {
+         Resources res = getResources();
+  
+         if (value == 0) {
+             // stock bouncer
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_on_summary));
+         } else if (value == 1) {
+             // bypass bouncer
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_off_summary));
+         } else {
+             String type = null;
+             switch (value) {
+                 case 2:
+                     type = res.getString(R.string.ls_bouncer_dismissable);
+                     break;
+                 case 3:
+                     type = res.getString(R.string.ls_bouncer_persistent);
+                     break;
+                 case 4:
+                     type = res.getString(R.string.ls_bouncer_all);
+                     break;
+             }
+             // Remove title capitalized formatting
+             type = type.toLowerCase();
+             mLsBouncer.setSummary(res.getString(R.string.ls_bouncer_summary, type));
+         }
+     }
+	
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 		ContentResolver resolver = getActivity().getContentResolver();
         boolean value;
@@ -280,6 +337,16 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             int width = ((Integer)newValue).intValue();
             Settings.System.putInt(resolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+            return true;
+		} else if (preference == mLsSecurityAlpha) {
+            int alpha2 = (Integer) newValue;
+            Settings.System.putFloat(resolver,
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA, alpha2 / 100.0f);
+            return true;
+	    }  else if (preference == mLsAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putFloat(resolver,
+                    Settings.System.LOCKSCREEN_ALPHA, alpha / 100.0f);
             return true;
         }
         return false;
