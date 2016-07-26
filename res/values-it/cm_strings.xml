@@ -251,6 +251,7 @@
   <string name="pulse_speed_very_slow">Molto lento</string>
   <!-- Battery light settings -->
   <string name="battery_light_title">Indicatore batteria</string>
+  <string name="battery_light_title_summary">Attiva il LED di indicazione della batteria scarica</string>
   <string name="battery_low_pulse_title">Lampeggia con batteria scarica</string>
   <string name="battery_light_list_title">Colori</string>
   <string name="battery_light_low_color_title">Batteria scarica</string>
@@ -694,6 +695,7 @@
   <string name="power_notifications_ringtone_silent">Silenzioso</string>
   <!-- Status bar -->
   <string name="status_bar_title">Barra di stato</string>
+  <string name="status_bar_title_summary">Modifica ogni aspetto della barra di stato per aumentare la visuale e la produttività</string>
   <string name="status_bar_toggle_brightness">Controllo luminosità</string>
   <string name="status_bar_toggle_brightness_summary">Modifica la luminosità strisciando sulla barra di stato</string>
   <string name="status_bar_notif_count_title">Mostra contatore notifiche</string>
