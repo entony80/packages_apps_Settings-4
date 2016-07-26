@@ -150,19 +150,19 @@ public class LsOptionSettings extends SettingsPreferenceFragment
 			
 		mLsBouncer = (ListPreference) findPreference(PREF_LS_BOUNCER);
         mLsBouncer.setOnPreferenceChangeListener(this);
-        int lockbouncer = Settings.Secure.getInt(resolver,
+        int lockbouncer = Settings.Secure.getInt(mResolver,
                     Settings.Secure.LOCKSCREEN_BOUNCER, 0);
         mLsBouncer.setValue(String.valueOf(lockbouncer));
         updateBouncerSummary(lockbouncer);
 	
      	mLsSecurityAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
-        float alpha2 = Settings.System.getFloat(resolver,
+        float alpha2 = Settings.System.getFloat(mResolver,
                     Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
         mLsSecurityAlpha.setValue((int)(100 * alpha2));
         mLsSecurityAlpha.setOnPreferenceChangeListener(this);
 		
 		mLsAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
-		float alpha = Settings.System.getFloat(resolver,
+		float alpha = Settings.System.getFloat(mResolver,
                     Settings.System.LOCKSCREEN_ALPHA, 0.45f);
         mLsAlpha.setValue((int)(100 * alpha));
         mLsAlpha.setOnPreferenceChangeListener(this);
