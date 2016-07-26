@@ -80,8 +80,6 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             "weather_icon_color";
 	private static final String KEY_LOCKSCREEN_BLUR_RADIUS = 
 	        "lockscreen_blur_radius";
-	private static final String PREF_LS_BOUNCER = 
-	        "lockscreen_bouncer";
     private static final String LOCKSCREEN_SECURITY_ALPHA = 
             "lockscreen_security_alpha";
 	private static final String LOCKSCREEN_ALPHA = 
@@ -147,13 +145,6 @@ public class LsOptionSettings extends SettingsPreferenceFragment
             mBlurRadius.setValue(Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
             mBlurRadius.setOnPreferenceChangeListener(this);
-			
-		mLsBouncer = (ListPreference) findPreference(PREF_LS_BOUNCER);
-        mLsBouncer.setOnPreferenceChangeListener(this);
-        int lockbouncer = Settings.Secure.getInt(mResolver,
-                    Settings.Secure.LOCKSCREEN_BOUNCER, 0);
-        mLsBouncer.setValue(String.valueOf(lockbouncer));
-        updateBouncerSummary(lockbouncer);
 	
      	mLsSecurityAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
         float alpha2 = Settings.System.getFloat(mResolver,
