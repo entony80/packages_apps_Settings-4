@@ -43,8 +43,7 @@ import java.util.Map;
 
 import org.cyanogenmod.internal.logging.CMMetricsLogger;
 
-public class SystemSettings extends SettingsPreferenceFragment
-    implements Preference.OnPreferenceChangeListener {
+public class SystemSettings extends SettingsPreferenceFragment {
 
     private static final String TAG = SystemSettings.class.getSimpleName();
 	
