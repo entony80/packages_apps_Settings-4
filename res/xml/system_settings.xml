@@ -17,5 +17,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/system_settings_title">
+	
+	<!-- Wakelock blocker -->
+	<PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.cypher.fragments.WakeLockBlocker"
+            android:title="@string/wakelock_blocker_title"
+			android:summary="@string/wakelock_blocker_summary"
+            />
 
 </PreferenceScreen>
