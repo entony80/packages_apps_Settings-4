@@ -34,6 +34,10 @@
 	<string name="tap_to_wake_warning">Warning</string>
     <string name="tap_to_wake_warning_message">Tap to wake can have a negative affect on your battery performance as well as your devices standard temperature</string>
 	
+	<!-- System settings -->
+    <string name="system_settings_title">System</string>
+    <string name="system_settings_title_summary">A simple collection of miscellaneous tweaks to improve system performance and stability</string>
+	
 	<string name="social_category_title">Social</string>
 	<string name="cypher_website_title">OnTheWeb</string>
 	<string name="cypher_website_title_summary">To get the latest news and update information check out our website</string>
