@@ -21,7 +21,7 @@
 	<!-- Wakelock blocker -->
 	<PreferenceScreen
             android:key="wakelock_blocker"
-            android:fragment="com.android.settings.cypher.fragments.WakeLockBlocker"
+            android:fragment="com.android.settings.cypher.fragments.WakelockBlocker"
             android:title="@string/wakelock_blocker_title"
 			android:summary="@string/wakelock_blocker_summary"
             />
