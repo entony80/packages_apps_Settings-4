@@ -41,6 +41,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "RecentPanelSettings";
 
+	private static final String USE_SLIM_RECENTS = "use_slim_recents";	
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
@@ -70,6 +71,16 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                 Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3, UserHandle.USER_CURRENT);
         mRecentsClearAllLocation.setValue(String.valueOf(location));
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
+		boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
+        		Settings.System.USE_SLIM_RECENTS, 0) == 1;
+
+        if (slimRecent) {
+            mRecentsClearAll.setEnabled(false);
+            mRecentsClearAllLocation.setEnabled(false);
+        } else {
+            mRecentsClearAll.setEnabled(true);
+            mRecentsClearAllLocation.setEnabled(true);
+        }
         updateRecentsLocation(location);
     }
 

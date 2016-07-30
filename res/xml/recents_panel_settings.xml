@@ -29,5 +29,13 @@
             android:entryValues="@array/recents_clear_all_location_values"
             android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
+			
+		<!-- Slim Recents -->
+        <PreferenceScreen
+            android:key="slim_recents"
+            android:id="@+id/slim_recents"
+            android:title="@string/slim_recents_panel"
+			android:summary="@string/slim_recents_panel_summary"
+    	    android:fragment="com.android.settings.cypher.fragments.Slimrecents" />
 
 </PreferenceScreen>
