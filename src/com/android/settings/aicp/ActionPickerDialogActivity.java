@@ -106,14 +106,14 @@ public class ActionPickerDialogActivity extends Activity implements
                                         mHasDefault ? R.array.action_dialog_entries
                                                 : R.array.action_dialog_no_default_entries), l)
                         .setOnCancelListener(cancel)
-                        .setNegativeButton(getString(android.R.string.cancel), cancelClickListener)
+                        .setNegativeButton(getString(R.string.cancel), cancelClickListener)
                         .create();
                 break;
             case DIALOG_SYSTEM:
                 dialog = builder.setTitle(getString(R.string.action_entry_custom_action))
                         .setAdapter(mCustomActionListAdapter, l)
                         .setOnCancelListener(cancel)
-                        .setNegativeButton(getString(android.R.string.cancel), cancelClickListener)
+                        .setNegativeButton(getString(R.string.cancel), cancelClickListener)
                         .create();
                 break;
             default:
