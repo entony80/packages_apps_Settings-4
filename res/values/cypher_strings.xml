@@ -1038,6 +1038,9 @@
     <string name="system_app_remover">SAR</string>
 	<string name="system_app_remover_summary">System app remover is a tool to remove prebuilt system applications per users request</string>
 	
+	<!-- AdAway -->
+	<string name="adaway_settings_title">AdAway</string>
+	
 	<!-- Application Settings -->
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
