@@ -13,46 +13,49 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.android.settings.rr;
+package com.android.settings.cypher.fragments;
 
 
-  import android.app.ActivityManager;
-  import android.app.AlertDialog;
-  import android.app.Dialog;
-  import android.content.ContentResolver;
-  import android.content.DialogInterface;
-  import android.content.res.Resources;
-  import android.database.ContentObserver;
-  import android.os.Bundle;
-  import android.os.Handler;
-  import android.os.UserHandle;
-  import android.preference.ListPreference;
-  import android.preference.Preference;
-  import android.preference.Preference.OnPreferenceChangeListener;
-  import android.preference.PreferenceCategory;
-  import android.preference.PreferenceScreen;
-  import android.preference.SlimSeekBarPreference;
-  import android.preference.SwitchPreference;
-  import android.provider.Settings;
-  import android.provider.Settings.SettingNotFoundException;
-  import android.util.Log;
-  import android.view.Gravity;
-  import android.view.Menu;
-  import android.view.MenuItem;
-  import android.view.MenuInflater;
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
+import android.preference.SlimSeekBarPreference;
+import android.preference.SwitchPreference;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
   
-  import com.android.internal.logging.MetricsLogger;
-  import com.android.settings.DialogCreatable;
-  import com.android.settings.R;
-  import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsLogger;
+import com.android.settings.DialogCreatable;
+import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
   
-  import com.android.internal.util.slim.DeviceUtils;
+import com.android.internal.util.aicp.DeviceUtils;
   
-  import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class Slimrecents extends SettingsPreferenceFragment
             implements DialogCreatable, Preference.OnPreferenceChangeListener  {
+
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DEFAULT_BACKGROUND_COLOR = 0x00ffffff;
     
- // Preferences
+    // Preferences
     private static final String USE_SLIM_RECENTS = "use_slim_recents";
     private static final String ONLY_SHOW_RUNNING_TASKS = "only_show_running_tasks";
     private static final String RECENTS_MAX_APPS = "max_apps";
@@ -80,6 +83,7 @@ public class Slimrecents extends SettingsPreferenceFragment
     private ColorPickerPreference mRecentPanelBgColor;
     private ColorPickerPreference mRecentCardBgColor;
     private ColorPickerPreference mRecentCardTextColor;
+	
     @Override
     protected int getMetricsCategory() {
         return MetricsLogger.DEVELOPMENT;
@@ -102,35 +106,21 @@ public class Slimrecents extends SettingsPreferenceFragment
 
     private void updatePreference() {
         boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
-                   Settings.System.USE_SLIM_RECENTS, 0) == 1;
-
-        if (slimRecent) {
-            mRecentsSearchBar.setEnabled(false);
-            mRecentsMemBar.setEnabled(false);
-            mRecentsFullscreen.setEnabled(false);
-            mRecentsClearAll.setEnabled(false);
-            mRecentsClearAllLocation.setEnabled(false);
-            initializeAllPreferences();
-            updateRecentPanelPreferences();
-        } else {
-            mRecentsSearchBar.setEnabled(true);
-            mRecentsMemBar.setEnabled(true);
-            mRecentsFullscreen.setEnabled(true);
-            mRecentsClearAll.setEnabled(true);
-            mRecentsClearAllLocation.setEnabled(true);
-        }
+                Settings.System.USE_SLIM_RECENTS, 0) == 1;
+        initializeAllPreferences();
+        updateRecentPanelPreferences();
     }
 
-      @Override
-     public void onResume() {
-         super.onResume();
+    @Override
+    public void onResume() {
+        super.onResume();
         updatePreference();
     }
 	
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-	else if (preference == mUseSlimRecents) {
+	if (preference == mUseSlimRecents) {
             Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
                     ((Boolean) newValue) ? 1 : 0);
             updatePreference();
@@ -220,7 +210,7 @@ public class Slimrecents extends SettingsPreferenceFragment
             case MENU_RESET:
                 resetToDefault();
                 return true;
-                default:
+            default:
                 return super.onContextItemSelected(item);
         }
     }
@@ -260,11 +250,11 @@ public class Slimrecents extends SettingsPreferenceFragment
   
         final int recentScale = Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
-        mRecentPanelScale.setInitValue(recentScale - 60);
-  
+          mRecentPanelScale.setInitValue(recentScale - 60);
+
         final int recentExpandedMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_PANEL_EXPANDED_MODE, 0);
-        mRecentPanelExpandedMode.setValue(recentExpandedMode    "");
+        mRecentPanelExpandedMode.setValue(recentExpandedMode + "");
     }
   
     private void initializeAllPreferences() {
