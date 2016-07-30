@@ -30,6 +30,7 @@
     <PreferenceScreen
             android:id="@+id/system_app_remover"
             android:title="@string/system_app_remover"
+			android:summary="@string/system_app_remover_summary"
             android:fragment="com.android.settings.cypher.fragments.SystemappRemover" />
 			
 	<!-- Ad Blocker -->
