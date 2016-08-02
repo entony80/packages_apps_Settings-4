@@ -41,7 +41,7 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "RecentPanelSettings";
 
-	private static final String SHOW_RECENTS_SEARCHBAR = "recents_show_search_bar
+	private static final String SHOW_RECENTS_SEARCHBAR = "recents_show_search_bar";
 	private static final String SHOW_MEMBAR_RECENTS = "systemui_recents_mem_display";
 	private static final String USE_SLIM_RECENTS = "use_slim_recents";	
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
