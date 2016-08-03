@@ -57,19 +57,12 @@ public class Gestures extends SettingsPreferenceFragment
 	private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
 	
     private static final String KEY_MOTION_GESTURES = "motion_gestures"
-		 config_IsMotionSupported=true
-         mGesturesMotionPreference = (Preference) findPreference(KEY_MOTION_GESTURES);
-    if (mGestureMotionPreference!= null && isMotionGesturesAvailable(getResources())) 
-    {
-        mGestureMotionPreference.setOnPreferenceChangeListener(this); 
-    } 
-    else 
-    { 
-      if (powerPrefs ! = null && mGestureMotionPreference != null) 
-      {
-            powerPrefs.removePreference(mGestureMotionPreference); 
-      }
-    }
+		config_IsMotionSupported=true
+			GesturesMotionPreference = (Preference) findPreference(KEY_MOTION_GESTURES);
+			if (mGestureMotionPreference!= null && isMotionGesturesAvailable(getResources())) {
+			mGestureMotionPreference.setOnPreferenceChangeListener(this); } else { if (powerPrefs ! = null && mGestureMotionPreference != null) {
+			powerPrefs.removePreference(mGestureMotionPreference); }}
+			
 	private SwitchPreference mCameraDoubleTapPowerGesture;
 	private SwitchPreference mTapToWakePreference;
 	
