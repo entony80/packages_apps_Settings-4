@@ -54,10 +54,14 @@ public class Gestures extends SettingsPreferenceFragment
 	private static final String KEY_CATEGORY_POWER = "power_key";
 	private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
-	private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
+	private static final String KEY_TAP_TO_WAKE 
+	        = "tap_to_wake";
+	private static final String KEY_MOTION_GESTURES 
+            = "motion_gestures";
 			
 	private SwitchPreference mCameraDoubleTapPowerGesture;
 	private SwitchPreference mTapToWakePreference;
+	private PreferenceScreen mGestureMotionPreference;
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -88,6 +92,17 @@ public class Gestures extends SettingsPreferenceFragment
                 powerPrefs.removePreference(mTapToWakePreference);
             }
         }
+		
+		mGestureMotionPreference = (PreferenceScreen) findPreference(KEY_MOTION_GESTURES);
+		if (mGestureMotionPreference !=null && isMotionGesturesAvailable(getResources())) {
+			mGestureMotionPreference.setOnPreferenceChangeListener(this);
+		} else {
+			if (powerPrefs !=null && mGestureMotionPreference !=null) {
+				powerPrefs.removePreference(mGestureMotionPreference);
+			}
+		}
+		
+		
     }
 
     @Override
@@ -139,6 +154,11 @@ public class Gestures extends SettingsPreferenceFragment
 	private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
+	
+	private static boolean isMotionGesturesAvailable(Resources res) {
+		return res.getBoolean(
+		        com.android.internal.R.bool.config_isMotionSupported);
+	}
 	
 	private void warnTapToWake() {
 		DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
