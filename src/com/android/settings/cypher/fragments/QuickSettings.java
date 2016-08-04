@@ -66,7 +66,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
 	private SwitchPreference mBlockOnSecureKeyguard;
-    private SwitchPreference mCustomHeaderDefault;
+    private ListPreference mCustomHeaderDefault;
 	private SeekBarPreference mHeaderShadow;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
