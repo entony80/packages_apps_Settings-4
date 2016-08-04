@@ -58,12 +58,14 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
+    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
 	
 	private ListPreference mNumRows;
 	
 	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
 	private SwitchPreference mBlockOnSecureKeyguard;
+    private SwitchPreference mCustomHeaderDefault;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 	
@@ -117,6 +119,14 @@ public class QuickSettings extends SettingsPreferenceFragment
         updateNumRowsSummary(numRows);
         mNumRows.setOnPreferenceChangeListener(this);
 		
+        // Status bar custom header default
+        mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
+        mCustomHeaderDefault.setOnPreferenceChangeListener(this);
+		int customHeaderDefault = Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+        mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
+        mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
+		
 		// Block QS on secure LockScreen
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure(MY_USER_ID)) {
@@ -161,6 +171,14 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.Secure.putInt(resolver,
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
                     (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mCustomHeaderDefault) {
+            int customHeaderDefault = Integer.valueOf((String) newValue);
+            int index = mCustomHeaderDefault.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(), 
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, customHeaderDefault);
+            mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
+            createCustomView();
             return true;
         }  
         return false;

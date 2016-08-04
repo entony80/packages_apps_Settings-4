@@ -1066,7 +1066,20 @@
 
     <!-- Quick settings disable on lockscreen -->
     <string name="block_on_secure_keyguard_title">Disable quick settings on lockscreen</string>
-    <string name="block_on_secure_keyguard_summary">Disables quick settings in the keyguard for a secure lock only</string>	
+    <string name="block_on_secure_keyguard_summary">Disables quick settings in the keyguard for a secure lock only</string>
+
+    <!-- Quick settings headers: START -->
+    <string name="headers_category_title">Headers</string>
+	<string name="contextual_title">Contextual headers</string>
+	<!-- Time-context headers in notification header -->
+    <string name="status_bar_custom_header_title">Custom header</string>
+    <string name="status_bar_custom_header_summary">Add custom header images to the quick settings header</string>
+    <!-- Header packs -->
+	<string name="status_bar_custom_header_default_title">Select your images</string>
+    <string name="custom_header_image_0">Default</string>
+    <string name="custom_header_image_1">Modern</string>
+    <string name="custom_header_image_2">Poly HD</string>
+	
 	
 	<!-- AdAway -->
 	<string name="adaway_settings_title">AdAway</string>
