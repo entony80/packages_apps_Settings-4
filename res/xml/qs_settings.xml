@@ -36,6 +36,13 @@
             android:entries="@array/qs_num_rows_entries"
             android:entryValues="@array/qs_num_rows_values"
             android:persistent="false" />
+			
+	<SwitchPreference
+            android:key="block_on_secure_keyguard"
+            android:title="@string/block_on_secure_keyguard_title"
+            android:summary="@string/block_on_secure_keyguard_summary"
+            android:persistent="false"
+            android:defaultValue="true"/>
 				  
     <com.android.settings.cypher.SeekBarPreference
             android:key="qs_transparent_shade"

@@ -57,11 +57,15 @@ public class QuickSettings extends SettingsPreferenceFragment
 	
 	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
+	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
 	
 	private ListPreference mNumRows;
 	
 	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
+	private SwitchPreference mBlockOnSecureKeyguard;
+
+    private static final int MY_USER_ID = UserHandle.myUserId();
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -112,6 +116,16 @@ public class QuickSettings extends SettingsPreferenceFragment
         mNumRows.setValue(String.valueOf(numRows));
         updateNumRowsSummary(numRows);
         mNumRows.setOnPreferenceChangeListener(this);
+		
+		// Block QS on secure LockScreen
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure(MY_USER_ID)) {
+            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1, UserHandle.USER_CURRENT) == 1);
+            mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
+        } else if (mBlockOnSecureKeyguard != null) {
+            prefSet.removePreference(mBlockOnSecureKeyguard);
+        }
 
         return prefSet;
     }
@@ -142,6 +156,11 @@ public class QuickSettings extends SettingsPreferenceFragment
             Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_ROWS,
                     numRows, UserHandle.USER_CURRENT);
             updateNumRowsSummary(numRows);
+            return true;
+		} else if (preference == mBlockOnSecureKeyguard) {
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         }  
         return false;
