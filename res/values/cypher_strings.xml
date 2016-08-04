@@ -1079,6 +1079,10 @@
     <string name="custom_header_image_0">Default</string>
     <string name="custom_header_image_1">Modern</string>
     <string name="custom_header_image_2">Poly HD</string>
+	<!-- Header image shadow -->
+    <string name="status_bar_custom_header_shadow_title">Image shadow</string>
+    <string name="status_bar_custom_header_shadow_summary">For better visibility on bright images</string>
+	<!-- Quick settings headers: END -->
 	
 	
 	<!-- AdAway -->

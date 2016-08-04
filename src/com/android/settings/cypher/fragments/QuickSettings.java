@@ -59,6 +59,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
+	private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
 	
 	private ListPreference mNumRows;
 	
@@ -66,6 +67,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private SeekBarPreference mQSShadeAlpha;
 	private SwitchPreference mBlockOnSecureKeyguard;
     private SwitchPreference mCustomHeaderDefault;
+	private SeekBarPreference mHeaderShadow;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
 	
@@ -127,6 +129,13 @@ public class QuickSettings extends SettingsPreferenceFragment
         mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
         mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
 		
+		// Custom shadow on header images
+        mHeaderShadow = (SeekBarPreference) findPreference(CUSTOM_HEADER_IMAGE_SHADOW);
+        final int headerShadow = Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, 0);
+        mHeaderShadow.setValue((int)((headerShadow / 255) * 100));
+        mHeaderShadow.setOnPreferenceChangeListener(this);
+		
 		// Block QS on secure LockScreen
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure(MY_USER_ID)) {
@@ -180,6 +189,12 @@ public class QuickSettings extends SettingsPreferenceFragment
             mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
             createCustomView();
             return true;
+		} else if (preference == mHeaderShadow) {
+            Integer headerShadow = (Integer) newValue;
+            int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW, realHeaderValue);
+           return true;
         }  
         return false;
     }
