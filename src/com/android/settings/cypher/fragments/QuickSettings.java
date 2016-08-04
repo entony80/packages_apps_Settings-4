@@ -58,7 +58,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
-    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
+    private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header";
 	private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
 	
 	private ListPreference mNumRows;
@@ -125,7 +125,7 @@ public class QuickSettings extends SettingsPreferenceFragment
         mCustomHeaderDefault = (ListPreference) findPreference(PREF_CUSTOM_HEADER_DEFAULT);
         mCustomHeaderDefault.setOnPreferenceChangeListener(this);
 		int customHeaderDefault = Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0);
+                .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER, 0);
         mCustomHeaderDefault.setValue(String.valueOf(customHeaderDefault));
         mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
 		
@@ -185,7 +185,7 @@ public class QuickSettings extends SettingsPreferenceFragment
             int customHeaderDefault = Integer.valueOf((String) newValue);
             int index = mCustomHeaderDefault.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(), 
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, customHeaderDefault);
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, customHeaderDefault);
             mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
             createCustomView();
             return true;
