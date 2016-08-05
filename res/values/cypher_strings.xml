@@ -21,7 +21,7 @@
 	<string name="battery_options">Settings</string>
 	<string name="dash_board_options">Dashboard</string>
 	
-	<string name="device_api_default">Hazelnut</string>
+	<string name="device_api_default">Moon Pie</string>
 	
 	<!-- Software Information, CypherOS device maintainer name -->
     <string name="device_maintainer">Device maintainer</string>
