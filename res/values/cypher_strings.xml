@@ -619,6 +619,9 @@
     <!-- Hide apps from recents -->
     <string name="hide_from_recents_add_app">Add App</string>
 	
+	<string name="toggle_package_install_overlay_check_title">Disable permission overlay check</string>
+    <string name="toggle_package_install_overlay_check_summary">WARNING\u003A this disables a security check to prevent possible tapjacking! Use only if you understand the consequences.</string>
+	
 	<!-- Additions Settings -->
 	<string name="addition_settings">Additions</string>
 	<string name="additions_about_notice_title">Hello there</string>
