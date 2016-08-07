@@ -179,10 +179,10 @@ public class Gestures extends SettingsPreferenceFragment
                         updateState();
                     }
                 })
-                .setNegativeButton(android.R.string.cancel, new OnClickListener()
+                .setNegativeButton(android.R.string.cancel, onConfirmListener)
 		        .setCancelable(false)
-                .create();
-                dialog.show();
+                .create()
+                .show();
     }
 	
 	private void updateState() {
