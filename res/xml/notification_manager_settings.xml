@@ -28,7 +28,7 @@
     <PreferenceScreen
             android:id="@+id/halo_settings"
             android:title="@string/halo_settings_title"
-			android:title="@string/halo_settings_title_summary"
+			android:summary="@string/halo_settings_title_summary"
             android:fragment="com.android.settings.cypher.Halo" />
 
     <!-- Zen Mode -->
