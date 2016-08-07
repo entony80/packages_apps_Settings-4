@@ -28,6 +28,13 @@
         android:defaultValue="14"
         android:dependency="lockscreen_see_through" />
 		
+	<!-- Blur -->
+    <PreferenceScreen
+        android:key="blur_personalization"
+        android:title="@string/blur_personalization_title"
+		android:title="@string/blur_personalization_title_summary"
+		android:fragment="com.android.settings.cypher.fragments.BlurPersonalizations" />
+		
 	<ListPreference
         android:key="lockscreen_bouncer"
         android:title="@string/ls_bouncer_title"
