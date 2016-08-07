@@ -32,7 +32,7 @@
     <PreferenceScreen
         android:key="blur_personalization"
         android:title="@string/blur_personalization_title"
-		android:summary="@string/blur_personalization_title_summary"
+		android:title="@string/blur_personalization_title_summary"
 		android:fragment="com.android.settings.cypher.fragments.BlurPersonalizations" />
 		
 	<ListPreference
