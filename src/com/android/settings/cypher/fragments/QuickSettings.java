@@ -55,14 +55,12 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     private static final String TAG = QuickSettings.class.getSimpleName();
 
-	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header";
 	private static final String CUSTOM_HEADER_IMAGE_SHADOW = "status_bar_custom_header_shadow";
 	
 	private ListPreference mNumRows;
 	
-	private SeekBarPreference mQSShadeAlpha;
 	private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mCustomHeaderDefault;
 	private SeekBarPreference mHeaderShadow;
@@ -93,14 +91,6 @@ public class QuickSettings extends SettingsPreferenceFragment
             Log.e(TAG, "can't access systemui resources",e);
             return null;
         }
-		
-		// QS shade alpha
-        mQSShadeAlpha =
-                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
-        int qSShadeAlpha = Settings.System.getInt(resolver,
-                Settings.System.QS_TRANSPARENT_SHADE, 255);
-        mQSShadeAlpha.setValue(qSShadeAlpha / 1);
-        mQSShadeAlpha.setOnPreferenceChangeListener(this);
 		
 		// Number of QS Rows 3,4
         mNumRows = (ListPreference) findPreference("sysui_qs_num_rows");
@@ -150,12 +140,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 
         ContentResolver resolver = getActivity().getContentResolver();
 		Resources res = getResources();
-        if (preference == mQSShadeAlpha) {
-            int alpha = (Integer) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
-            return true;
-		} else if (preference == mNumRows) {
+        if (preference == mNumRows) {
             int numRows = Integer.valueOf((String) newValue);
             Settings.System.putIntForUser(resolver, Settings.System.QS_NUM_TILE_ROWS,
                     numRows, UserHandle.USER_CURRENT);
