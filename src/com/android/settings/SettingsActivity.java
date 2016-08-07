@@ -75,6 +75,7 @@ import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
+import com.android.settings.cypher.Halo;
 import com.android.settings.aicp.AicpSettingsExternal;
 import com.android.settings.aicp.LockscreenShortcutFragment;
 import com.android.settings.cypher.fragments.RecentAppSidebarFragment;
@@ -310,6 +311,7 @@ public class SettingsActivity extends Activity
             R.id.print_settings,
             R.id.home_settings,
             R.id.dashboard,
+			R.id.rr_halo,
             R.id.privacy_settings_cyanogenmod,
     };
 
@@ -405,7 +407,8 @@ public class SettingsActivity extends Activity
             LiveLockScreenSettings.class.getName(),
             HeadsUpSettings.class.getName(),
             DozeSettingsFragment.class.getName(),
-            RunningServices.class.getName()
+            RunningServices.class.getName(),
+			Halo.class.getName()
     };
 
 
