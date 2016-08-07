@@ -22,6 +22,14 @@
     <PreferenceCategory
         android:key="display"
         android:title="@string/display_label">
+		
+		<!-- Brightness slider -->
+        <PreferenceScreen
+                android:key="brightness"
+                android:title="@string/brightness"
+                settings:keywords="@string/keywords_display_brightness_level">
+            <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
+        </PreferenceScreen>
 
         <!-- Adaptive brightness -->
         <SwitchPreference
