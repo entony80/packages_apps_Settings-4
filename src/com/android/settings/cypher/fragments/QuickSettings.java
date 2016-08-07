@@ -54,7 +54,8 @@ public class QuickSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = QuickSettings.class.getSimpleName();
-
+	
+	private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
 	private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
 	private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header";
@@ -62,6 +63,7 @@ public class QuickSettings extends SettingsPreferenceFragment
 	
 	private ListPreference mNumRows;
 	
+	private SeekBarPreference mQSHeaderAlpha;
 	private SeekBarPreference mQSShadeAlpha;
 	private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mCustomHeaderDefault;
@@ -101,6 +103,14 @@ public class QuickSettings extends SettingsPreferenceFragment
                 Settings.System.QS_TRANSPARENT_SHADE, 255);
         mQSShadeAlpha.setValue(qSShadeAlpha / 1);
         mQSShadeAlpha.setOnPreferenceChangeListener(this);
+		
+		// QS header alpha
+        mQSHeaderAlpha =
+                (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_HEADER);
+        int qSHeaderAlpha = Settings.System.getInt(resolver,
+                Settings.System.QS_TRANSPARENT_HEADER, 255);
+        mQSHeaderAlpha.setValue(qSHeaderAlpha / 1);
+        mQSHeaderAlpha.setOnPreferenceChangeListener(this);
 		
 		// Number of QS Rows 3,4
         mNumRows = (ListPreference) findPreference("sysui_qs_num_rows");
@@ -154,6 +164,11 @@ public class QuickSettings extends SettingsPreferenceFragment
             int alpha = (Integer) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
+            return true;
+		} else if (preference == mQSHeaderAlpha) {
+            int alpha = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
             return true;
 		} else if (preference == mNumRows) {
             int numRows = Integer.valueOf((String) newValue);
