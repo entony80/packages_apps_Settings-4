@@ -1129,6 +1129,7 @@
     <string name="halo_enable_summary">Show the halo button in the statusbar header</string>
 	<string name="halo_floating_notifications_title">Floating Mode</string>
     <string name="halo_floating_notifications_summary">Always launch activities from notifications in Floating Mode.</string>
+	<string name="halo_enable_float_summary">Floating mode must be enabled to use this feature</string>
 
 	<!-- AdAway -->
 	<string name="adaway_settings_title">AdAway</string>
