@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2015 AICP
-
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -27,8 +26,17 @@
   <string name="device_maintainer">Manutentore dispositivo</string>
   <string name="device_maintainers">Manutentori del dispositivo</string>
 
-  <string name="tap_to_wake_warning">Avvertenza</string>
+   <!-- Vendor version -->
+   <string name="vendor_version">Versione venditore</string>
+   <string name="vendor_version_default">Sconosciuto</string>
+
+   <string name="tap_to_wake_warning">Avvertenza</string>
    <string name="tap_to_wake_warning_message">Il tocco per il risveglio può avere un effetto negativo sulle prestazioni della batteria, così come sui dispositivi con temperatura standard</string>
+		
+	<!-- System settings -->
+    <string name="system_settings_title">Sistema</string>
+    <string name="system_settings_title_summary">Una semplice raccolta di tweaks vari per migliorare le prestazioni del sistema e la stabilità</string>
+		
 		
   <string name="social_category_title">Sociale</string>
   <string name="cypher_website_title">In rete</string>
@@ -133,7 +141,9 @@
   <string name="shortcut_action_help_button">Pulsante</string>
   <string name="shortcut_action_help_app">App</string>
   <string name="shortcut_action_help_icon">, mentre selezionando l\'icona, si aprono possibilità  di personalizzazione</string>
+
   <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona aggiungi. Una volta che un %1$s si aggiunge, selezionando la riga cambierà l\'obiettivo %2$s\n\nper rimuovere un %1$s , strisciare la fila orizzontale verso sinistra o destra. Riordinare un  %1$s nella lista trascinando verticalmente l\'ancora a sinistra.\n\nPer cancellare o reimpostare ai valori predefiniti, selezionare l\'icona per ripristinare.</string>
+ 
  
   <string name="shortcut_action_help_delete_last_entry">La rimozione di ogni %1$s dalla lista disattiverà la funzione del tutto.</string>
   <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Rimozione di ogni %1$s nella lista disabiliterà il secondo strato di torta del tutto.</string>
@@ -246,8 +256,8 @@
   <!-- SlimDim -->
   <string name="dim_nav_buttons_category">SlimDim</string>
   <string name="dim_nav_buttons_title">Oscurare i pulsanti dopo inattività</string>
+
   <string name="dim_nav_buttons_summary">Oscurare i pulsanti della barra di navigazione per un periodo di tempo specificato dopo che non si interaggisce più con la stessa</string>
-  
   <string name="dim_nav_buttons_timeout_title">Tempo prima dello spegnimento dello schermo</string>
   <string name="dim_nav_buttons_timeout_summary">Il tempo (in millisecondi) di attesa prima di spegnere i pulsanti</string>
   <string name="dim_nav_buttons_alpha_title">Valore alfa di oscuramento</string>
@@ -360,6 +370,7 @@
   <string name="keyboard_rotation_toggle_summary">Forza la rotazione automatica quando viene visualizzata la tastiera</string>
   <string name="keyboard_rotation_timeout_title">Timeout Rotazione automatica</string>
   <string name="keyboard_rotation_timeout_summary">Disattiva sensore rotazione automatica <xliff:g id="rotate_timeout">%1$s</xliff:g> secondi dopo che la tastiera è nascosta</string>
+
   <string name="keyboard_rotation_dialog">La sua funzione impone la rotazione automatica e attivare temporaneamente mentre la tastiera è visualizzata. Essa non ha alcun effetto quando la rotazione automatica è già abilitato</string>
   <string name="show_enter_key_title">Mostra tasto invio</string>
   <string name="show_enter_key_summary">Forzare la tastiera per visualizzare il tasto Invio invece di emoticons</string>
@@ -471,6 +482,7 @@
   <string name="fling_interface">Interfaccia Fling</string>
   <string name="fling_enable_title">Abilita Fling</string>
 
+
   <string name="fling_back_home_policy">Indietro e Home devono essere sempre impostati. Per cambiare i collegamenti di Indietro o di Home, impostare prima l\'assegnazione desiderata</string>
   <string name="fling_split_bar_policy">Quando una singola azione (sinistra o destra) è impostato, si applica a entrambi i lati della barra</string>
   <string name="fling_def_summary">Nessuna azione impostata</string>
@@ -521,9 +533,9 @@
   <string name="pulse_help_policy_notice_title">A proposito di Pulse</string>
   <string name="pulse_help_policy_notice_summary">Pulse è un brillante equalizzatore audio in stile barra che compare sulla barra di navigazione quando si ascolta la musica. Pulse non funziona con alcune fonti audio durante l\'ascolto sull\'altoparlante del dispositivo. Essere sicuri di riprodurre/sospendere la traccia ancora dopo il ripristino di Pulse.</string>
   <string name="pulse_settings">Pulse</string>
+
   <string name="pulse_settings_summary">Equalizzatore audio sulla barra di navigazione</string>
   <string name="pulse_settings_summary">Include un equalizzatore altamente personalizzabile ma semplice nella barra di navigazione mentre ti stati godendo la musica</string>
-  
   <string name="fling_show_pulse_title">Mostra Pulse</string>
   <string name="fling_show_pulse_summary">Visualizzazione audio sulla barra di navigazione</string>
   <string name="pulse_render_mode_title">Modalità rendering</string>
@@ -534,7 +546,6 @@
   <string name="eos_fling_lavalamp_summary">Pulse anima e regola lava, lamp miscela lo stile del colore</string>
   <string name="pulse_advanced_category">Avanzate</string>
   <string name="pulse_legacy_mode_advanced_category">Impostazioni della modalità dissolvenza blocchi</string>
-
   <string name="pulse_custom_fudge_factor">Livello equilibrio visualizzatore</string>
   <string name="lavamp_solid_speed_title">Velocità di animazione LavaLamp</string>
   <string name="pulse_solid_dimen_category">Personalizzazioni linee continue</string>
@@ -558,6 +569,7 @@
   <string name="smartbar_settings_title">Smartbar</string>
   <string name="smartbar_settings_title_summary">Migliorare la barra di navigazione con l\'aggiunta di ulteriori pulsanti e tasti utili</string>
   <string name="smartbar_editor_title">Modifica dei pulsanti</string>
+
   <string name="smartbar_editor_summary">Tieni premuto e trascina per cambiare la posizione. Tieni premuto a lungo per visualizzare il menù di modifica. La posizione del pulsante può essere cambiata durante la visualizzazione del menù.</string>
   <string name="smartbar_context_menu_position_title">Posizione dei pulsanti di scelta rapida</string>
   <string name="smartbar_context_menu_position_summary">Impostare la posizione dei tasti contestuali, quali menu e il selettore della tastiera</string>
@@ -617,12 +629,16 @@
 
   <!-- Hide apps from recents -->
   <string name="hide_from_recents_add_app">Aggiungi App</string>
-    
+
+  <string name="toggle_package_install_overlay_check_title">Disattivare il controllo di sovrapposizione delle autorizzazioni</string>
+  <string name="toggle_package_install_overlay_check_summary">ATTENZIONE\u003A consente di disattivare un controllo di sicurezza per impedire tapjacking! Utilizzare solo se ne conosci le conseguenze..</string>
+	    
   <!-- Additions Settings -->
   <string name="addition_settings">Impostazioni Aggiuntive</string>
   <string name="additions_about_notice_title">Riguardo CypherOS</string>
   <string name="additions_about_notice_summary">Ciao. Questo è il luogo di tutte quelle funzioni amate e portate per voi dai migliori sviluppatori.</string>
   <string name="additions_qs_about_title">A proposito</string>
+
   <string name="additions_qs_about_summary">Se ti annoi con il menù delle impostazioni rapide con un semplice pacchetto puoi modificare e personalizzare</string>
 	
   <!-- Quick settings -->
@@ -867,6 +883,8 @@
   <string name="recents_panel_settings">Impostazioni del pannello recenti</string>
   <string name="show_clear_all_recents_button_title">Pulsante cancella tutto</string>
   <string name="show_clear_all_recents_button_summary">Mostra il pulsante cancella tutto nel pannello recenti</string>
+  <string name="recents_show_searchbar">Barra di ricerca</string>
+  <string name="recents_show_searchbar_summary">Mostra una barra di ricerca predefinita nel menù Recenti</string>
   <string name="recents_clear_all_location_title">Posizione pulsante cancella tutto</string>
   <string name="recents_clear_all_location_top_right">In alto a destra</string>
   <string name="recents_clear_all_location_top_left">In alto a sinistra</string>
@@ -928,6 +946,7 @@
   <string name="floating_additional_options">Aggiuntivo</string>
   <string name="floating_windows">Finestra fluttuante</string>
   <string name="floating_windows_summary">Le tue applicazioni e funzioni selezionate appariranno una piccola finestra per facilitarne l\'accesso</string>
+
   <string name="floating_windows_switch">Si ha per consentire l\'uso globale della modalità fluttuante, se questo è spento nelle opzioni non funzionerà</string>
   <string name="slim_action_floats">Controlli Pie</string>
   <string name="slim_action_floats_summary">Avviare azioni dei controlli Pie in modalità fluttuante</string>
@@ -1002,6 +1021,139 @@
  <!-- Task Manager -->
  <string name="enable_task_manager_title">Gestore processi</string>
  <string name="enable_task_manager_summary">Utilizzare un mini pulsante di gestione dei processi nell\'area espansa della barra di stato</string>
+
+ <string name="ls_bouncer_title">Bouncer schermata di blocco sicura</string>
+  <string name="ls_bouncer_summary">Apri direttamente il riquadro di pin/sequenza/password nella schermata di blocco se ci sono %1$s notifiche presenti</string>
+  <string name="ls_bouncer_on">Attivo (predefinito)</string>
+  <string name="ls_bouncer_on_summary">Comportamento bouncer predefinito</string>
+  <string name="ls_bouncer_off">Spento</string>
+  <string name="ls_bouncer_off_summary">Apri direttamente la schermata di blocco su pin/sequenza/password</string>
+  <string name="ls_bouncer_dismissable">Non rimovibili</string>
+  <string name="ls_bouncer_persistent">Non persistenti</string>
+  <string name="ls_bouncer_all">Non rimovibili o persistenti</string>
+  <string name="lockscreen_alpha">Alfa schermata di blocco</string>
+  <string name="lockscreen_security_alpha">Alfa bouncer schermata di blocco</string>
+
+  <!-- On-The-Go -->
+  <string name="power_menu_onthego_title">Modalità On-The-Go</string>
+
+<!-- System app remover  -->
+    <string name="listsystem">Elenco</string>
+    <string name="sizer_title">Elimina App</string>
+    <string name="caution">Attenzione!</string>
+
+    <string name="sizer_message_startup">Questo strumento consente di eliminare le applicazioni di sistema. Usa con cautela ed elimina solo le applicazioni che conosci e posso essere rimosse.</string>
+    <string name="cancel">Cancella</string>
+    <string name="sizer_message_delete">Sei sicuro di voler eliminare questa applicazione?</string>
+    <string name="btn_delete">Elimina le applicazioni selezionate ora!</string>
+    <string name="delete_progress_title">Eliminazione</string>
+    <string name="delete_progress">I file selezionati verranno eliminati...</string>
+    <string name="delete_success">Rimossi</string>
+    <string name="delete_fail">Impossibile eliminare</string>
+    <string name="btn_profile">Profilo</string>
+    <string name="sizer_message_sdnowrite">Impossibile scrivere su scheda SD.</string>
+    <string name="sizer_message_sdnoread">Impossibile leggere SD Card.</string>
+    <string name="sizer_message_filesuccess">Profilo creato.</string>
+    <string name="sizer_message_filefail">Impossibile creare il profilo.</string>
+    <string name="sizer_message_noselect">Nessuna selezione.</string>
+    <string name="system_app_remover">SAR</string>
+	<string name="system_app_remover_summary">Il sistema di eliminazione App è uno strumento per rimuovere le applicazioni precostruite di sistema da parte degli utenti</string>
+
+  <!-- Slim Recents -->
+  <string name="slim_recents_panel">Recenti Slim</string>
+  <string name="slim_recents_panel_summary">Lancia i tuoi Recenti in un nuovo aspetto grafico con aggiunte slim</string>
+  <string name="use_slim_recents_title">Recenti slim</string>
+  <string name="show_running_tasks_title">Mostra solo le applicazioni in esecuzione</string>
+  <string name="recents_max_apps_title">Applicazioni massime consentite</string>
+  <string name="recent_panel_scale_title">Dimensione</string>
+  <string name="recent_panel_expanded_mode_title">Modalità espansa</string>
+  <string name="recent_panel_expanded_mode_summary">Anteprima espansa per le applicazioni recenti</string>
+  <string name="recent_panel_expanded_mode_auto">Auto (predefinito)</string>
+  <string name="recent_panel_expanded_mode_always">Sempre</string>
+  <string name="recent_panel_expanded_mode_never">Mai</string>
+  <string name="recent_panel_show_topmost_title">Mostra l\'attività in primo piano</string>
+  <string name="recent_panel_show_topmost_summary">Includi l\'app in primo piano nel pannello delle app recenti</string>
+  <string name="recent_panel_bg_color_title">Colore sfondo pannello</string>
+  <string name="recent_card_bg_color_title">Colore sfondo schede</string>
+  <string name="recent_card_text_color_title">Colore testo schede</string>
+  <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Mostra sul bordo sinistro</string>
+  <string name="recent_panel_lefty_mode_summary">Mostra il pannello delle app recenti sul lato sinistro</string>
+
+  <string name="recents_show_membar_title">Barra di memoria</string>
+  <string name="recents_show_membar_summary">Mostra una barra con la memoria disponibile del dispositivo</string>
+
+  <!-- Quick settings disable on lockscreen -->
+  <string name="block_on_secure_keyguard_title">Disabilita impostazioni rapide</string>
+  <string name="block_on_secure_keyguard_summary">Disabilita le impostazioni rapide nella schermata di blocco per un bloccaggio sicuro</string>
+
+  <!-- Quick settings headers: START -->
+  <string name="headers_category_title">Intestazioni</string>
+  <string name="contextual_title">Intestazioni contestuali</string>
+  <!-- Time-context headers in notification header -->
+  <string name="status_bar_custom_header_title">Immagine intestazione (A seconda del tempo)</string>
+  <string name="status_bar_custom_header_summary">Abilita sull\'intestazione del pannello di notifica un\'immagine</string>
+  <!-- Header packs -->
+  <string name="daylight_header_pack_title">Pacchetto immagini intestazione</string>
+  <string name="custom_header_image_0">Predefinito</string>
+  <string name="custom_header_image_1">Moderno</string>
+  <string name="custom_header_image_2">Poli HD</string>
+  <!-- Header image shadow -->
+  <string name="status_bar_custom_header_shadow_title">Ombra immagine intestazione</string>
+  <string name="status_bar_custom_header_shadow_summary">Per una migliore visibilità sulle immagini luminose</string>
+  <!-- Quick settings headers: END -->
+
+  <!-- Halo -->
+  <string name="halo_settings_title">Halo</string>
+  <string name="halo_settings_title_summary">Ricevi le notifiche con una simpatica bolla come messaggio pop-up</string>
+  <string name="halo_behavior_title">Comportamento di Halo</string>
+  <string name="halo_hide_title">Nascondi Halo dopo l\'attività</string>
+  <string name="halo_hide_summary">Halo apparirà per attività in entrata e sarà nascosto dopo un po\'</string>
+  <string name="halo_pause_title">Metti in pausa l\'applicazione attiva</string>
+  <string name="halo_pause_summary">Quando si apre un\'applicazione tramite Halo, l\'applicazione sottostante sarà messa in pausa</string>
+  <string name="halo_notification_msgbox_title">Abilita messaggio pop-up</string>
+  <string name="halo_notification_msgbox_summary">Mostra una finestra di dialogo per le notifiche in arrivo</string>
+  <string name="halo_unlock_ping_title">Suono di sblocco</string>
+  <string name="halo_unlock_ping_summary">Halo invierà un suono quando il dispositivo viene sbloccato alla ricezione di nuove notifiche</string>
+  <string name="halo_size_title">Dimensione di Halo</string>
+  <string name="halo_size_summary">Definisce quanto grande sarà la bolla di Halo</string>
+  <string name="halo_size_miniscule">Minuscolo</string>
+  <string name="halo_size_small">Piccolo</string>
+  <string name="halo_size_default">Normale (predefinito)</string>
+  <string name="halo_size_large">Grande</string>
+  <string name="halo_size_gigantic">Gigantesco</string>
+  <string name="halo_size_monster">Mostruoso</string>
+  <string name="halo_notification_count_title">Conteggio delle notifiche</string>
+  <string name="halo_notification_count_summary">Mostra il conteggio delle notifiche su Halo</string>
+  <string name="halo_notification_count_none">Nessuna</string>
+  <string name="halo_notification_count_total">Totale</string>
+  <string name="halo_notification_count_individual">Per ogni app</string>
+  <string name="halo_notification_count_both">Entrambi</string>
+  <string name="halo_msgbox_animation_title">Animazione casella dei messaggi</string>
+  <string name="halo_msgbox_animation_summary">Animazione della casella del messaggio di Halo per le notifiche in arrivo</string>
+  <string name="halo_msgbox_animation_none">Nessuna</string>
+  <string name="halo_msgbox_animation_flip">Capovolgi</string>
+  <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
+  <string name="app_halo_label_black">Lista esclusioni da HALO</string>
+  <string name="app_halo_label_white">Lista inclusi in HALO</string>
+  <!-- Halo blacklist -->
+  <string name="app_notification_halo_title">Mostra notifica in HALO</string>
+  <string name="app_notification_halo_summary">Lascia che questa applicazione mostri le notifiche in HALO</string>
+  <string name="filter_notif_no_halo">Nessuna notifica in HALO</string>
+  <string name="notifications_five_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%5$s</xliff:g></string>
+  <string name="halo_enable_title">Halo in intestazione</string>
+  <string name="halo_enable_summary">Mostra il pulsante Halo nell'intestazione della barra di stato</string>
+  <string name="halo_floating_notifications_title">Modalità fluttuante</string>
+  <string name="halo_floating_notifications_summary">Avvia sempre le attività di notifiche in modalità fluttuante.</string>
+  <string name="halo_enable_float_summary">La modalità fluttuante deve essere abilitata per utilizzare questa funzione</string>
+
+  <!-- AdAway -->
+  <string name="adaway_settings_title">AdAway</string>
+	
+  <!-- Application Settings -->
+  <!-- App details: open play store link if app is user installed -->
+  <string name="app_play_store">Google Play</string>
+
  
   <!-- Snackbar notices -->
   <string name="battery_stats_reset_completed">Le statistiche della batteria sono state ripristinate</string>
