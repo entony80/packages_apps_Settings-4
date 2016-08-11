@@ -17,8 +17,14 @@
 package com.android.settings.notificationlight;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
@@ -28,6 +34,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference;
 
@@ -38,6 +45,9 @@ import org.cyanogenmod.internal.logging.CMMetricsLogger;
 public class BatteryLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "BatteryLightSettings";
+	
+	private final H mHandler = new H();
+    private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
     private static final String LOW_COLOR_PREF = "low_color";
     private static final String MEDIUM_COLOR_PREF = "medium_color";
@@ -62,8 +72,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         addPreferencesFromResource(R.xml.battery_light_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();

@@ -54,13 +54,6 @@
             android:summary="@string/battery_low_notif_summary"
             android:defaultValue="true" />
 			
-	<!-- Battery light -->
-    <PreferenceScreen
-            android:key="battery_light"
-            android:title="@string/battery_light_title"
-	        android:summary="@string/battery_light_title_summary"
-            android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-			
 	<PreferenceScreen
             android:key="battery_bar"
             android:fragment="com.android.settings.cypher.fragments.BatteryBar"
