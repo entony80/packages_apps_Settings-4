@@ -108,6 +108,7 @@ import com.android.settings.deviceinfo.PublicVolumeSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
 import com.android.settings.notificationlight.BatteryLightSettings;
+import com.android.settings.notificationlight.NotificationLightSettings;
 import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpSettings;
@@ -357,6 +358,7 @@ public class SettingsActivity extends Activity
             AndroidBeam.class.getName(),
             WifiDisplaySettings.class.getName(),
 			BatteryLightSettings.class.getName(),
+			NotificationLightSettings.class.getName(),
 			BatteryOptionSettings.class.getName(),
 			DashOptionSettings.class.getName(),
 			LsOptionSettings.class.getName(),
