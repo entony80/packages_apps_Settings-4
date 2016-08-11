@@ -107,6 +107,7 @@ import com.android.settings.deviceinfo.PrivateVolumeSettings;
 import com.android.settings.deviceinfo.PublicVolumeSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
+import com.android.settings.notificationlight.BatteryLightSettings;
 import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpSettings;

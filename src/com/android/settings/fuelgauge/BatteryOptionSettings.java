@@ -62,6 +62,7 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
 
+	private static final int MENU_BATTERY = Menu.FIRST;
 	
 	@Override
     protected int getMetricsCategory() {
@@ -132,6 +133,7 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
 	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_BATTERY, 0, R.string.battery_light_title)
+                .setIcon(R.drawable.ic_settings_battery_light)
                 .setAlphabeticShortcut('b')
                 .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
     }
@@ -139,6 +141,7 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_BATTERY:
                 final SettingsActivity sat = (SettingsActivity) getActivity();
                 sat.startPreferencePanel(BatteryLightSettings.class.getName(), null,
                         R.string.battery_light_title, null, null, 0);
