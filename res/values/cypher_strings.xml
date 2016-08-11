@@ -813,10 +813,10 @@
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Statusbar</string>
     <string name="show_carrier_enabled">Both</string>
-	<string name="status_bar_carrier_position">Status bar location</string>
+	<string name="status_bar_carrier_position">Location</string>
     <string name="status_bar_logo_position_left">Left</string>
     <string name="status_bar_logo_position_right">Right</string>
-	<string name="status_bar_carrier_font_style_title">Font style</string>
+	<string name="status_bar_carrier_font_style_title">Font</string>
 	
 	<!-- Status bar temperature -->
     <string name="status_bar_temperature_title">Temperature</string>
@@ -882,7 +882,7 @@
 
 	<!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
-    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="show_network_traffic_state">Traffic monitor</string>
     <string name="network_traffic_summary">Monitor your data or wifi connection speeds for outgoing and ingoing</string>
     <string name="show_network_traffic_unit">Display unit</string>
     <string name="show_network_traffic_frequency">Update interval</string>
@@ -901,7 +901,7 @@
 	<string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the arrows in the traffic indicators</string>
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
-    <string name="network_traffic_color_style">Color style</string>
+    <string name="network_traffic_color_style">Color</string>
     <string name="network_traffic_color_reset">Reset color</string>
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
 	
@@ -1040,12 +1040,14 @@
     <string name="sizer_message_filesuccess">Created profile.</string>
     <string name="sizer_message_filefail">Failed to create profile.</string>
     <string name="sizer_message_noselect">Nothing selected.</string>
-    <string name="system_app_remover">SAR</string>
+    <string name="system_app_remover">System app remover</string>
 	<string name="system_app_remover_summary">System app remover is a tool to remove prebuilt system applications per users request</string>
 	
 	<!-- Slim recents panel -->
     <string name="slim_recents_panel">Slim recents</string>
 	<string name="slim_recents_panel_summary">Give your recents a new look and feel with the beautiful slim additions</string>
+	<string name="slim_recents_warning">Enabling slim recents</string>
+	<string name="slim_recents_warning_message">In order for slim recents to go into effect you must reboot your device our toggle restart systemui from the advanced reboot menu</string>
     <string name="use_slim_recents_title">Enable</string>
     <string name="show_running_tasks_title">Only show running apps</string>
     <string name="recents_max_apps_title">Max allowed apps</string>

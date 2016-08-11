@@ -196,6 +196,19 @@ public class Slimrecents extends SettingsPreferenceFragment
         }
         return false;
     }
+	
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mUseSlimRecents) {
+            if (mUseSlimRecents.isChecked()) {
+                queueForReboot();
+            }
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        return false;
+    }
     
 	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -226,6 +239,28 @@ public class Slimrecents extends SettingsPreferenceFragment
         });
         alertDialog.setNegativeButton(R.string.cancel, null);
         alertDialog.create().show();
+    }
+	
+	private void queueForReboot() {
+		DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                initializeAllPreferences();
+            }
+        };
+		
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.slim_recents_warning)
+                .setMessage(R.string.slim_recents_warning_message)
+                .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Enable slim after users read the warning
+                        initializeAllPreferences();
+                    }
+                })
+                .create()
+                .show();
     }
   
     private void resetValues() {
