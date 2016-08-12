@@ -212,6 +212,9 @@ public class Gestures extends SettingsPreferenceFragment
 					if (!isTapToWakeAvailable(context.getResources())) {
                         result.add(KEY_TAP_TO_WAKE);
                     }
+					if (!isMotionGesturesAvailable(context.getResources())) {
+						result.add(KEY_MOTION_GESTURES);
+					}
                     return result;
                 }
             };
