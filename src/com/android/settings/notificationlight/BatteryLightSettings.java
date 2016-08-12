@@ -45,9 +45,6 @@ import org.cyanogenmod.internal.logging.CMMetricsLogger;
 public class BatteryLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "BatteryLightSettings";
-	
-	private final H mHandler = new H();
-    private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
     private static final String LOW_COLOR_PREF = "low_color";
     private static final String MEDIUM_COLOR_PREF = "medium_color";
