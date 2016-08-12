@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.DropDownPreference;
+import com.android.settings.notificationlight.NotificationLightSettings;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
