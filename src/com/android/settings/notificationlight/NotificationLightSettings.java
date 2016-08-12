@@ -75,9 +75,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     public static final int ACTION_DELETE = 1;
     private static final int MENU_ADD = 0;
     private static final int DIALOG_APPS = 0;
-	
-	private final H mHandler = new H();
-    private final SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
     private int mDefaultColor;
     private int mDefaultLedOn;

@@ -130,10 +130,10 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+		final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
 			case MENU_NOTI:
-                final SettingsActivity sat = (SettingsActivity) getActivity();
-                sat.startPreferencePanel(NotificationLightSettings.class.getName(), null,
+                sa.startPreferencePanel(NotificationLightSettings.class.getName(), null,
                         R.string.notification_light_title, null, null, 0);
                 return true;
 			default:
