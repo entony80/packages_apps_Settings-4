@@ -41,6 +41,10 @@
     <string name="root_access_adb">ADB only</string>
     <string name="root_access_all">Apps and ADB</string>
 
+    <!-- Preference link for root appops -->
+    <string name="root_appops_title">Manage root accesses</string>
+    <string name="root_appops_summary">View and control the root rules</string>
+
     <!-- NFC PreferenceCategory title -->
     <string name="nfc_title_category">NFC</string>
 
@@ -624,7 +628,7 @@
 
     <!-- Hardware tunables - Vibrator intensity -->
     <string name="vibrator_intensity_title">Vibrator intensity</string>
-    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
+    <string name="vibrator_warning">Values higher than %1$d%% are not recommended</string>
 
     <!-- Hardware tunables - Color calibration -->
     <string name="color_calibration_title">Color calibration</string>
@@ -653,25 +657,6 @@
     <string name="display_rotation_90_title">90 degrees</string>
     <string name="display_rotation_180_title">180 degrees</string>
     <string name="display_rotation_270_title">270 degrees</string>
-
-    <!-- Display settings.  Screen color. -->
-    <string name="screencolor">Screen color</string>
-    <string name="screencolor_summary">Tune screen hue, saturation, contrast or intensity</string>
-    <string name="custom_screencolor">Custom screen color</string>
-    <string name="screencolor_save">Save</string>
-    <string name="screencolor_cancel">Cancel</string>
-    <string name="restore_preview">View default picture</string>
-    <string name="selectnewfile_menu">View new picture from Gallery</string>
-    <string name="selectfile_menu">View picture from Gallery</string>
-    <string name="restore_default_str">Reset</string>
-    <string name="hue_str">Hue: <xliff:g id="hue_value">%1$s</xliff:g></string>
-    <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-    <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-    <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
-
-    <string name="screen_color_standard">Standard</string>
-    <string name="screen_color_vivid">Vivid</string>
-    <string name="screen_color_custom">Custom</string>
 
     <!-- LiveDisplay -->
     <string name="live_display_title" translatable="false">LiveDisplay</string>
@@ -706,12 +691,21 @@
     <string name="live_display_color_profile_adaptive_title">Adaptive</string>
     <string name="live_display_color_profile_adaptive_summary">Colors adapt to ambient conditions</string>
 
+    <!-- LiveDisplay : Picture Adjustment -->
+    <string name="picture_adjustment_title">Picture adjustment</string>
+    <string name="picture_adjustment_summary">Adjust hue, saturation, intensity, and contrast</string>
+    <string name="adj_hue_title">Hue</string>
+    <string name="adj_saturation_title">Saturation</string>
+    <string name="adj_intensity_title">Intensity</string>
+	<string name="adj_contrast_title">Contrast</string>
+
     <!-- Whether to display IME switcher notifcation -->
     <string name="ime_switcher_notify">Selector icon</string>
     <string name="ime_switcher_notify_summary">Display input method selector icon</string>
 
     <!-- Heads up -->
     <string name="heads_up_notifications">Heads up</string>
+	<string name="heads_up_notifications_summary">The native android notification system ensuring you get notifications at ease</string>
     <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
     <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
     <string name="add_heads_up_package">Add app</string>
@@ -837,7 +831,7 @@
 
     <!-- Status bar - Battery -->
     <string name="status_bar_battery_style_title">Icon</string>
-    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_portrait">Portrait</string>
     <string name="status_bar_battery_style_circle">Circle</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
@@ -1200,4 +1194,7 @@
     <string name="security_settings_fingerprint_sensor_location_front">front</string>
     <string name="security_settings_fingerprint_sensor_location_left">left side</string>
     <string name="security_settings_fingerprint_sensor_location_right">right side</string>
+
+    <!-- SIM status format string -->
+    <string name="sim_status_format_string">Voice: <xliff:g id="voice_status">%1$s</xliff:g> / Data: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>

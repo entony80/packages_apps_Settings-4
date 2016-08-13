@@ -34,8 +34,12 @@ import android.provider.Settings.Global;
 import android.util.Log;
 import android.provider.Settings;
 import android.widget.Switch;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.internal.logging.MetricsLogger;
+import com.android.settings.notificationlight.BatteryLightSettings;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
@@ -59,6 +63,7 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
 
+	private static final int MENU_BATTERY = Menu.FIRST;
 	
 	@Override
     protected int getMetricsCategory() {
@@ -123,6 +128,27 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
             mStatusBarBatteryShowPercent.setEnabled(false);
         } else {
             mStatusBarBatteryShowPercent.setEnabled(true);
+        }
+    }
+	
+	@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_BATTERY, 0, R.string.battery_light_title)
+                .setIcon(R.drawable.ic_settings_battery_light)
+                .setAlphabeticShortcut('b')
+                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_BATTERY:
+                final SettingsActivity sat = (SettingsActivity) getActivity();
+                sat.startPreferencePanel(BatteryLightSettings.class.getName(), null,
+                        R.string.battery_light_title, null, null, 0);
+                return true;
+			default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

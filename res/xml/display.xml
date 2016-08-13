@@ -22,6 +22,14 @@
     <PreferenceCategory
         android:key="display"
         android:title="@string/display_label">
+		
+		<!-- Brightness slider -->
+        <PreferenceScreen
+                android:key="brightness"
+                android:title="@string/brightness"
+                settings:keywords="@string/keywords_display_brightness_level">
+            <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
+        </PreferenceScreen>
 
         <!-- Adaptive brightness -->
         <SwitchPreference
@@ -66,8 +74,7 @@
         <com.android.settings.cyanogenmod.CMSystemSettingSwitchPreference
                 android:key="proximity_on_wake"
                 android:title="@string/proximity_wake_title"
-                android:summary="@string/proximity_wake_summary"
-                android:defaultValue="true" />
+                android:summary="@string/proximity_wake_summary" />
 
         <!-- Seconds before sleep -->
         <ListPreference

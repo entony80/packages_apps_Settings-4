@@ -97,16 +97,6 @@
             android:allowBackup="false"
             android:usesCleartextTraffic="true">
 
-        <!-- Screen color Settings Controls -->
-        <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="nosensor">
-        </activity>
-        <activity android:name=".CustomScreenColor" android:label="@string/custom_screencolor"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="nosensor">
-        </activity>
-
         <activity android:name="Settings"
                 android:taskAffinity="com.android.settings"
                 android:label="@string/settings_label_launcher"
@@ -896,6 +886,7 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity-alias>
 
+        <activity android:name =".cypher.Halo" />
         <activity android:name="Settings$DeviceInfoSettingsActivity"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
                 android:label="@string/device_info_settings"
@@ -916,6 +907,18 @@
                 android:resource="@id/about_settings" />
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
+        </activity>
+		
+		<!-- Halo -->
+        <activity android:name="Settings$HaloSettingsActivity"
+                android:label="@string/halo_settings_title"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cypher.Halo" />
         </activity>
 
         <activity android:name="SettingsLicenseActivity"
@@ -2103,6 +2106,38 @@
                 android:value="com.android.settings.LsOptionSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_and_lights_settings" />
+        </activity>
+		
+		<activity android:name="Settings$BatteryLightSettingsActivity"
+                android:label="@string/battery_light_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.BATTERY_LIGHT_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.notificationlight.BatteryLightSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/battery_settings" />
+        </activity>
+		
+		<activity android:name="Settings$NotificationLightSettingsActivity"
+                android:label="@string/notification_light_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.NOTIFICATION_LIGHT_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.notificationlight.NotificationLightSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/notification_manager" />
         </activity>
 
         <activity android:name="Settings$PowerUsageSummaryActivity"

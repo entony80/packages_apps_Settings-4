@@ -41,7 +41,7 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- About phone screen, CyanogenMod version -->
-  <string name="mod_version">Versione AICP</string>
+  <string name="mod_version">Versione CypherOS</string>
   <string name="mod_version_default">Sconosciuto</string>
   <!-- About phone screen, Device model -->
   <string name="device_model">Modello dispositivo</string>
@@ -251,6 +251,7 @@
   <string name="pulse_speed_very_slow">Molto lento</string>
   <!-- Battery light settings -->
   <string name="battery_light_title">Indicatore batteria</string>
+  <string name="battery_light_title_summary">Attiva il LED di indicazione della batteria scarica</string>
   <string name="battery_low_pulse_title">Lampeggia con batteria scarica</string>
   <string name="battery_light_list_title">Colori</string>
   <string name="battery_light_low_color_title">Batteria scarica</string>
@@ -258,6 +259,7 @@
   <string name="battery_light_full_color_title">Carica completa</string>
   <!-- Lights settings screen, notification light settings -->
   <string name="notification_light_title">Luce di notifica</string>
+  <string name="notification_light_title_summary">Consenti di attivare l\'indicatore LED alle notifiche delle app</string>
   <string name="notification_light_general_title">Generale</string>
   <string name="notification_light_applist_title">App</string>
   <string name="notification_light_phonelist_title">Telefono</string>
@@ -549,7 +551,7 @@
   <string name="volume_adjust_sounds_title">Suono regolazione volume</string>
   <!-- Hardware tunables - Vibrator intensity -->
   <string name="vibrator_intensity_title">Intensità vibrazione</string>
-  <string name="vibrator_warning">Valori superiori a %1$d non sono raccomandati</string>
+  <string name="vibrator_warning">I valori superiori a %1$d%% non sono consigliati</string>
   <!-- Hardware tunables - Color calibration -->
   <string name="color_calibration_title">Calibrazione colore</string>
   <string name="color_calibration_summary">Calibra i colori dello schermo</string>
@@ -573,11 +575,6 @@
   <string name="display_rotation_180_title">180 gradi</string>
   <string name="display_rotation_270_title">270 gradi</string>
   <!-- Display settings.  Screen color. -->
-  <string name="screencolor">Colore schermo</string>
-  <string name="screencolor_summary">Imposta tonalità, saturazione, contrasto o intensità dello schermo</string>
-  <string name="custom_screencolor">Colore schermo personalizzato</string>
-  <string name="screencolor_save">Salva</string>
-  <string name="screencolor_cancel">Annulla</string>
   <string name="restore_preview">Visualizza immagine predefinita</string>
   <string name="selectnewfile_menu">Visualizza nuova immagine dalla Galleria</string>
   <string name="selectfile_menu">Visualizza immagine dalla Galleria</string>
@@ -586,9 +583,6 @@
   <string name="saturation_str">Saturazione: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">Contrasto: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">Intensità: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
-  <string name="screen_color_standard">Standard</string>
-  <string name="screen_color_vivid">Vivido</string>
-  <string name="screen_color_custom">Personalizzato</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">Ottimizza lo schermo in base all\'ora del giorno e alle condizioni ambientali per migliorare la leggibilità e ridurre l\'affaticamento degli occhi</string>
   <string name="live_display_mode">Modalità display</string>
@@ -618,6 +612,8 @@
   <string name="live_display_color_profile_photography_summary">Colori perfetti per riproduzione foto</string>
   <string name="live_display_color_profile_basic_title">Base</string>
   <string name="live_display_color_profile_basic_summary">Usa il display non calibrato</string>
+  <string name="live_display_color_profile_adaptive_title">Adattivo</string>
+  <string name="live_display_color_profile_adaptive_summary">I colori si adattano alle condizioni ambientali</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Icona selettore</string>
   <string name="ime_switcher_notify_summary">Mostra l\'icona del selettore metodo di immissione</string>
@@ -691,6 +687,7 @@
   <string name="power_notifications_ringtone_silent">Silenzioso</string>
   <!-- Status bar -->
   <string name="status_bar_title">Barra di stato</string>
+  <string name="status_bar_title_summary">Modifica ogni aspetto della barra di stato per aumentare la visuale e la produttività</string>
   <string name="status_bar_toggle_brightness">Controllo luminosità</string>
   <string name="status_bar_toggle_brightness_summary">Modifica la luminosità strisciando sulla barra di stato</string>
   <string name="status_bar_notif_count_title">Mostra contatore notifiche</string>
@@ -702,6 +699,12 @@
   <string name="status_bar_quick_qs_pulldown_off">Disattivato</string>
   <string name="status_bar_quick_qs_pulldown_left">Sinistra</string>
   <string name="status_bar_quick_qs_pulldown_right">Destra</string>
+  <string name="smart_pulldown_title">Discesa intelligente</string>
+  <string name="smart_pulldown_summary">Apri le impostazioni rapide quando ci sono %1$s notifiche presenti</string>
+  <string name="smart_pulldown_off">Spenta</string>
+  <string name="smart_pulldown_dismissable">Non rimovibili</string>
+  <string name="smart_pulldown_persistent">Non persistenti</string>
+  <string name="smart_pulldown_all">Non rimovibili o persistenti</string>
   <!-- Status bar - Clock -->
   <string name="status_bar_clock_style_title">Posizione orologio</string>
   <string name="status_bar_clock_style_right">Destra</string>
@@ -1076,4 +1079,6 @@
   <string name="security_settings_fingerprint_sensor_location_front">anteriore</string>
   <string name="security_settings_fingerprint_sensor_location_left">sinistra</string>
   <string name="security_settings_fingerprint_sensor_location_right">destra</string>
+  <!-- SIM status format string -->
+  <string name="sim_status_format_string">Voce: <xliff:g id="voice_status">%1$s</xliff:g> / Dati: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>

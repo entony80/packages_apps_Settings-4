@@ -16,18 +16,31 @@
 
 package com.android.settings.notification;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceCategory;
+import android.preference.Preference;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.DropDownPreference;
+import com.android.settings.notificationlight.NotificationLightSettings;
 import com.android.settings.R;
+import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -42,6 +55,8 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     private static final String TAG = NotificationManagerSettings.class.getSimpleName();
 
     private static final String KEY_LOCK_SCREEN_NOTIFICATIONS = "lock_screen_notifications";
+	
+	private static final int MENU_NOTI = Menu.FIRST;
 
     private boolean mSecure;
     private int mLockscreenSelectedValue;
@@ -112,6 +127,27 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     private boolean getLockscreenAllowPrivateNotifications() {
         return Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, 0) != 0;
+    }
+	
+	@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_NOTI, 0, R.string.notification_light_title)
+		        .setIcon(R.drawable.ic_settings_battery_light)
+                .setAlphabeticShortcut('n')
+                .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		final SettingsActivity sa = (SettingsActivity) getActivity();
+        switch (item.getItemId()) {
+			case MENU_NOTI:
+                sa.startPreferencePanel(NotificationLightSettings.class.getName(), null,
+                        R.string.notification_light_title, null, null, 0);
+                return true;
+			default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

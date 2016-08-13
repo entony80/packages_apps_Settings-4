@@ -41,9 +41,14 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = "RecentPanelSettings";
 
+	private static final String SHOW_RECENTS_SEARCHBAR = "recents_show_search_bar";
+	private static final String SHOW_MEMBAR_RECENTS = "systemui_recents_mem_display";
+	private static final String USE_SLIM_RECENTS = "use_slim_recents";	
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
+	private SwitchPreference mRecentsSearchBar;
+	private SwitchPreference mRecentsMemBar;
     private SwitchPreference mRecentsClearAll;
     private ListPreference mRecentsClearAllLocation;
 
@@ -60,9 +65,12 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+		mRecentsSearchBar = (SwitchPreference) prefSet.findPreference(SHOW_RECENTS_SEARCHBAR);
+		mRecentsMemBar = (SwitchPreference) prefSet.findPreference(SHOW_MEMBAR_RECENTS);
+		
         mRecentsClearAll = (SwitchPreference) prefSet.findPreference(SHOW_CLEAR_ALL_RECENTS);
         mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
-            Settings.System.SHOW_CLEAR_ALL_RECENTS, 0, UserHandle.USER_CURRENT) == 0);
+            Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) == 0);
         mRecentsClearAll.setOnPreferenceChangeListener(this);
 
         mRecentsClearAllLocation = (ListPreference) prefSet.findPreference(RECENTS_CLEAR_ALL_LOCATION);
@@ -70,6 +78,20 @@ public class RecentsPanelSettings extends SettingsPreferenceFragment implements
                 Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3, UserHandle.USER_CURRENT);
         mRecentsClearAllLocation.setValue(String.valueOf(location));
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
+		boolean slimRecent = Settings.System.getInt(getActivity().getContentResolver(),
+        		Settings.System.USE_SLIM_RECENTS, 0) == 1;
+
+        if (slimRecent) {
+			mRecentsSearchBar.setEnabled(false);
+			mRecentsMemBar.setEnabled(false);
+            mRecentsClearAll.setEnabled(false);
+            mRecentsClearAllLocation.setEnabled(false);
+        } else {
+			mRecentsSearchBar.setEnabled(true);
+			mRecentsMemBar.setEnabled(true);
+            mRecentsClearAll.setEnabled(true);
+            mRecentsClearAllLocation.setEnabled(true);
+        }
         updateRecentsLocation(location);
     }
 

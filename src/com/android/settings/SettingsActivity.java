@@ -75,6 +75,7 @@ import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.CaptionPropertiesFragment;
 import com.android.settings.accounts.AccountSettings;
 import com.android.settings.accounts.AccountSyncSettings;
+import com.android.settings.cypher.Halo;
 import com.android.settings.aicp.AicpSettingsExternal;
 import com.android.settings.aicp.LockscreenShortcutFragment;
 import com.android.settings.cypher.fragments.RecentAppSidebarFragment;
@@ -106,6 +107,8 @@ import com.android.settings.deviceinfo.PrivateVolumeSettings;
 import com.android.settings.deviceinfo.PublicVolumeSettings;
 import com.android.settings.deviceinfo.StorageSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
+import com.android.settings.notificationlight.BatteryLightSettings;
+import com.android.settings.notificationlight.NotificationLightSettings;
 import com.android.settings.fuelgauge.BatteryOptionSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.headsup.HeadsUpSettings;
@@ -310,6 +313,7 @@ public class SettingsActivity extends Activity
             R.id.print_settings,
             R.id.home_settings,
             R.id.dashboard,
+			R.id.halo_settings,
             R.id.privacy_settings_cyanogenmod,
     };
 
@@ -353,6 +357,8 @@ public class SettingsActivity extends Activity
             DevelopmentSettings.class.getName(),
             AndroidBeam.class.getName(),
             WifiDisplaySettings.class.getName(),
+			BatteryLightSettings.class.getName(),
+			NotificationLightSettings.class.getName(),
 			BatteryOptionSettings.class.getName(),
 			DashOptionSettings.class.getName(),
 			LsOptionSettings.class.getName(),
@@ -405,7 +411,8 @@ public class SettingsActivity extends Activity
             LiveLockScreenSettings.class.getName(),
             HeadsUpSettings.class.getName(),
             DozeSettingsFragment.class.getName(),
-            RunningServices.class.getName()
+            RunningServices.class.getName(),
+			Halo.class.getName()
     };
 
 

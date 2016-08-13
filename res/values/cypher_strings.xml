@@ -17,15 +17,26 @@
 
     <string name="reset">Reset</string>
     <string name="attention">Attention</string>
-    <string name="easter_egg_snack">"I am the new flavor!"</string>
+    <string name="easter_egg_snack">"Sweet and soft snack with cream filling...."</string>
 	<string name="battery_options">Settings</string>
 	<string name="dash_board_options">Dashboard</string>
 	
-	<string name="device_api_default">Hazelnut</string>
+	<string name="device_api_default">Moon Pie</string>
 	
 	<!-- Software Information, CypherOS device maintainer name -->
     <string name="device_maintainer">Device maintainer</string>
     <string name="device_maintainers">Device maintainers</string>
+	
+	<!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
+	
+	<string name="tap_to_wake_warning">Warning</string>
+    <string name="tap_to_wake_warning_message">Tap to wake can have a negative affect on your battery performance as well as your devices standard temperature</string>
+	
+	<!-- System settings -->
+    <string name="system_settings_title">System</string>
+    <string name="system_settings_title_summary">A simple collection of miscellaneous tweaks to improve system performance and stability</string>
 	
 	<string name="social_category_title">Social</string>
 	<string name="cypher_website_title">OnTheWeb</string>
@@ -372,7 +383,7 @@
 
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title">Wakelock Blocker</string>
-    <string name="wakelock_blocker_summary">Block system wakelocks</string>
+    <string name="wakelock_blocker_summary">Allows the ability to block system wakelocks</string>
     <string name="wakelock_blocker_save">Save</string>
     <string name="wakelock_list_header">Available wakelocks</string>
     <string name="wakelock_blocker_reload">Reload</string>
@@ -525,60 +536,15 @@
     <string name="eos_fling_lavalamp_summary">Pulse animates a smooth lava lamp style color blend</string>
 	<string name="pulse_advanced_category">Advanced</string>
     <string name="pulse_legacy_mode_advanced_category">Fading blocks mode settings</string>
+    <string name="pulse_custom_fudge_factor">Sanity level</string>
+    <string name="lavamp_solid_speed_title">Lava Lamp speed</string>
+    <string name="pulse_solid_dimen_category">Solid lines mode settings</string>
 
-    <string name="pulse_custom_dimen">Pulse Bar Width</string>
-    <string name="pulse_dimen0">Default</string>
-    <string name="pulse_dimen1">7dp</string>
-    <string name="pulse_dimen2">8dp</string>
-    <string name="pulse_dimen3">9dp</string>
-    <string name="pulse_dimen4">10dp</string>
-    <string name="pulse_dimen5">11dp</string>
-    <string name="pulse_dimen6">12dp</string>
-    <string name="pulse_dimen7">13dp</string>
-    <string name="pulse_dimen8">15dp</string>
-    <string name="pulse_dimen9">16dp</string>
-    <string name="pulse_dimen10">17dp</string>
-    <string name="pulse_dimen11">18dp</string>
-    <string name="pulse_dimen12">19dp</string>
-    <string name="pulse_dimen13">20dp</string>
-    <string name="pulse_dimen14">21dp</string>
-    <string name="pulse_dimen15">22dp</string>
-    <string name="pulse_dimen16">23dp</string>
-    <string name="pulse_dimen17">24dp</string>
-    <string name="pulse_dimen18">25dp</string>
-    <string name="pulse_dimen19">26dp</string>
-
-    <string name="pulse_custom_div">Pulse Bar Spacing</string>
-    <string name="default_div">Default</string>
-    <string name="div1">18</string>
-    <string name="div2">20</string>
-    <string name="div3">22</string>
-    <string name="div4">24</string>
-    <string name="div5">26</string>
-    <string name="div6">28</string>
-    <string name="div7">30</string>
-    <string name="div8">32</string>
-
-    <string name="default_fill">4dp(default)</string>
-    <string name="pulse_bar_style">Pulse Bar Style</string>
-    <string name="default_pulse_empty">1dp(default)</string>
-    <string name="pulse_filled_block_size">Block Size</string>
-    <string name="pulse_empty_block_size">Block Spacing</string>
-    <string name="pulse_fill1">5dp</string>
-    <string name="pulse_fill2">6dp</string>
-    <string name="pulse_fill3">7dp</string>
-    <string name="pulse_fill4">8dp</string>
-    <string name="pulse_empty1">2dp</string>
-    <string name="pulse_empty2">3dp</string>
-    <string name="pulse_empty3">4dp</string>
-    <string name="pulse_empty4">0(no spacing)</string>
-
-    <string name="factor0">Normal</string>
-    <string name="factor1">Relaxed</string>
-    <string name="factor2">Slow</string>
-    <string name="factor3">Hyper</string>
-    <string name="factor4">Insane</string>
-    <string name="pulse_custom_fudge_factor">Visualizer Sanity Level</string>
+    <!-- Pulse config -->
+    <string name="pulse_custom_dimen">Bar width</string>
+    <string name="pulse_custom_div">Bar spacing</string>
+    <string name="pulse_filled_block_size">Block size</string>
+    <string name="pulse_empty_block_size">Block spacing</string>
 
     <!-- Navbar height -->
     <string name="navigation_bar_size_title">Dimensions</string>
@@ -652,6 +618,9 @@
 
     <!-- Hide apps from recents -->
     <string name="hide_from_recents_add_app">Add App</string>
+	
+	<string name="toggle_package_install_overlay_check_title">Disable permission overlay check</string>
+    <string name="toggle_package_install_overlay_check_summary">WARNING\u003A this disables a security check to prevent possible tapjacking! Use only if you understand the consequences.</string>
 	
 	<!-- Additions Settings -->
 	<string name="addition_settings">Additions</string>
@@ -844,10 +813,10 @@
     <string name="show_carrier_keyguard">Lockscreen</string>
     <string name="show_carrier_statusbar">Statusbar</string>
     <string name="show_carrier_enabled">Both</string>
-	<string name="status_bar_carrier_position">Status bar location</string>
+	<string name="status_bar_carrier_position">Location</string>
     <string name="status_bar_logo_position_left">Left</string>
     <string name="status_bar_logo_position_right">Right</string>
-	<string name="status_bar_carrier_font_style_title">Font style</string>
+	<string name="status_bar_carrier_font_style_title">Font</string>
 	
 	<!-- Status bar temperature -->
     <string name="status_bar_temperature_title">Temperature</string>
@@ -901,6 +870,8 @@
     <string name="recents_panel_settings">Recents panel settings</string>
     <string name="show_clear_all_recents_button_title">Clear all</string>
     <string name="show_clear_all_recents_button_summary">Show clear all button in the recents panel</string>
+	<string name="recents_show_searchbar">Search-in</string>
+	<string name="recents_show_searchbar_summary">Show your default search bar in the recents menu</string>
     <string name="recents_clear_all_location_title">Clear all location</string>
     <string name="recents_clear_all_location_top_right">Top right</string>
     <string name="recents_clear_all_location_top_left">Top left</string>
@@ -911,7 +882,7 @@
 
 	<!-- Network traffic -->
     <string name="network_traffic_title">Network traffic</string>
-    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="show_network_traffic_state">Traffic monitor</string>
     <string name="network_traffic_summary">Monitor your data or wifi connection speeds for outgoing and ingoing</string>
     <string name="show_network_traffic_unit">Display unit</string>
     <string name="show_network_traffic_frequency">Update interval</string>
@@ -930,7 +901,7 @@
 	<string name="network_traffic_hidearrow">Hide arrows</string>
     <string name="network_traffic_hidearrow_summary">Hide the arrows in the traffic indicators</string>
     <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
-    <string name="network_traffic_color_style">Color style</string>
+    <string name="network_traffic_color_style">Color</string>
     <string name="network_traffic_color_reset">Reset color</string>
     <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
 	
@@ -1031,6 +1002,143 @@
     <string name="lockscreen_see_through_title">Blur</string>
     <string name="lockscreen_see_through_summary">Replace your wallpaper with a blurred lockscreen with the ability to see what\'s behind it</string>
 	<string name="lockscreen_blur_radius">Blur radius</string>
+	
+	<!-- Task Manager -->
+    <string name="enable_task_manager_title">Task Manager</string>
+    <string name="enable_task_manager_summary">Use a mini task manager button in the expanded statusbar area</string>
+	
+	<string name="ls_bouncer_title">Bouncer</string>
+    <string name="ls_bouncer_summary">Open lockscreen directly to pin/pattern/password when there are %1$s notifications present</string>
+    <string name="ls_bouncer_on">On</string>
+    <string name="ls_bouncer_on_summary">Stock behavior</string>
+    <string name="ls_bouncer_off">Off</string>
+    <string name="ls_bouncer_off_summary">Open Lockscreen directly to pin/pattern/password</string>
+    <string name="ls_bouncer_dismissable">No dismissable</string>
+    <string name="ls_bouncer_persistent">No persistent</string>
+    <string name="ls_bouncer_all">No dismissable or persistent</string>
+    <string name="lockscreen_alpha">Alpha</string>
+    <string name="lockscreen_security_alpha">Bouncer alpha</string>
+	
+	<!-- On-The-Go -->
+    <string name="power_menu_onthego_title">OnTheGo Mode</string>
+	
+	<!-- System app remover  -->
+    <string name="listsystem">list</string>
+    <string name="sizer_title">App remover</string>
+    <string name="caution">Caution!</string>
+    <string name="sizer_message_startup">This tool allows you to delete system apps. Use with caution and only delete apps you know are safe to be removed.</string>
+    <string name="cancel">Cancel</string>
+    <string name="sizer_message_delete">Are you sure you want to delete this app?</string>
+    <string name="btn_delete">Delete selected APPs now!</string>
+    <string name="delete_progress_title">Deleting</string>
+    <string name="delete_progress">Selected files are being deleted...</string>
+    <string name="delete_success">Deleted</string>
+    <string name="delete_fail">Unable to delete</string>
+    <string name="btn_profile">Profile</string>
+    <string name="sizer_message_sdnowrite">Cannot write to SD Card.</string>
+    <string name="sizer_message_sdnoread">Cannot read SD Card.</string>
+    <string name="sizer_message_filesuccess">Created profile.</string>
+    <string name="sizer_message_filefail">Failed to create profile.</string>
+    <string name="sizer_message_noselect">Nothing selected.</string>
+    <string name="system_app_remover">System app remover</string>
+	<string name="system_app_remover_summary">System app remover is a tool to remove prebuilt system applications per users request</string>
+	
+	<!-- Slim recents panel -->
+    <string name="slim_recents_panel">Slim recents</string>
+	<string name="slim_recents_panel_summary">Give your recents a new look and feel with the beautiful slim additions</string>
+	<string name="slim_recents_warning">Enabling slim recents</string>
+	<string name="slim_recents_warning_message">In order for slim recents to go into effect you must reboot your device our toggle restart systemui from the advanced reboot menu</string>
+    <string name="use_slim_recents_title">Enable</string>
+    <string name="show_running_tasks_title">Only show running apps</string>
+    <string name="recents_max_apps_title">Max allowed apps</string>
+    <string name="recent_panel_scale_title">Size</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_summary">Recent tasks expanded preview mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
+    <string name="recent_panel_show_topmost_title">Show topmost task</string>
+    <string name="recent_panel_show_topmost_summary">Don\'t exclude the topmost task in recents view</string>
+	<string name="recent_panel_bg_color_title">Panel background color</string>
+    <string name="recent_card_bg_color_title">Card background color</string>
+    <string name="recent_card_text_color_title">Card text color</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+	
+	<string name="recents_show_membar_title">Ram indicator</string>
+    <string name="recents_show_membar_summary">Show a indicator with the device\'s available RAM memory</string>
+
+    <!-- Quick settings disable on lockscreen -->
+    <string name="block_on_secure_keyguard_title">Disable quick settings on lockscreen</string>
+    <string name="block_on_secure_keyguard_summary">Disables quick settings in the keyguard for a secure lock only</string>
+
+    <!-- Quick settings headers: START -->
+    <string name="headers_category_title">Headers</string>
+	<string name="contextual_title">Contextual headers</string>
+	<!-- Time-context headers in notification header -->
+    <string name="status_bar_custom_header_title">Custom header</string>
+    <string name="status_bar_custom_header_summary">Add custom header images to the quick settings header</string>
+    <!-- Header packs -->
+	<string name="status_bar_custom_header_default_title">Select your images</string>
+    <string name="custom_header_image_0">Default</string>
+    <string name="custom_header_image_1">Modern</string>
+    <string name="custom_header_image_2">Poly HD</string>
+	<!-- Header image shadow -->
+    <string name="status_bar_custom_header_shadow_title">Image shadow</string>
+    <string name="status_bar_custom_header_shadow_summary">For better visibility on bright images</string>
+	<!-- Quick settings headers: END -->
+	
+	<!-- Halo -->
+    <string name="halo_settings_title">Halo</string>
+	<string name="halo_settings_title_summary">Recieve notifications with a friendly bubble pop-up message</string>
+    <string name="halo_behavior_title">Halo Behavior</string>
+    <string name="halo_hide_title">Hide Halo after activity</string>
+    <string name="halo_hide_summary">Halo will appear for incoming tasks and scroll out of sight after a while</string>
+    <string name="halo_pause_title">Pause active app</string>
+    <string name="halo_pause_summary">When opening an app with Halo the underlying app will get paused</string>
+    <string name="halo_notification_msgbox_title">Enable message pop-up</string>
+    <string name="halo_notification_msgbox_summary">Show message box for incoming notifications</string>
+    <string name="halo_unlock_ping_title">Ping on unlock</string>
+    <string name="halo_unlock_ping_summary">Halo will ping when device is unlocked if new notifications were received</string>
+    <string name="halo_size_title">Halo size</string>
+    <string name="halo_size_summary">Defines how big Halo is going to be</string>
+    <string name="halo_size_miniscule">Miniscule</string>
+    <string name="halo_size_small">Small</string>
+    <string name="halo_size_default">Normal (default)</string>
+    <string name="halo_size_large">Large</string>
+    <string name="halo_size_gigantic">Gigantic</string>
+    <string name="halo_size_monster">Monster</string>
+    <string name="halo_notification_count_title">Notification count</string>
+    <string name="halo_notification_count_summary">Display notification counts on Halo</string>
+    <string name="halo_notification_count_none">None</string>
+    <string name="halo_notification_count_total">Total</string>
+    <string name="halo_notification_count_individual">Per app</string>
+    <string name="halo_notification_count_both">Both</string>
+    <string name="halo_msgbox_animation_title">Message box animation</string>
+    <string name="halo_msgbox_animation_summary">Halo message box animation for incoming notifications</string>
+    <string name="halo_msgbox_animation_none">None</string>
+    <string name="halo_msgbox_animation_flip">Flip</string>
+    <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
+    <string name="app_halo_label_black">Blacklist from HALO</string>
+    <string name="app_halo_label_white">Whitelist from HALO</string>
+    <!-- Halo blacklist -->
+    <string name="app_notification_halo_title">Show notification in HALO</string>
+    <string name="app_notification_halo_summary">Let this app show notifications in HALO</string>
+    <string name="filter_notif_no_halo">No notifications in HALO</string>
+    <string name="notifications_five_items"><xliff:g id="notif_state" example="Priority">%1$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%2$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%3$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%4$s</xliff:g> / <xliff:g id="notif_state" example="Priority">%5$s</xliff:g></string>
+	<string name="halo_enable_title">Halo header</string>
+    <string name="halo_enable_summary">Show the halo button in the statusbar header</string>
+	<string name="halo_floating_notifications_title">Floating Mode</string>
+    <string name="halo_floating_notifications_summary">Always launch activities from notifications in Floating Mode.</string>
+	<string name="halo_enable_float_summary">Floating mode must be enabled to use this feature</string>
+
+	<!-- AdAway -->
+	<string name="adaway_settings_title">AdAway</string>
+	
+	<!-- Application Settings -->
+    <!-- App details: open play store link if app is user installed -->
+    <string name="app_play_store">Google Play</string>
 	
 	<!-- Snackbar notices -->
 	<string name="battery_stats_reset_completed">Battery stats have been reset</string>

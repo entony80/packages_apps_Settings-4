@@ -59,7 +59,7 @@
 			
 	<!-- Motion gestures -->
 	<PreferenceScreen
-	        android:key="mot_gest"
+	        android:key="motion_gestures"
 			android:title="@string/motion_gestures_title"
 			android:summary="@string/motion_gestures_title_summary">
 		<intent android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"

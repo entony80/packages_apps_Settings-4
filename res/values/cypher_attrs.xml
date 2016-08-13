@@ -14,7 +14,7 @@
 <resources>
 
     <declare-styleable name="SeekBarPreference">
-        <attr name="defaultVal" format="integer" />
+<!--        <attr name="defaultVal" format="integer" />-->
     </declare-styleable>
 
 </resources>

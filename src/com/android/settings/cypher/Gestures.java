@@ -16,9 +16,14 @@
 
 package com.android.settings.cypher;
 
+import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Message;
 import android.provider.Settings;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -49,10 +54,14 @@ public class Gestures extends SettingsPreferenceFragment
 	private static final String KEY_CATEGORY_POWER = "power_key";
 	private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
-	private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
+	private static final String KEY_TAP_TO_WAKE 
+	        = "tap_to_wake";
+	private static final String KEY_MOTION_GESTURES 
+            = "motion_gestures";
 			
 	private SwitchPreference mCameraDoubleTapPowerGesture;
 	private SwitchPreference mTapToWakePreference;
+	private PreferenceScreen mGestureMotionPreference;
 	
     @Override
     public void onCreate(Bundle icicle) {
@@ -83,6 +92,17 @@ public class Gestures extends SettingsPreferenceFragment
                 powerPrefs.removePreference(mTapToWakePreference);
             }
         }
+		
+		mGestureMotionPreference = (PreferenceScreen) findPreference(KEY_MOTION_GESTURES);
+		if (mGestureMotionPreference !=null && isMotionGesturesAvailable(getResources())) {
+			mGestureMotionPreference.setOnPreferenceChangeListener(this);
+		} else {
+			if (powerPrefs !=null && mGestureMotionPreference !=null) {
+				powerPrefs.removePreference(mGestureMotionPreference);
+			}
+		}
+		
+		
     }
 
     @Override
@@ -91,12 +111,10 @@ public class Gestures extends SettingsPreferenceFragment
         return CMMetricsLogger.MAIN_SETTINGS;
     }
 	
-	private void updateState() {
-        // Update tap to wake if it is available.
-        if (mTapToWakePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
-            mTapToWakePreference.setChecked(value != 0);
-        }
+	@Override
+    public void onResume() {
+        super.onResume();
+        updateState();
     }
 	
     @Override
@@ -112,6 +130,21 @@ public class Gestures extends SettingsPreferenceFragment
         }
 	    return true;
     }
+	
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mTapToWakePreference) {
+            if (mTapToWakePreference.isChecked()) {
+                warnTapToWake();
+            } else {
+               isTapToWakeAvailable(getResources());
+            }
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        return false;
+    }
 
     private static boolean isCameraDoubleTapPowerGestureAvailable(Resources res) {
         return res.getBoolean(
@@ -120,6 +153,44 @@ public class Gestures extends SettingsPreferenceFragment
 	
 	private static boolean isTapToWakeAvailable(Resources res) {
         return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
+    }
+	
+	private static boolean isMotionGesturesAvailable(Resources res) {
+		return res.getBoolean(
+		        com.android.internal.R.bool.config_isMotionSupported);
+	}
+	
+	private void warnTapToWake() {
+		DialogInterface.OnClickListener onConfirmListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                isTapToWakeAvailable(getResources());
+                updateState();
+            }
+        };
+		
+        new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.tap_to_wake_warning)
+                .setMessage(R.string.tap_to_wake_warning_message)
+                .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Enable tap to wake when user presses ok
+                        updateState();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, onConfirmListener)
+		        .setCancelable(false)
+                .create()
+                .show();
+    }
+	
+	private void updateState() {
+        // Update tap to wake if it is available.
+        if (mTapToWakePreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
+            mTapToWakePreference.setChecked(value != 0);
+        }
     }
 	
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

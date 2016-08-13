@@ -54,6 +54,7 @@ public class Settings extends SettingsActivity {
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class AllApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class HighPowerApplicationsActivity extends SettingsActivity { /* empty */ }
+    public static class HaloSettingsActivity extends SettingsActivity { /* empty */}
     public static class AppOpsSummaryActivity extends SettingsActivity {
         @Override
         public boolean isValidFragment(String className) {
@@ -80,6 +81,8 @@ public class Settings extends SettingsActivity {
 	public static class BatteryOptionSettingsActivity extends SettingsActivity { /* empty */ }
 	public static class DashOptionSettingsActivity extends SettingsActivity { /* empty */ }
 	public static class LsOptionSettingsActivity extends SettingsActivity { /* empty */ }
+	public static class BatteryLightSettingsActivity extends SettingsActivity { /* empty */ }
+	public static class NotificationLightSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSyncSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AccountSyncSettingsInAddAccountActivity extends SettingsActivity { /* empty */ }

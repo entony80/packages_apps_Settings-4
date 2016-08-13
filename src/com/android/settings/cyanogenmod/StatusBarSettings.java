@@ -25,8 +25,10 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import com.android.settings.util.Helpers;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -50,9 +52,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final String TAG = "StatusBar";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+	private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
+	
+	private SwitchPreference mEnableTaskManager;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -85,6 +90,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 Settings.System.QS_SMART_PULLDOWN, 0);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
+		
+		// Task manager
+        mEnableTaskManager = (SwitchPreference) findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1));
     }
 
     @Override
@@ -121,6 +131,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             return true;
         }
         return false;
+    }
+	
+	@Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if  (preference == mEnableTaskManager) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ENABLE_TASK_MANAGER, enabled ? 1:0);  
+	}    
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateSmartPulldownSummary(int value) {
