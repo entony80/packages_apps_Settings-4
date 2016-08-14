@@ -71,8 +71,7 @@
                 android:summaryOn="@string/doze_schedule_summary_on"
                 android:summaryOff="@string/doze_schedule_summary_off"
                 android:persistent="false"
-                android:dependency="doze_trigger_notification" 
-				android:dependency="doze" />
+                android:dependency="doze_trigger_notification" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
                 android:key="doze_notification_invert_enabled"
