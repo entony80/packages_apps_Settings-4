@@ -2401,8 +2401,8 @@
         <activity android:name=".aicp.HAFRAppListActivity" />
 
         <!-- Doze settings Activity -->
-        <activity android:name="Settings$DozeSettingsFragmentActivity"
-            android:label="@string/doze_settings_title"
+        <activity android:name="Settings$AmbientDisplayActivity"
+            android:label="@string/doze_title"
             android:taskAffinity="com.android.settings"
             android:parentActivityName="Settings"
             android:excludeFromRecents="true">
@@ -2412,7 +2412,7 @@
                 <category android:name="android.intent.category.SHORTCUT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.slim.fragments.DozeSettingsFragment" />
+                android:value="com.android.settings.cypher.AmbientDisplay" />
         </activity>
 
         <!-- AICP activities End -->

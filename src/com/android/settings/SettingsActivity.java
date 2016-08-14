@@ -144,7 +144,7 @@ import com.android.settings.search.DynamicIndexableContentMonitor;
 import com.android.settings.search.Index;
 import com.android.settings.privacyguard.PrivacyGuardPrefs;
 import com.android.settings.sim.SimSettings;
-import com.android.settings.slim.fragments.DozeSettingsFragment;
+import com.android.settings.cypher.AmbientDisplay;
 import com.android.settings.cypher.fragments.FloatingWindows;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
@@ -410,7 +410,7 @@ public class SettingsActivity extends Activity
             SmartbarSettings.class.getName(),
             LiveLockScreenSettings.class.getName(),
             HeadsUpSettings.class.getName(),
-            DozeSettingsFragment.class.getName(),
+            AmbientDisplay.class.getName(),
             RunningServices.class.getName(),
 			Halo.class.getName()
     };
