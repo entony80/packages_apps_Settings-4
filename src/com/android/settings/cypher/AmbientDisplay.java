@@ -60,7 +60,7 @@ import static android.provider.Settings.Secure.DOZE_ENABLED;
 public class AmbientDisplay extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String TAG = "AmbientDisplay"
+    private static final String TAG = "AmbientDisplay";
 	
 	private static final String KEY_DOZE = "doze";
 	private static final String KEY_DOZE_TIMEOUT = "doze_timeout";
@@ -94,6 +94,7 @@ public class AmbientDisplay extends SettingsPreferenceFragment
 		final Activity activity = getActivity();
 		PreferenceScreen prefSet = getPreferenceScreen();
         addPreferencesFromResource(R.xml.ambient_display);
+		Resources res = getResources();
 		
 		// Doze timeout seekbar
         mDozeTimeout = (SlimSeekBarPreference) findPreference(KEY_DOZE_TIMEOUT);
@@ -164,42 +165,42 @@ public class AmbientDisplay extends SettingsPreferenceFragment
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
         }
 		if (preference == mDozeTimeout) {
-            int dozeTimeout = Integer.valueOf((String) newValue);
+            int dozeTimeout = Integer.valueOf((String) objValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_TIMEOUT, dozeTimeout);
         }
         if (preference == mDozeTriggerPickup) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_TRIGGER_PICKUP, value ? 1 : 0);
         }
         if (preference == mDozeTriggerSigmotion) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_TRIGGER_SIGMOTION, value ? 1 : 0);
         }
         if (preference == mDozeTriggerNotification) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_TRIGGER_NOTIFICATION, value ? 1 : 0);
         }
         if (preference == mDozeSchedule) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_SCHEDULE, value ? 1 : 0);
         }
         if (preference == mDozeBrightness) {
-            float valNav = Float.parseFloat((String) newValue);
+            float valNav = Float.parseFloat((String) objValue);
             Settings.System.putFloat(getContentResolver(),
                     Settings.System.DOZE_BRIGHTNESS, valNav / 100);
         }
         if (preference == mDozeNotifInvert) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, value ? 1 : 0);
         }
         if (preference == mDozeWakeupDoubleTap) {
-            boolean value = (Boolean) newValue;
+            boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_WAKEUP_DOUBLETAP, value ? 1 : 0);
         }
