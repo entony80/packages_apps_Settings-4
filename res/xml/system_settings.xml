@@ -18,6 +18,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/system_settings_title">
 	
+	<!-- Blur -->
+    <PreferenceScreen
+        	android:key="blur_ui"
+            android:title="@string/blur_ui_title"
+			android:summary="@string/blur_ui_title_summary"
+            android:fragment="com.android.settings.cypher.fragments.BlurPersonalizations" />
+	
 	<!-- Wakelock blocker -->
 	<PreferenceScreen
             android:key="wakelock_blocker"
