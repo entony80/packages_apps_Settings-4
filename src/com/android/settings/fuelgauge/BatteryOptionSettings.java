@@ -135,7 +135,7 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         MenuItem batterylight = menu.add(0, MENU_BATTERY, 0, R.string.battery_light_title)
                 .setIcon(R.drawable.ic_settings_battery_light)
-                .setAlphabeticShortcut('b')
+                .setAlphabeticShortcut('b');
         batterylight.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
