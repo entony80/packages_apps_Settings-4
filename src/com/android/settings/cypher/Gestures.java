@@ -93,13 +93,11 @@ public class Gestures extends SettingsPreferenceFragment
             }
         }
 		
-		mGestureMotionPreference = (PreferenceScreen) findPreference(KEY_MOTION_GESTURES);
+		mGestureMotionPreference = (prefScreen) findPreference(KEY_MOTION_GESTURES);
 		if (mGestureMotionPreference !=null && isMotionGesturesAvailable(getResources())) {
 			mGestureMotionPreference.setOnPreferenceChangeListener(this);
 		} else {
-			if (powerPrefs !=null && mGestureMotionPreference !=null) {
-				powerPrefs.removePreference(mGestureMotionPreference);
-			}
+		    powerPrefs.removePreference(mGestureMotionPreference);
 		}
 		
 		
