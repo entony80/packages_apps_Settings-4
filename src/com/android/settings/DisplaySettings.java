@@ -112,7 +112,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_LIVEDISPLAY = "live_display";
-	private static final String KEY_DOZE = "doze";
+	private static final String KEY_AMBIENTDISPLAY = "ambient_display";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 	
@@ -250,12 +250,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 		
-		mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_DOZE);
+		mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_AMBIENTDISPLAY);
         if (Utils.isDozeAvailable(activity)) {
-            // Doze master switch
-            mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_DOZE);
+            mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_AMBIENTDISPLAY);
         } else {
-            removePreference(KEY_DOZE);
+            removePreference(KEY_AMBIENTDISPLAY);
         }
 
         mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
@@ -801,6 +800,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isCameraGestureAvailable(context.getResources())) {
                         result.add(KEY_CAMERA_GESTURE);
+                    }
+					if (!Utils.isDozeAvailable(context)) {
+                        result.add(KEY_AMBIENTDISPLAY);
                     }
                     return result;
                 }

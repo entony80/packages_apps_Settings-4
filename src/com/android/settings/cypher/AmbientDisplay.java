@@ -159,56 +159,6 @@ public class AmbientDisplay extends SettingsPreferenceFragment
         updateDoze();
     }
 	
-	@Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        if (preference == mDozePreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
-        }
-		if (preference == mDozeTimeout) {
-            int dozeTimeout = Integer.valueOf((String) objValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_TIMEOUT, dozeTimeout);
-        }
-        if (preference == mDozeTriggerPickup) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_TRIGGER_PICKUP, value ? 1 : 0);
-        }
-        if (preference == mDozeTriggerSigmotion) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_TRIGGER_SIGMOTION, value ? 1 : 0);
-        }
-        if (preference == mDozeTriggerNotification) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_TRIGGER_NOTIFICATION, value ? 1 : 0);
-        }
-        if (preference == mDozeSchedule) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_SCHEDULE, value ? 1 : 0);
-        }
-        if (preference == mDozeBrightness) {
-            float valNav = Float.parseFloat((String) objValue);
-            Settings.System.putFloat(getContentResolver(),
-                    Settings.System.DOZE_BRIGHTNESS, valNav / 100);
-        }
-        if (preference == mDozeNotifInvert) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, value ? 1 : 0);
-        }
-        if (preference == mDozeWakeupDoubleTap) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.DOZE_WAKEUP_DOUBLETAP, value ? 1 : 0);
-        }
-        return true;
-    }
-	
 	private void updateDoze() {
 		final Activity activity = getActivity();
 		
@@ -258,6 +208,56 @@ public class AmbientDisplay extends SettingsPreferenceFragment
                     Settings.System.DOZE_WAKEUP_DOUBLETAP, 0);
             mDozeWakeupDoubleTap.setChecked(value != 0);
         }
+    }
+	
+	@Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        if (preference == mDozePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
+        }
+		if (preference == mDozeTimeout) {
+            int dozeTimeout = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_TIMEOUT, dozeTimeout);
+        }
+        if (preference == mDozeTriggerPickup) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_TRIGGER_PICKUP, value ? 1 : 0);
+        }
+        if (preference == mDozeTriggerSigmotion) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_TRIGGER_SIGMOTION, value ? 1 : 0);
+        }
+        if (preference == mDozeTriggerNotification) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_TRIGGER_NOTIFICATION, value ? 1 : 0);
+        }
+        if (preference == mDozeSchedule) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_SCHEDULE, value ? 1 : 0);
+        }
+        if (preference == mDozeBrightness) {
+            float valNav = Float.parseFloat((String) objValue);
+            Settings.System.putFloat(getContentResolver(),
+                    Settings.System.DOZE_BRIGHTNESS, valNav / 100);
+        }
+        if (preference == mDozeNotifInvert) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, value ? 1 : 0);
+        }
+        if (preference == mDozeWakeupDoubleTap) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.DOZE_WAKEUP_DOUBLETAP, value ? 1 : 0);
+        }
+        return true;
     }
 	
 	private static boolean isPickupSensorUsedByDefault(Context context) {
@@ -332,15 +332,6 @@ public class AmbientDisplay extends SettingsPreferenceFragment
                     sir.xmlResId = R.xml.ambient_display;
                     result.add(sir);
 
-                    return result;
-                }
-
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    ArrayList<String> result = new ArrayList<String>();
-					if (!Utils.isDozeAvailable(context)) {
-                        result.add(KEY_DOZE);
-                    }
                     return result;
                 }
             };
