@@ -133,7 +133,7 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         MenuItem notilight = menu.add(0, MENU_NOTI, 0, R.string.notification_light_title)
 		        .setIcon(R.drawable.ic_settings_battery_light)
-                .setAlphabeticShortcut('n')
+                .setAlphabeticShortcut('n');
         notilight.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
