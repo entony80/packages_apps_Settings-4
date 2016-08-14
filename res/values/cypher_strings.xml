@@ -226,8 +226,8 @@
     <string name="dbl_tap_vib_summary">Vibrate on double tap of power button when enabled</string>
 
     <!-- Doze options -->
-    <string name="display_category_doze_options_title">Visualize</string>
-    <string name="doze_settings_title">Advanced</string>
+	<string name="doze_title_enable">Enable</string>
+    <string name="doze_options_category">Advanced</string>
     <string name="doze_timeout_title">Doze pulse timeout</string>
     <string name="doze_timeout_summary">Time that the screen stays on for notification pulse</string>
     <string name="doze_trigger_pickup_title">Pick up gesture trigger</string>

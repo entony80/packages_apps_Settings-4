@@ -35,7 +35,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
-import static android.provider.Settings.Secure.DOZE_ENABLED;
 import static android.provider.Settings.Secure.WAKE_GESTURE_ENABLED;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE;
 import static android.provider.Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
@@ -112,10 +111,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
-    private static final String KEY_DOZE_CATEGORY = "category_doze_options";
-    private static final String KEY_DOZE = "doze";
-    private static final String KEY_ADVANCED_DOZE_OPTIONS = "advanced_doze_options";
     private static final String KEY_LIVEDISPLAY = "live_display";
+	private static final String KEY_DOZE = "doze";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 	
@@ -132,6 +129,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
+	private PreferenceScreen mAmbientDisplayPreference;
     private SwitchPreference mAccelerometer;
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mProximityCheckOnWakePreference;
@@ -155,9 +153,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     };
     private SwitchPreference mCameraGesturePreference;
-    private PreferenceCategory mDozeCategory;
-    private SwitchPreference mDozePreference;
-    private PreferenceScreen mAdvancedDozeOptions;
 
     @Override
     protected int getMetricsCategory() {
@@ -254,6 +249,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 mAutoBrightnessPreference = null;
             }
         }
+		
+		mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_DOZE);
+        if (Utils.isDozeAvailable(activity)) {
+            // Doze master switch
+            mAmbientDisplayPreference = (PreferenceScreen) findPreference(KEY_DOZE);
+        } else {
+            removePreference(KEY_DOZE);
+        }
 
         mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
         if (mLiftToWakePreference != null && isLiftToWakeAvailable(activity)) {
@@ -272,15 +275,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (displayPrefs != null && mCameraGesturePreference != null) {
                 displayPrefs.removePreference(mCameraGesturePreference);
             }
-        }
-
-        mDozeCategory = (PreferenceCategory) findPreference(KEY_DOZE_CATEGORY);
-        if (Utils.isDozeAvailable(activity)) {
-            // Doze master switch
-            mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
-            mDozePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_DOZE_CATEGORY);
         }
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
@@ -553,12 +547,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mLiftToWakePreference.setChecked(value != 0);
         }
 
-        // Update doze if it is available.
-        if (mDozePreference != null) {
-            int value = Settings.Secure.getInt(getContentResolver(), DOZE_ENABLED, 1);
-            mDozePreference.setChecked(value != 0);
-        }
-
         // Update camera gesture #1 if it is available.
         if (mCameraGesturePreference != null) {
             int value = Settings.Secure.getInt(getContentResolver(), CAMERA_GESTURE_DISABLED, 0);
@@ -686,11 +674,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), WAKE_GESTURE_ENABLED, value ? 1 : 0);
         }
-        if (preference == mDozePreference) {
-            boolean value = (Boolean) objValue;
-            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
-        }
-        
         if (preference == mCameraGesturePreference) {
             boolean value = (Boolean) objValue;
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
@@ -811,10 +794,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     }
                     if (!isLiftToWakeAvailable(context)) {
                         result.add(KEY_LIFT_TO_WAKE);
-                    }
-                    if (!Utils.isDozeAvailable(context)) {
-                        result.add(KEY_DOZE);
-                        result.add(KEY_ADVANCED_DOZE_OPTIONS);
                     }
                     if (!context.getResources().getBoolean(
                             org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake)) {

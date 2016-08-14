@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2013 Slimroms
+ * Copyright (C) 2016 CypherOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.fragments;
+package com.android.settings.cypher;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -25,13 +25,21 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,14 +48,22 @@ import android.widget.ListView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.MetricsLogger;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.Utils;
 
+import org.cyanogenmod.internal.logging.CMMetricsLogger;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 
-public class DozeSettingsFragment extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+import static android.provider.Settings.Secure.DOZE_ENABLED;
 
-    private static final String KEY_DOZE_TIMEOUT = "doze_timeout";
+public class AmbientDisplay extends SettingsPreferenceFragment
+    implements Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "AmbientDisplay"
+	
+	private static final String KEY_DOZE = "doze";
+	private static final String KEY_DOZE_TIMEOUT = "doze_timeout";
     private static final String KEY_DOZE_TRIGGER_PICKUP = "doze_trigger_pickup";
     private static final String KEY_DOZE_TRIGGER_SIGMOTION = "doze_trigger_sigmotion";
     private static final String KEY_DOZE_TRIGGER_NOTIFICATION = "doze_trigger_notification";
@@ -55,10 +71,11 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_BRIGHTNESS = "doze_brightness";
     private static final String KEY_DOZE_NOTIFICATION_INVERT = "doze_notification_invert_enabled";
     private static final String KEY_DOZE_WAKEUP_DOUBLETAP = "doze_wakeup_doubletap";
-
-    private static final String SYSTEMUI_METADATA_NAME = "com.android.systemui";
-
-    private SlimSeekBarPreference mDozeTimeout;
+	
+	private static final String SYSTEMUI_METADATA_NAME = "com.android.systemui";
+			
+	private SwitchPreference mDozePreference;
+	private SlimSeekBarPreference mDozeTimeout;
     private SwitchPreference mDozeTriggerPickup;
     private SwitchPreference mDozeTriggerSigmotion;
     private SwitchPreference mDozeTriggerNotification;
@@ -66,26 +83,19 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     private SlimSeekBarPreference mDozeBrightness;
     private SwitchPreference mDozeNotifInvert;
     private SwitchPreference mDozeWakeupDoubleTap;
-
-    private float mBrightnessScale;
+	
+	private float mBrightnessScale;
     private float mDefaultBrightnessScale;
-
+	
     @Override
-    protected int getMetricsCategory() {
-        return MetricsLogger.DEVELOPMENT;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        final Activity activity = getActivity();
-        PreferenceScreen prefSet = getPreferenceScreen();
-        Resources res = getResources();
-
-        addPreferencesFromResource(R.xml.doze_settings);
-
-        // Doze timeout seekbar
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+		
+		final Activity activity = getActivity();
+		PreferenceScreen prefSet = getPreferenceScreen();
+        addPreferencesFromResource(R.xml.ambient_display);
+		
+		// Doze timeout seekbar
         mDozeTimeout = (SlimSeekBarPreference) findPreference(KEY_DOZE_TIMEOUT);
         mDozeTimeout.setDefault(dozeTimeoutDefault(activity));
         mDozeTimeout.isMilliseconds(true);
@@ -135,8 +145,25 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mDozeTimeout) {
+    protected int getMetricsCategory() {
+        // todo add a constant in MetricsLogger.java
+        return CMMetricsLogger.MAIN_SETTINGS;
+    }
+	
+	@Override
+    public void onResume() {
+        super.onResume();
+        updateDoze();
+    }
+	
+	@Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        final String key = preference.getKey();
+        if (preference == mDozePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
+        }
+		if (preference == mDozeTimeout) {
             int dozeTimeout = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.DOZE_TIMEOUT, dozeTimeout);
@@ -178,17 +205,15 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
         }
         return true;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateState();
-    }
-
-    private void updateState() {
-        final Activity activity = getActivity();
-
-        // Update doze preferences
+	
+	private void updateDoze() {
+		final Activity activity = getActivity();
+		
+        // Update doze if it is available.
+        if (mDozePreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), DOZE_ENABLED, 1);
+            mDozePreference.setChecked(value != 0);
+        }
         if (mDozeTimeout != null) {
             final int statusDozeTimeout = Settings.System.getInt(getContentResolver(),
                     Settings.System.DOZE_TIMEOUT, dozeTimeoutDefault(activity));
@@ -231,8 +256,8 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
             mDozeWakeupDoubleTap.setChecked(value != 0);
         }
     }
-
-    private static boolean isPickupSensorUsedByDefault(Context context) {
+	
+	private static boolean isPickupSensorUsedByDefault(Context context) {
         return getConfigBoolean(context, "doze_pulse_on_pick_up");
     }
 
@@ -243,8 +268,8 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
     private static int dozeTimeoutDefault(Context context) {
         return getConfigInteger(context, "doze_pulse_duration_visible");
     }
-
-    private static Boolean getConfigBoolean(Context context, String configBooleanName) {
+	
+	private static Boolean getConfigBoolean(Context context, String configBooleanName) {
         int resId = -1;
         Boolean b = true;
         PackageManager pm = context.getPackageManager();
@@ -291,4 +316,29 @@ public class DozeSettingsFragment extends SettingsPreferenceFragment implements
         }
         return i;
     }
+	
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                                                                            boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.ambient_display;
+                    result.add(sir);
+
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+					if (!Utils.isDozeAvailable(context)) {
+                        result.add(KEY_DOZE);
+                    }
+                    return result;
+                }
+            };
 }
