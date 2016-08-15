@@ -729,6 +729,9 @@
   <string name="status_bar_battery_percentage_text_inside">All\'interno dell\'icona</string>
   <string name="status_bar_battery_percentage_text_next">Accanto all\'icona</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_secondary_title">Icone di sistema</string>
+  <string name="status_bar_icons_secondary_summary">Controlla quale icone di sistema verranno visualizzate nella barra di stato</string>
+  <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Icone barra di stato</string>
   <string name="status_bar_icons_summary">Scegli quali icone verranno visualizzate sulla barra di stato</string>
   <!-- EdgeGesture service -->
