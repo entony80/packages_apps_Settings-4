@@ -538,16 +538,16 @@
   <string name="pulse_settings_summary">Include un equalizzatore altamente personalizzabile ma semplice nella barra di navigazione mentre ti stati godendo la musica</string>
   <string name="fling_show_pulse_title">Mostra Pulse</string>
   <string name="fling_show_pulse_summary">Visualizzazione audio sulla barra di navigazione</string>
-  <string name="pulse_render_mode_title">Modalità rendering</string>
+  <string name="pulse_render_mode_title">Modalità grafica</string>
   <string name="pulse_render_mode_fading_bars">Dissolvenza blocchi</string>
   <string name="pulse_render_mode_solid_lines">Linee continue</string>
   <string name="fling_pulse_color">Colore Pulse</string>
-  <string name="eos_fling_lavalamp_title">Abilita lampe lava</string>
-  <string name="eos_fling_lavalamp_summary">Pulse anima e regola lava, lamp miscela lo stile del colore</string>
+  <string name="eos_fling_lavalamp_title">Abilita lampada di Lava</string>
+  <string name="eos_fling_lavalamp_summary">Pulse mescola e cambia colore come una lampada di lava</string>
   <string name="pulse_advanced_category">Avanzate</string>
   <string name="pulse_legacy_mode_advanced_category">Impostazioni della modalità dissolvenza blocchi</string>
   <string name="pulse_custom_fudge_factor">Livello equilibrio visualizzatore</string>
-  <string name="lavamp_solid_speed_title">Velocità di animazione LavaLamp</string>
+  <string name="lavamp_solid_speed_title">Velocità di animazione lampada di lava</string>
   <string name="pulse_solid_dimen_category">Personalizzazioni linee continue</string>
  
   <!-- Pulse config -->
@@ -578,7 +578,7 @@
   <string name="smartbar_button_animation_title">Animazione pulsante</string>
   <string name="smartbar_button_animation_summary">Impostare lo stile di animazione dei pulsanti principali quando vengono premuti</string>
   <string name="smartbar_button_animation_ripple">Ondulazione</string>
-  <string name="smartbar_button_animation_spring">Spring</string>
+  <string name="smartbar_button_animation_spring">Molla</string>
   <string name="smartbar_factory_reset_title">Ripristina impostazioni di fabbrica</string>
   <string name="reset">Ripristina</string>
   <string name="smartbar_factory_reset_confirm">Sei sicuro di voler ripristinare la Smartbar alle impostazioni di fabbrica?</string>
@@ -644,8 +644,8 @@
   <!-- Quick settings -->
   <string name="quick_settings_title">Impostazioni rapide</string>
   <string name="quick_settings_title_summary">Modificare l\'aspetto e la funzionalità del menù impostazioni rapide</string>
-  <string name="qs_transparent_shade">Trasparenza ombra</string>
-  <string name="qs_transparent_header">Trasparenza intestazione</string>
+  <string name="qs_transparent_shade">Trasparenza pannello impostazioni rapide</string>
+  <string name="qs_transparent_header">Opacità pannello intestazione</string>
   <string name="qs_num_rows_title">Righe impostazioni rapide</string>
   <string name="qs_num_rows_showing">%1$s righe mostrate</string>
 
@@ -815,8 +815,8 @@
   
   <!-- Show carrier label and custom -->
   <string name="carrier_options">Operatore</string>
-  <string name="carrier_options_summary">Crea la tua frase in sostituzione del nome</string>
-  <string name="custom_carrier_label_title">Tua etichetta</string>
+  <string name="carrier_options_summary">Crea la tua frase in sostituzione dell'operatore</string>
+  <string name="custom_carrier_label_title">La tua etichetta</string>
   <string name="custom_carrier_label_explain">Si prega di inserire una nuova etichetta. Lasciare vuoto per tornare come predefinito.</string>
   <string name="custom_carrier_label_notset">Nessuna etichetta personalizzata al momento è impostata</string>
   <string name="status_bar_carrier_size">Dimensione testo etichetta</string>
@@ -1057,12 +1057,12 @@
     <string name="sizer_message_filefail">Impossibile creare il profilo.</string>
     <string name="sizer_message_noselect">Nessuna selezione.</string>
     <string name="system_app_remover">SAR</string>
-	<string name="system_app_remover_summary">Il sistema di eliminazione App è uno strumento per rimuovere le applicazioni precostruite di sistema da parte degli utenti</string>
+	<string name="system_app_remover_summary">SAR è un sistema di eliminazione delle applicazioni, è anche uno strumento per rimuovere le applicazioni di sistema precostruite selezionate da parte degli utenti</string>
 
   <!-- Slim Recents -->
   <string name="slim_recents_panel">Recenti Slim</string>
   <string name="slim_recents_panel_summary">Lancia i tuoi Recenti in un nuovo aspetto grafico con aggiunte slim</string>
-  <string name="use_slim_recents_title">Recenti slim</string>
+  <string name="use_slim_recents_title">Abilita Recenti slim</string>
   <string name="show_running_tasks_title">Mostra solo le applicazioni in esecuzione</string>
   <string name="recents_max_apps_title">Applicazioni massime consentite</string>
   <string name="recent_panel_scale_title">Dimensione</string>
@@ -1094,6 +1094,7 @@
   <string name="status_bar_custom_header_title">Immagine intestazione (A seconda del tempo)</string>
   <string name="status_bar_custom_header_summary">Abilita sull\'intestazione del pannello di notifica un\'immagine</string>
   <!-- Header packs -->
+  <string name="status_bar_custom_header_default_title">Seleziona le immagini</string>
   <string name="daylight_header_pack_title">Pacchetto immagini intestazione</string>
   <string name="custom_header_image_0">Predefinito</string>
   <string name="custom_header_image_1">Moderno</string>
@@ -1160,6 +1161,6 @@
  	
   <!-- Navbar notice -->
   <string name="navigation_enable_bar_notice_title">Avviso</string>
-  <string name="navigation_enable_bar_notice_summary">Questo abilita i pulsanti della navigazione sullo schermo. Questo è affidabile solo per dispositivi con pulsanti hardware esistenti</string>
+  <string name="navigation_enable_bar_notice_summary">Disattivando la barra di navigazione non vi sarà alcun modo per navigare nel telefono in assenza dei pulsanti sullo schermo. Questa disattivazione è affidabile solo per qui dispositivi dotati di pulsanti hardware esistenti</string>
 
  </resources>
