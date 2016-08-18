@@ -455,7 +455,7 @@
   <string name="navigation_bar_left_title">Modalità mancino</string>
   <string name="navigation_bar_left_summary">Posizionare la barra di navigazione sul lato sinistro dello schermo in modalità orizzontale</string>
   <string name="info_pref_note_title">Note</string>
-  <string name="smartbar_interface">SmartBar</string>
+  <string name="smartbar_interface">Barra di navigazione</string>
   <string name="icon_pack_picker_dialog_title">Icon packs</string>
 
   <!-- Actions dialog and default task values set in ActionPreference xml-->
@@ -538,16 +538,16 @@
   <string name="pulse_settings_summary">Include un equalizzatore altamente personalizzabile ma semplice nella barra di navigazione mentre ti stati godendo la musica</string>
   <string name="fling_show_pulse_title">Mostra Pulse</string>
   <string name="fling_show_pulse_summary">Visualizzazione audio sulla barra di navigazione</string>
-  <string name="pulse_render_mode_title">Modalità rendering</string>
+  <string name="pulse_render_mode_title">Modalità grafica</string>
   <string name="pulse_render_mode_fading_bars">Dissolvenza blocchi</string>
   <string name="pulse_render_mode_solid_lines">Linee continue</string>
   <string name="fling_pulse_color">Colore Pulse</string>
-  <string name="eos_fling_lavalamp_title">Abilita lampe lava</string>
-  <string name="eos_fling_lavalamp_summary">Pulse anima e regola lava, lamp miscela lo stile del colore</string>
+  <string name="eos_fling_lavalamp_title">Abilita lampada di Lava</string>
+  <string name="eos_fling_lavalamp_summary">Pulse mescola e cambia colore come una lampada di lava</string>
   <string name="pulse_advanced_category">Avanzate</string>
   <string name="pulse_legacy_mode_advanced_category">Impostazioni della modalità dissolvenza blocchi</string>
   <string name="pulse_custom_fudge_factor">Livello equilibrio visualizzatore</string>
-  <string name="lavamp_solid_speed_title">Velocità di animazione LavaLamp</string>
+  <string name="lavamp_solid_speed_title">Velocità di animazione lampada di lava</string>
   <string name="pulse_solid_dimen_category">Personalizzazioni linee continue</string>
  
   <!-- Pulse config -->
@@ -565,8 +565,8 @@
   <string name="positive_done">Fatto</string>
 
   <!-- SmartBar -->
-  <string name="smartbar_category">Smartbar</string>
-  <string name="smartbar_settings_title">Smartbar</string>
+  <string name="smartbar_category">Barra di navigazione</string>
+  <string name="smartbar_settings_title">Barra di navigazione</string>
   <string name="smartbar_settings_title_summary">Migliorare la barra di navigazione con l\'aggiunta di ulteriori pulsanti e tasti utili</string>
   <string name="smartbar_editor_title">Modifica dei pulsanti</string>
 
@@ -578,10 +578,10 @@
   <string name="smartbar_button_animation_title">Animazione pulsante</string>
   <string name="smartbar_button_animation_summary">Impostare lo stile di animazione dei pulsanti principali quando vengono premuti</string>
   <string name="smartbar_button_animation_ripple">Ondulazione</string>
-  <string name="smartbar_button_animation_spring">Spring</string>
+  <string name="smartbar_button_animation_spring">Molla</string>
   <string name="smartbar_factory_reset_title">Ripristina impostazioni di fabbrica</string>
   <string name="reset">Ripristina</string>
-  <string name="smartbar_factory_reset_confirm">Sei sicuro di voler ripristinare la Smartbar alle impostazioni di fabbrica?</string>
+  <string name="smartbar_factory_reset_confirm">Sei sicuro di voler ripristinare la barra di navigazione alle impostazioni di fabbrica?</string>
   <string name="smartbar_ime_action_title">Azione e metodo di inserimento</string>
   <string name="smartbar_ime_action_summary">Impostare i pulsanti da visualizzare quando viene visualizzatala tastiera</string>
   <string name="smartbar_ime_action_none">Nessuna</string>
@@ -591,11 +591,11 @@
   <string name="smartbar_restore_config_title">Ripristina profilo</string>
   <string name="smartbar_config_name_edit_dialog_title">Nome profilo SmartBar</string>
   <string name="smartbar_config_name_edit_dialog_message">Immettere un nome oppure lasciare vuoto</string>
-  <string name="smartbar_config_dialog_title">Profili Smartbar</string>
-  <string name="smartbar_config_backup_success_toast">Profilo Smartbar salvato con successo</string>
-  <string name="smartbar_config_restore_success_toast">Profilo SmartBar ripristinato correttamente</string>
-  <string name="smartbar_config_backup_error_toast">Errore salvataggio profilo Smartbar</string>
-  <string name="smartbar_config_restore_error_toast">Errore ripristino profilo Smartbar</string>
+  <string name="smartbar_config_dialog_title">Profili barra di navigazione</string>
+  <string name="smartbar_config_backup_success_toast">Profilo barra di navigazione salvato con successo</string>
+  <string name="smartbar_config_restore_success_toast">Profilo barra di navigazione ripristinato correttamente</string>
+  <string name="smartbar_config_backup_error_toast">Errore salvataggio profilo barra di navigazione</string>
+  <string name="smartbar_config_restore_error_toast">Errore ripristino profilo barra di navigazione</string>
 
   <!-- Heads Up Timeout -->
   <string name="heads_up_time_out_title">Tempi di disattivazione</string>
@@ -644,8 +644,8 @@
   <!-- Quick settings -->
   <string name="quick_settings_title">Impostazioni rapide</string>
   <string name="quick_settings_title_summary">Modificare l\'aspetto e la funzionalità del menù impostazioni rapide</string>
-  <string name="qs_transparent_shade">Trasparenza ombra</string>
-  <string name="qs_transparent_header">Trasparenza intestazione</string>
+  <string name="qs_transparent_shade">Trasparenza pannello impostazioni rapide</string>
+  <string name="qs_transparent_header">Opacità pannello intestazione</string>
   <string name="qs_num_rows_title">Righe impostazioni rapide</string>
   <string name="qs_num_rows_showing">%1$s righe mostrate</string>
 
@@ -669,22 +669,22 @@
   <string name="battery_bar_location">Posizione barra batteria</string>
   <string name="battery_bar_color">Colore della barra batteria</string>
   <string name="battery_bar">Opzioni barra batteria</string>
-  <string name="battery_bar_summary">Posizione della barra della batteria e personalizzazione del colore</string>
+  <string name="battery_bar_summary">Posizione della barra batteria e personalizzazione del colore</string>
   <string name="battery_bar_style_title">Stile barra batteria</string>
   <string name="battery_bar_thickness_title">Spessore barra batteria</string>
   <string name="battery_bar_animate_title">Animazione di ricarica</string>
-  <string name="battery_bar_animate_summary">L\'animazione di ricarica può tradursi in una scarsa esperienza degli utenti. Attiva a propria discrezione.</string>
+  <string name="battery_bar_animate_summary">L\'animazione di ricarica può risultare una cattiva esperienza utente. Attiva a propria discrezione.</string>
 
   <!-- PA Pie control -->
   <string name="pa_piecontrol_settings_summary">Personalizzare i controlli PA Pie 2.0, stile, dimensione e colore</string>
   <string name="pa_pie_control_title">Controlli Pie</string>
   <string name="pa_pie_control_title_summary">Navigare con il sistema Android in maniera fluida e veloce con grande visualità e produttività</string>
   <string name="pa_pie_control_enable_title">Abilita controlli Pie</string>
-  <string name="pa_pie_targets_title">Azioni Pie</string>
+  <string name="pa_pie_targets_title">Azioni</string>
   <string name="pa_pie_style_title">Stile Pie</string>
   <string name="pa_pie_menu_title">Mostra sempre il pulsante del menù</string>
   <string name="pa_pie_menu_summary">Il tasto menù dovrebbe essere sempre indicato, anche quando non necessario</string>
-  <string name="pa_pie_size_title">Dimensioni Pie</string>
+  <string name="pa_pie_size_title">Dimensioni</string>
   <string name="pa_pie_size_summary">Definisce le dimensioni dei controlli del Pie</string>
   <string name="pa_pie_size_small">Piccolo</string>
   <string name="pa_pie_size_default">Predefinito</string>
@@ -693,14 +693,14 @@
   <string name="pa_pie_size_monster">Mostro</string>
   <string name="pa_pie_size_enormous">Enorme</string>
   <string name="pa_pie_mode_default">Predefinito</string>
-  <string name="pa_pie_gravity_title">Posizione Pie</string>
+  <string name="pa_pie_gravity_title">Posizione</string>
   <string name="pa_pie_gravity_summary">Selezionare la posizione in cui verrà collocato il Pie</string>
   <string name="pa_pie_gravity_bottom">Parte inferiore</string>
   <string name="pa_pie_gravity_right">Destra</string>
   <string name="pa_pie_gravity_left">Sinistra</string>
   <string name="pa_pie_gap_title">Distanza</string>
   <string name="pa_pie_gap_summary">Regola la distanza che separa gli elementi nel Pie</string>
-  <string name="pa_pie_angle_title">Angolo Pie</string>
+  <string name="pa_pie_angle_title">Angolo</string>
   <string name="pa_pie_angle_summary">Regola l\'angolo dei bordi del Pie al distacco</string>
   <string name="pa_pie_angle_none">Nessuno (predefinito)</string>
   <string name="pa_pie_angle_small">Piccolo</string>
@@ -711,7 +711,7 @@
   <string name="pa_pie_gap_small">Piccolo</string>
   <string name="pa_pie_gap_big">Grande (predefinito)</string>
   <string name="pa_pie_gap_huge">Enorme</string>
-  <string name="pa_pie_mode_title">Modalità Pie</string>
+  <string name="pa_pie_mode_title">Modalità</string>
   <string name="pa_pie_mode_summary">Gestire la modalità di animazione e la velocità di avvio</string>
   <string name="pa_pie_mode_bare">Velocissimo</string>
   <string name="pa_pie_mode_quick">Veloce</string>
@@ -727,8 +727,8 @@
   <string name="pa_pie_settings_panel_summary">Abilita per espandere le impostazioni rapide dal tasto del pannello Pie</string>
   <string name="pa_pie_screenshot_title">Immagine dello schermo</string>
   <string name="pa_pie_screenshot_summary">Abilita il pulsante per lo screenshot</string>
-  <string name="pa_pie_color_title">Impostazioni colore Pie</string>
-  <string name="pa_pie_color_style_title">Abilita colori Pie</string>
+  <string name="pa_pie_color_title">Impostazione colore</string>
+  <string name="pa_pie_color_style_title">Abilita colore</string>
   <string name="pa_pie_background_title">Colore di sfondo</string>
   <string name="pa_pie_select_title">Colore pulsanti</string>
   <string name="pa_pie_outlines_title">Colore contorno pulsanti</string>
@@ -815,8 +815,8 @@
   
   <!-- Show carrier label and custom -->
   <string name="carrier_options">Operatore</string>
-  <string name="carrier_options_summary">Crea la tua frase in sostituzione del nome</string>
-  <string name="custom_carrier_label_title">Tua etichetta</string>
+  <string name="carrier_options_summary">Crea la tua frase in sostituzione all\'etichetta dell\'operatore</string>
+  <string name="custom_carrier_label_title">La tua etichetta</string>
   <string name="custom_carrier_label_explain">Si prega di inserire una nuova etichetta. Lasciare vuoto per tornare come predefinito.</string>
   <string name="custom_carrier_label_notset">Nessuna etichetta personalizzata al momento è impostata</string>
   <string name="status_bar_carrier_size">Dimensione testo etichetta</string>
@@ -1057,12 +1057,12 @@
     <string name="sizer_message_filefail">Impossibile creare il profilo.</string>
     <string name="sizer_message_noselect">Nessuna selezione.</string>
     <string name="system_app_remover">SAR</string>
-	<string name="system_app_remover_summary">Il sistema di eliminazione App è uno strumento per rimuovere le applicazioni precostruite di sistema da parte degli utenti</string>
+	<string name="system_app_remover_summary">SAR è un sistema di eliminazione delle applicazioni, è anche uno strumento per rimuovere le applicazioni di sistema precostruite selezionate da parte degli utenti</string>
 
   <!-- Slim Recents -->
   <string name="slim_recents_panel">Recenti Slim</string>
   <string name="slim_recents_panel_summary">Lancia i tuoi Recenti in un nuovo aspetto grafico con aggiunte slim</string>
-  <string name="use_slim_recents_title">Recenti slim</string>
+  <string name="use_slim_recents_title">Abilita Recenti slim</string>
   <string name="show_running_tasks_title">Mostra solo le applicazioni in esecuzione</string>
   <string name="recents_max_apps_title">Applicazioni massime consentite</string>
   <string name="recent_panel_scale_title">Dimensione</string>
@@ -1094,6 +1094,7 @@
   <string name="status_bar_custom_header_title">Immagine intestazione (A seconda del tempo)</string>
   <string name="status_bar_custom_header_summary">Abilita sull\'intestazione del pannello di notifica un\'immagine</string>
   <!-- Header packs -->
+  <string name="status_bar_custom_header_default_title">Seleziona le immagini</string>
   <string name="daylight_header_pack_title">Pacchetto immagini intestazione</string>
   <string name="custom_header_image_0">Predefinito</string>
   <string name="custom_header_image_1">Moderno</string>
@@ -1160,6 +1161,6 @@
  	
   <!-- Navbar notice -->
   <string name="navigation_enable_bar_notice_title">Avviso</string>
-  <string name="navigation_enable_bar_notice_summary">Questo abilita i pulsanti della navigazione sullo schermo. Questo è affidabile solo per dispositivi con pulsanti hardware esistenti</string>
+  <string name="navigation_enable_bar_notice_summary">Disattivando la barra di navigazione non vi sarà alcun modo per navigare nel telefono in assenza dei pulsanti sullo schermo. Questa disattivazione è affidabile solo per qui dispositivi dotati di pulsanti hardware esistenti</string>
 
  </resources>
