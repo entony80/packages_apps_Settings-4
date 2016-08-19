@@ -141,10 +141,7 @@
   <string name="shortcut_action_help_button">Pulsante</string>
   <string name="shortcut_action_help_app">App</string>
   <string name="shortcut_action_help_icon">, mentre selezionando l\'icona, si aprono possibilità  di personalizzazione</string>
-
   <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona aggiungi. Una volta che un %1$s si aggiunge, selezionando la riga cambierà l\'obiettivo %2$s\n\nper rimuovere un %1$s , strisciare la fila orizzontale verso sinistra o destra. Riordinare un  %1$s nella lista trascinando verticalmente l\'ancora a sinistra.\n\nPer cancellare o reimpostare ai valori predefiniti, selezionare l\'icona per ripristinare.</string>
- 
- 
   <string name="shortcut_action_help_delete_last_entry">La rimozione di ogni %1$s dalla lista disattiverà la funzione del tutto.</string>
   <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Rimozione di ogni %1$s nella lista disabiliterà il secondo strato di torta del tutto.</string>
   <string name="shortcuts_applications">Applicazioni</string>
@@ -256,7 +253,6 @@
   <!-- SlimDim -->
   <string name="dim_nav_buttons_category">SlimDim</string>
   <string name="dim_nav_buttons_title">Oscurare i pulsanti dopo inattività</string>
-
   <string name="dim_nav_buttons_summary">Oscurare i pulsanti della barra di navigazione per un periodo di tempo specificato dopo che non si interaggisce più con la stessa</string>
   <string name="dim_nav_buttons_timeout_title">Tempo prima dello spegnimento dello schermo</string>
   <string name="dim_nav_buttons_timeout_summary">Il tempo (in millisecondi) di attesa prima di spegnere i pulsanti</string>
@@ -474,17 +470,15 @@
   <string name="action_value_search_assist">Google Now On Tap</string>
   <string name="action_value_recent_apps">Applicazioni recenti</string>
   <string name="action_value_voice_search">Ricerca vocale</string>
-  <string name="action_value_menu">Manù</string>
+  <string name="action_value_menu">Menù</string>
 
   <!-- Fling -->
   <string name="fling_settings">Impostazioni Fling</string>
   <string name="fling_settings_summary">Sostituisce la barra di navigazione tradizionale con un\'interfaccia gesto di movimento</string>
   <string name="fling_interface">Interfaccia Fling</string>
   <string name="fling_enable_title">Abilita Fling</string>
-
-
   <string name="fling_back_home_policy">Indietro e Home devono essere sempre impostati. Per cambiare i collegamenti di Indietro o di Home, impostare prima l\'assegnazione desiderata</string>
-  <string name="fling_split_bar_policy">Quando una singola azione (sinistra o destra) è impostato, si applica a entrambi i lati della barra</string>
+  <string name="fling_split_bar_policy">Quando una singola azione (sinistra o destra) è impostata questa si applica su entrambi i lati della barra</string>
   <string name="fling_def_summary">Nessuna azione impostata</string>
   <string name="fling_swipe_actions">Swipe gesti</string>
   <string name="fling_tap_actions">Tocco gesti</string>
@@ -508,25 +502,26 @@
   <string name="down_swipe_title">Scorri verso il basso</string>
   <string name="long_swipe_reset">Reimposta</string>
   <string name="fling_advanced">Avanzate</string>
-  <string name="fling_long_swipe_title">Soglia di scorrimento estesa</string>
-  <string name="fling_long_swipe_summary">Impostare l\'area di attivazione come percentuale della altezza o larghezza</string>
-  <string name="fling_trails_enable_title">Abilita percorsi gesto</string>
+  <string name="fling_long_swipe_title">Soglia di scorrimento</string>
+  <string name="fling_long_swipe_summary">Imposta l\'area di attivazione come percentuale dell\'altezza o larghezza</string>
+  <string name="fling_trails_enable_title">Abilita percorsi traccia</string>
   <string name="fling_trails_enable_summary">Mostra le tracce dei gesti di scorrimento</string>
-  <string name="fling_trails_color_title">Colore della linea</string>
+  <string name="fling_trails_color_title">Colore della traccia</string>
+  <string name="fling_trails_width_title">Larghezza traccia</string>
   <string name="fling_appearance">Aspetto</string>
   <string name="fling_show_logo_title">Logo Fling</string>
-  <string name="fling_animate_logo_title">Animare il logo</string>
-  <string name="fling_animate_logo_summary">Il logo si illumina quando un evento viene toccoto</string>
-  <string name="fling_logo_color">Colore del logor</string>
+  <string name="fling_animate_logo_title">Animazione logo</string>
+  <string name="fling_animate_logo_summary">Il logo si illumina quando la barra viene toccata</string>
+  <string name="fling_logo_color">Colore del logo</string>
   <string name="fling_logo_custom_logo_pick_title">Personalizza icona logo</string>
-  <string name="fling_logo_custom_logo_image_pick_title">Immagine del logo personalizzato</string>
+  <string name="fling_logo_custom_logo_image_pick_title">Immagine logo personalizzato</string>
   <string name="fling_logo_custom_logo_reset_title">Ripristino icona logo</string>
   <string name="fling_show_ripple_title">Visualizza ondulazione</string>
   <string name="fling_show_ripple_summary">Effetto a catena sugli eventi di tocco</string>
   <string name="fling_ripple_color">Colore ondulazione</string>
-  <string name="fling_longpress_timeout_label_left">Meno ritardoy</string>
-  <string name="fling_longpress_timeout_label_right">Altro ritardoy</string>
-  <string name="fling_longpress_title">Ritardoy pressione prolungata</string>
+  <string name="fling_longpress_timeout_label_left">Meno ritardo</string>
+  <string name="fling_longpress_timeout_label_right">Altro ritardo</string>
+  <string name="fling_longpress_title">Ritardo pressione prolungata</string>
   <string name="fling_longpress_summary">Aumentare o diminuire il tempo necessario per eseguire una pressione prolungata</string>
 
   <!-- Pulse navigation bar music visualizer -->
@@ -1023,24 +1018,24 @@
  <string name="enable_task_manager_summary">Utilizzare un mini pulsante di gestione dei processi nell\'area espansa della barra di stato</string>
 
  <string name="ls_bouncer_title">Bouncer schermata di blocco sicura</string>
-  <string name="ls_bouncer_summary">Apri direttamente il riquadro di pin/sequenza/password nella schermata di blocco se ci sono %1$s notifiche presenti</string>
-  <string name="ls_bouncer_on">Attivo (predefinito)</string>
-  <string name="ls_bouncer_on_summary">Comportamento bouncer predefinito</string>
-  <string name="ls_bouncer_off">Spento</string>
-  <string name="ls_bouncer_off_summary">Apri direttamente la schermata di blocco su pin/sequenza/password</string>
-  <string name="ls_bouncer_dismissable">Non rimovibili</string>
-  <string name="ls_bouncer_persistent">Non persistenti</string>
-  <string name="ls_bouncer_all">Non rimovibili o persistenti</string>
-  <string name="lockscreen_alpha">Alfa schermata di blocco</string>
-  <string name="lockscreen_security_alpha">Alfa bouncer schermata di blocco</string>
+ <string name="ls_bouncer_summary">Apri direttamente il riquadro di pin/sequenza/password nella schermata di blocco se ci sono %1$s notifiche presenti</string>
+ <string name="ls_bouncer_on">Attivo (predefinito)</string>
+ <string name="ls_bouncer_on_summary">Comportamento bouncer predefinito</string>
+ <string name="ls_bouncer_off">Spento</string>
+ <string name="ls_bouncer_off_summary">Apri direttamente la schermata di blocco su pin/sequenza/password</string>
+ <string name="ls_bouncer_dismissable">Non rimovibili</string>
+ <string name="ls_bouncer_persistent">Non persistenti</string>
+ <string name="ls_bouncer_all">Non rimovibili o persistenti</string>
+ <string name="lockscreen_alpha">Alfa schermata di blocco</string>
+ <string name="lockscreen_security_alpha">Alfa bouncer schermata di blocco</string>
 
-  <!-- On-The-Go -->
-  <string name="power_menu_onthego_title">Modalità On-The-Go</string>
+ <!-- On-The-Go -->
+ <string name="power_menu_onthego_title">Modalità On-The-Go</string>
 
 <!-- System app remover  -->
-    <string name="listsystem">Elenco</string>
-    <string name="sizer_title">Elimina App</string>
-    <string name="caution">Attenzione!</string>
+   <string name="listsystem">Elenco</string>
+   <string name="sizer_title">Elimina App</string>
+   <string name="caution">Attenzione!</string>
 
     <string name="sizer_message_startup">Questo strumento consente di eliminare le applicazioni di sistema. Usa con cautela ed elimina solo le applicazioni che conosci e posso essere rimosse.</string>
     <string name="cancel">Cancella</string>
@@ -1057,11 +1052,13 @@
     <string name="sizer_message_filefail">Impossibile creare il profilo.</string>
     <string name="sizer_message_noselect">Nessuna selezione.</string>
     <string name="system_app_remover">SAR</string>
-	<string name="system_app_remover_summary">SAR è un sistema di eliminazione delle applicazioni, è anche uno strumento per rimuovere le applicazioni di sistema precostruite selezionate da parte degli utenti</string>
+    <string name="system_app_remover_summary">SAR è un sistema di eliminazione delle applicazioni e anche uno strumento per rimuovere quelle applicazioni di sistema precostruite selezionate dagli utenti</string>
 
   <!-- Slim Recents -->
   <string name="slim_recents_panel">Recenti Slim</string>
-  <string name="slim_recents_panel_summary">Lancia i tuoi Recenti in un nuovo aspetto grafico con aggiunte slim</string>
+  <string name="slim_recents_panel_summary">Lancia i tuoi recenti in un nuovo aspetto grafico con aggiunte slim</string>
+  <string name="slim_recents_warning">Abilitazione Recenti Slim</string>
+  <string name="slim_recents_warning_message">Affinché i Recenti Slim restino attivi è necessario riavviare il dispositivo oppure dal menù riavvio avanzato seleziona la voce del riavvio SystemUI</string>
   <string name="use_slim_recents_title">Abilita Recenti slim</string>
   <string name="show_running_tasks_title">Mostra solo le applicazioni in esecuzione</string>
   <string name="recents_max_apps_title">Applicazioni massime consentite</string>
