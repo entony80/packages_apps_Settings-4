@@ -94,6 +94,8 @@ public class BatteryOptionSettings extends SettingsPreferenceFragment
         mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
         enableStatusBarBatteryDependents(batteryStyle);
         mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
+		
+		setHasOptionsMenu(true);
     }
 	
 	@Override
