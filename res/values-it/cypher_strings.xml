@@ -1145,6 +1145,30 @@
   <string name="halo_floating_notifications_summary">Avvia sempre le attività di notifiche in modalità fluttuante.</string>
   <string name="halo_enable_float_summary">La modalità fluttuante deve essere abilitata per utilizzare questa funzione</string>
 
+  <!-- Blur UI -->
+   <string name="blur_ui_title">Sfocatura UI</string>
+   <string name="blur_ui_title_summary">Applica un effetto di sfocatura sugli elementi di sistema per una bella esperienza</string>
+   <string name="blur_ui_category_title">Personalizzazione</string>
+   <string name="blurred_status_bar_expanded_enabled_pref">Sfocatura sfondo barra di stato</string>
+   <string name="blurred_status_bar_expanded_enabled_pref_summary">Sfoca lo sfondo quando si tira verso il basso la barra di stato</string>
+   <string name="translucent_notifications_pref">Notifiche traslucide</string>
+   <string name="translucent_notifications_pref_summary">Impostare lo sfondo delle notifiche traslucide</string>
+   <string name="translucent_header_pref">Sfocatura intestazione barra di stato</string>
+   <string name="translucent_header_pref_summary">Sfoca lo sfondo d\'intestazione della barra di stato</string>
+   <string name="translucent_quick_settings_pref">Sfocatura barra di stato espansa</string>
+   <string name="translucent_quick_settings_pref_summary">Sfoca lo sfondo del pannello delle impostazioni rapide</string>
+   <string name="transluency_level_universal">Livello di traslucenza</string>
+   <string name="blur_expstatus_cat">Barra di stato espansa</string>
+   <string name="blur_notifications_cat">Notifiche</string>
+   <string name="blur_header_cat">Intestazione barra di stato</string>
+   <string name="blur_qs_cat">Impostazioni rapide</string>
+   <string name="blurred_scale">Scala sfocatura</string>
+   <string name="blurred_scale_summary">Qualità delle immagini sfocate</string>
+   <string name="blurred_radius">Raggio di sfocatura</string>
+   <string name="blurred_radius_summary">Quantità di sfocatura</string>
+   <string name="blur_cat_notice">Avviso</string>
+   <string name="blur_cat_notice_summary">Le sfocature personalizzate saranno disattivate durante la visualizzazione della tastiera! Solo le notifiche traslucidi sono abilitate! La trasparenza delle impostazioni rapide, il pannello intestazione e il logo verranno automaticamente disattivati!</string>
+
   <!-- AdAway -->
   <string name="adaway_settings_title">AdAway</string>
 	
