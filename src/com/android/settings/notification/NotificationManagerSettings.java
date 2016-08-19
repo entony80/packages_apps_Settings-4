@@ -68,6 +68,8 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.notification_manager_settings);
         mSecure = new LockPatternUtils(getActivity()).isSecure(UserHandle.myUserId());
         initLockscreenNotifications();
+		
+		setHasOptionsMenu(true);
     }
 
     // === Lockscreen (public / private) notifications ===
@@ -131,11 +133,10 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
 	
 	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
 		
-        MenuItem notilight = menu.add(0, MENU_NOTI, 0, R.string.notification_light_title)
-		        .setIcon(R.drawable.ic_settings_battery_light)
-                .setAlphabeticShortcut('n');
-        notilight.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		MenuItem notilight = menu.add(0, MENU_NOTI, 0, R.string.notification_light_title);
+        notilight.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
     }
 
     @Override
